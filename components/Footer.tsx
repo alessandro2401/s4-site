@@ -1,0 +1,1 @@
+export function Footer(){return(<footer className="mt-10 border-t bg-white"><div className="container py-6 text-sm text-slate-600 flex flex-col md:flex-row gap-2 md:items-center md:justify-between"><p>© 2025 AURA Seguradora S/A — Sede: Goiânia/GO</p><p className="italic">“A energia que protege, ampara e inspira.”</p></div></footer>)}

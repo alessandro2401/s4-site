@@ -1,0 +1,5 @@
+export const consultorias=[
+{nome:"R2 Assessoria Contábil",foco:"Contabilidade SUSEP, FIP, controles internos, gestão fiscal",custo:"R$ 26.500/mês + serviços (R$ 5.900 viabilidade; R$ 53.000 plano; R$ 40.000 controles)",forcas:"Backoffice regulatório e contábil sólido; execução contínua"},
+{nome:"MC Seguros Consultoria",foco:"Abertura e estruturação integral da seguradora (viabilidade, RH, TI, processos)",custo:"R$ 700.000 consultoria + R$ 300.000 jurídico/atuária/plano (estimado)",forcas:"Visão holística e experiência em constituições S4; parcerias consolidadas"},
+{nome:"Way Business / Brasil Atuarial",foco:"Jurídico-regulatório SUSEP (autorização, estatuto, atas, acordo de acionistas)",custo:"R$ 250.000 em 40 parcelas de R$ 6.250,00",forcas:"Especialistas em processos SUSEP; lidera etapas de autorização e registro"}
+];
