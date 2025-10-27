@@ -1,1 +1,8 @@
-/** @type {import('next').NextConfig} */\nconst nextConfig = { experimental: { appDir: true } };\nexport default nextConfig;\n
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  experimental: {
+    appDir: true,
+  },
+};
+
+export default nextConfig;
