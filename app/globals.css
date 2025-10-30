@@ -1,1 +1,19 @@
-@tailwind base;\n@tailwind components;\n@tailwind utilities;\nhtml,body{height:100%}body{background:#f7f9fc;color:#0f172a}.container{max-width:72rem;margin:0 auto;padding:0 1.5rem}\n
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: #f7f9fc;
+  color: #0f172a;
+}
+
+.container {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
