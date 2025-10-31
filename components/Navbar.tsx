@@ -20,6 +20,9 @@ export function Navbar() {
           <Link href="/ecossistema" className="hover:text-aura-primary transition-colors">
             Ecossistema
           </Link>
+          <Link href="/calculadora" className="hover:text-aura-primary transition-colors">
+            Calculadora
+          </Link>
           <Link href="/tecnico" className="hover:text-aura-primary transition-colors">
             Técnico
           </Link>
