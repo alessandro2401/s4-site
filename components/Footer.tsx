@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapPin, Mail, Phone, Shield } from "lucide-react";
+import { MapPin, Mail, Shield } from "lucide-react";
 
 export function Footer() {
   return (
@@ -53,6 +53,11 @@ export function Footer() {
               <li>
                 <Link href="/ecossistema" className="hover:text-aura-primary transition-colors">
                   Ecossistema
+                </Link>
+              </li>
+              <li>
+                <Link href="/tecnico" className="hover:text-aura-primary transition-colors">
+                  Informações Técnicas
                 </Link>
               </li>
               <li>
