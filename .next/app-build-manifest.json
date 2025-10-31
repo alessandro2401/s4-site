@@ -1,0 +1,65 @@
+{
+  "pages": {
+    "/_not-found/page": [
+      "static/chunks/webpack-7a73c8c32b8ec67e.js",
+      "static/chunks/e0c93034-90cc7637b895ebcc.js",
+      "static/chunks/429-4843dbf93a593d53.js",
+      "static/chunks/main-app-dcf1ab70270c96e5.js",
+      "static/chunks/app/_not-found/page-aafd7482a325bbc7.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-7a73c8c32b8ec67e.js",
+      "static/chunks/e0c93034-90cc7637b895ebcc.js",
+      "static/chunks/429-4843dbf93a593d53.js",
+      "static/chunks/main-app-dcf1ab70270c96e5.js",
+      "static/css/2427dcc12ac47ce2.css",
+      "static/chunks/514-c0fc30a5cf70dff7.js",
+      "static/chunks/app/layout-2f34fd63b1378d73.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-7a73c8c32b8ec67e.js",
+      "static/chunks/e0c93034-90cc7637b895ebcc.js",
+      "static/chunks/429-4843dbf93a593d53.js",
+      "static/chunks/main-app-dcf1ab70270c96e5.js",
+      "static/chunks/514-c0fc30a5cf70dff7.js",
+      "static/chunks/app/page-43f6a2813e1f051e.js"
+    ],
+    "/produtos/auto/page": [
+      "static/chunks/webpack-7a73c8c32b8ec67e.js",
+      "static/chunks/e0c93034-90cc7637b895ebcc.js",
+      "static/chunks/429-4843dbf93a593d53.js",
+      "static/chunks/main-app-dcf1ab70270c96e5.js",
+      "static/chunks/app/produtos/auto/page-34d18499c1f8f438.js"
+    ],
+    "/consultorias/page": [
+      "static/chunks/webpack-7a73c8c32b8ec67e.js",
+      "static/chunks/e0c93034-90cc7637b895ebcc.js",
+      "static/chunks/429-4843dbf93a593d53.js",
+      "static/chunks/main-app-dcf1ab70270c96e5.js",
+      "static/chunks/app/consultorias/page-a3ecc57988cf5637.js"
+    ],
+    "/produtos/vida/page": [
+      "static/chunks/webpack-7a73c8c32b8ec67e.js",
+      "static/chunks/e0c93034-90cc7637b895ebcc.js",
+      "static/chunks/429-4843dbf93a593d53.js",
+      "static/chunks/main-app-dcf1ab70270c96e5.js",
+      "static/chunks/app/produtos/vida/page-8a598be2918a79f1.js"
+    ],
+    "/contato/page": [
+      "static/chunks/webpack-7a73c8c32b8ec67e.js",
+      "static/chunks/e0c93034-90cc7637b895ebcc.js",
+      "static/chunks/429-4843dbf93a593d53.js",
+      "static/chunks/main-app-dcf1ab70270c96e5.js",
+      "static/chunks/100-9fb8cfe54aff1190.js",
+      "static/chunks/app/contato/page-21c374ac29b5bd69.js"
+    ],
+    "/regulatorio/page": [
+      "static/chunks/webpack-7a73c8c32b8ec67e.js",
+      "static/chunks/e0c93034-90cc7637b895ebcc.js",
+      "static/chunks/429-4843dbf93a593d53.js",
+      "static/chunks/main-app-dcf1ab70270c96e5.js",
+      "static/chunks/514-c0fc30a5cf70dff7.js",
+      "static/chunks/app/regulatorio/page-2bf888515186bca7.js"
+    ]
+  }
+}
