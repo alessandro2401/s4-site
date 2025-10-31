@@ -80,11 +80,11 @@ export default function Page() {
               </div>
               <div>
                 <p className="font-semibold text-slate-700">Anos 2-5</p>
-                <p className="text-slate-600">+20% ao ano</p>
+                <p className="text-slate-600">+15% ao ano</p>
               </div>
               <div>
                 <p className="font-semibold text-slate-700">Base inicial</p>
-                <p className="text-slate-600">100 apólices</p>
+                <p className="text-slate-600">50 apólices</p>
               </div>
             </div>
           </Card>
@@ -154,53 +154,53 @@ export default function Page() {
             <tbody>
               <tr className="border-b">
                 <td className="p-3 font-semibold">Ano 1</td>
-                <td className="p-3 text-right">241,5</td>
-                <td className="p-3 text-right">R$ 1.328.038</td>
-                <td className="p-3 text-right">R$ 660.932</td>
-                <td className="p-3 text-right">R$ 262.162</td>
-                <td className="p-3 text-right font-bold text-green-600">R$ 404.944</td>
+                <td className="p-3 text-right">120,8</td>
+                <td className="p-3 text-right">R$ 664.515</td>
+                <td className="p-3 text-right">R$ 330.465</td>
+                <td className="p-3 text-right">R$ 131.179</td>
+                <td className="p-3 text-right font-bold text-green-600">R$ 202.872</td>
               </tr>
               <tr className="border-b bg-slate-50">
                 <td className="p-3 font-semibold">Ano 2</td>
-                <td className="p-3 text-right">588,2</td>
-                <td className="p-3 text-right">R$ 3.234.537</td>
-                <td className="p-3 text-right">R$ 1.609.229</td>
-                <td className="p-3 text-right">R$ 638.506</td>
-                <td className="p-3 text-right font-bold text-green-600">R$ 986.802</td>
+                <td className="p-3 text-right">287,6</td>
+                <td className="p-3 text-right">R$ 1.581.415</td>
+                <td className="p-3 text-right">R$ 780.586</td>
+                <td className="p-3 text-right">R$ 309.957</td>
+                <td className="p-3 text-right font-bold text-green-600">R$ 490.871</td>
               </tr>
               <tr className="border-b">
                 <td className="p-3 font-semibold">Ano 3</td>
-                <td className="p-3 text-right">705,8</td>
-                <td className="p-3 text-right">R$ 3.881.324</td>
-                <td className="p-3 text-right">R$ 1.934.592</td>
-                <td className="p-3 text-right">R$ 818.734</td>
-                <td className="p-3 text-right font-bold text-green-600">R$ 1.128.090</td>
+                <td className="p-3 text-right">330,7</td>
+                <td className="p-3 text-right">R$ 1.818.627</td>
+                <td className="p-3 text-right">R$ 897.674</td>
+                <td className="p-3 text-right">R$ 356.451</td>
+                <td className="p-3 text-right font-bold text-green-600">R$ 564.502</td>
               </tr>
               <tr className="border-b bg-slate-50">
                 <td className="p-3 font-semibold">Ano 4</td>
-                <td className="p-3 text-right">847,0</td>
-                <td className="p-3 text-right">R$ 4.657.710</td>
-                <td className="p-3 text-right">R$ 2.320.613</td>
-                <td className="p-3 text-right">R$ 977.811</td>
-                <td className="p-3 text-right font-bold text-green-600">R$ 1.359.286</td>
+                <td className="p-3 text-right">380,3</td>
+                <td className="p-3 text-right">R$ 2.091.421</td>
+                <td className="p-3 text-right">R$ 1.032.325</td>
+                <td className="p-3 text-right">R$ 409.918</td>
+                <td className="p-3 text-right font-bold text-green-600">R$ 649.177</td>
               </tr>
               <tr className="border-b bg-aura-primary/10">
                 <td className="p-3 font-semibold">Ano 5</td>
-                <td className="p-3 text-right font-bold">1.016,5</td>
-                <td className="p-3 text-right font-bold">R$ 5.590.856</td>
-                <td className="p-3 text-right font-bold">R$ 2.789.533</td>
-                <td className="p-3 text-right font-bold">R$ 1.170.671</td>
-                <td className="p-3 text-right font-bold text-green-700">R$ 1.630.652</td>
+                <td className="p-3 text-right font-bold">437,4</td>
+                <td className="p-3 text-right font-bold">R$ 2.405.134</td>
+                <td className="p-3 text-right font-bold">R$ 1.187.174</td>
+                <td className="p-3 text-right font-bold">R$ 471.406</td>
+                <td className="p-3 text-right font-bold text-green-700">R$ 746.554</td>
               </tr>
             </tbody>
             <tfoot>
               <tr className="bg-slate-100 font-bold">
                 <td className="p-3">TOTAL (5 anos)</td>
                 <td className="p-3 text-right">-</td>
-                <td className="p-3 text-right">R$ 18.692.465</td>
-                <td className="p-3 text-right">R$ 9.314.899</td>
-                <td className="p-3 text-right">R$ 3.867.884</td>
-                <td className="p-3 text-right text-green-700">R$ 5.509.774</td>
+                <td className="p-3 text-right">R$ 8.561.111</td>
+                <td className="p-3 text-right">R$ 4.228.225</td>
+                <td className="p-3 text-right">R$ 1.678.911</td>
+                <td className="p-3 text-right text-green-700">R$ 2.653.975</td>
               </tr>
             </tfoot>
           </table>
@@ -219,7 +219,7 @@ export default function Page() {
               <DollarSign className="w-8 h-8 text-green-600" />
               <div>
                 <p className="text-sm text-slate-600">Crescimento Prêmio</p>
-                <p className="text-2xl font-bold text-green-600">+321%</p>
+                <p className="text-2xl font-bold text-green-600">+262%</p>
               </div>
             </div>
             <p className="text-xs text-slate-500">Ano 1 → Ano 5</p>
@@ -230,7 +230,7 @@ export default function Page() {
               <BarChart3 className="w-8 h-8 text-blue-600" />
               <div>
                 <p className="text-sm text-slate-600">Margem Técnica</p>
-                <p className="text-2xl font-bold text-blue-600">~30%</p>
+                <p className="text-2xl font-bold text-blue-600">31%</p>
               </div>
             </div>
             <p className="text-xs text-slate-500">Média 5 anos</p>
@@ -241,7 +241,7 @@ export default function Page() {
               <Shield className="w-8 h-8 text-purple-600" />
               <div>
                 <p className="text-sm text-slate-600">Sinistralidade</p>
-                <p className="text-2xl font-bold text-purple-600">49,8%</p>
+                <p className="text-2xl font-bold text-purple-600">49,4%</p>
               </div>
             </div>
             <p className="text-xs text-slate-500">Média ponderada</p>
@@ -252,7 +252,7 @@ export default function Page() {
               <TrendingUp className="w-8 h-8 text-amber-600" />
               <div>
                 <p className="text-sm text-slate-600">Resultado Acum.</p>
-                <p className="text-2xl font-bold text-amber-600">R$ 5,5M</p>
+                <p className="text-2xl font-bold text-amber-600">R$ 2,7M</p>
               </div>
             </div>
             <p className="text-xs text-slate-500">5 anos</p>
@@ -288,7 +288,7 @@ export default function Page() {
                 <strong>Proxy:</strong> 10% do sinistro incorrido mensal
               </p>
               <p className="text-xs text-slate-700 mt-1">
-                <strong>Ano 1:</strong> ~R$ 5.508/mês
+                <strong>Ano 1:</strong> ~R$ 2.754/mês
               </p>
             </div>
           </Card>
@@ -301,7 +301,7 @@ export default function Page() {
                 <strong>Proxy:</strong> 5% do sinistro incorrido mensal
               </p>
               <p className="text-xs text-slate-700 mt-1">
-                <strong>Ano 1:</strong> ~R$ 2.754/mês
+                <strong>Ano 1:</strong> ~R$ 1.377/mês
               </p>
             </div>
           </Card>
@@ -407,7 +407,7 @@ export default function Page() {
         <h3 className="font-bold text-slate-800 mb-3">Nota Técnica</h3>
         <p className="text-sm text-slate-700 mb-3">
           O modelo atuarial apresentado demonstra <strong>trajetória sustentável e prudencial</strong>, 
-          com prêmio total evoluindo de R$ 1,33 milhão (ano 1) para R$ 5,59 milhões (ano 5), mantendo 
+          com prêmio total evoluindo de R$ 665 mil (ano 1) para R$ 2,41 milhões (ano 5), mantendo 
           resultado técnico positivo em todos os períodos projetados.
         </p>
         <p className="text-sm text-slate-700 mb-3">
