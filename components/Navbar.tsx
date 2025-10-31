@@ -17,6 +17,9 @@ export function Navbar() {
           <Link href="/produtos/vida" className="hover:text-aura-primary transition-colors">
             Vida
           </Link>
+          <Link href="/ecossistema" className="hover:text-aura-primary transition-colors">
+            Ecossistema
+          </Link>
           <Link href="/regulatorio" className="hover:text-aura-primary transition-colors">
             Regulatório
           </Link>
