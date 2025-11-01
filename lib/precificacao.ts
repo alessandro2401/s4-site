@@ -1,13 +1,13 @@
 /**
  * Biblioteca de Precificação AURA Auto Mensal
- * ONDA 4: Uso do Veículo
+ * ONDA 5: Coberturas Personalizadas
  * 
  * @module precificacao
- * @version 4.0.0 - ONDA 4 (Uso do Veículo)
+ * @version 5.0.0 - ONDA 5 (Coberturas Personalizadas)
  */
 
 // ============================================================================
-// CONFIGURAÇÕES DO MODELO ATUARIAL - VERSÃO 4.0
+// CONFIGURAÇÕES DO MODELO ATUARIAL - VERSÃO 5.0
 // ============================================================================
 
 const TAXA_BASE = 0.03; // 3,0% sobre o valor FIPE
@@ -48,6 +48,27 @@ const FATORES_FINALIDADE: Record<string, number> = {
 // Desconto de Rastreador (em % sobre o prêmio com perfil)
 const DESCONTO_RASTREADOR = 0.05; // -5%
 
+// Franquias (% sobre valor FIPE e impacto no prêmio)
+const FRANQUIAS = {
+  'normal': { percentualFIPE: 0.06, fatorPremio: 0.00 },    // 6% FIPE, 0% prêmio
+  'reduzida': { percentualFIPE: 0.03, fatorPremio: 0.20 },  // 3% FIPE, +20% prêmio
+  'agravada': { percentualFIPE: 0.12, fatorPremio: -0.10 }  // 12% FIPE, -10% prêmio
+};
+
+// Coberturas Opcionais (valores fixos em R$ por mês)
+const COBERTURAS_OPCIONAIS = {
+  vidros: 5.00,
+  rcf: 12.00,
+  app: 5.00,
+  carroReserva: 15.00
+};
+
+// Assistência 24h
+const ASSISTENCIA_24H = {
+  basica: 0.00,    // 100km, inclusa
+  completa: 0.10   // 500km, +10%
+};
+
 // Estados autorizados (Regiões 3 e 5)
 export const ESTADOS_AUTORIZADOS = ['AL', 'PB', 'PE', 'RN', 'DF', 'ES', 'GO', 'MG', 'TO'];
 
@@ -72,15 +93,25 @@ export interface UsoVeiculo {
   temRastreador: boolean;
 }
 
-export interface DadosVeiculoOnda4 {
+export interface CoberturasPersonalizadas {
+  franquia: 'normal' | 'reduzida' | 'agravada';
+  vidros: boolean;
+  rcf: boolean;
+  app: boolean;
+  carroReserva: boolean;
+  assistencia: 'basica' | 'completa';
+}
+
+export interface DadosVeiculoOnda5 {
   valorFipe: number;
   anoFabricacao: number;
   uf?: string;
   perfilCondutor?: PerfilCondutor;
-  usoVeiculo?: UsoVeiculo; // Novo campo ONDA 4
+  usoVeiculo?: UsoVeiculo;
+  coberturas?: CoberturasPersonalizadas; // Novo campo ONDA 5
 }
 
-export interface ResultadoCalculoOnda4 {
+export interface ResultadoCalculoOnda5 {
   sucesso: boolean;
   erro?: string;
   valorFipe: number;
@@ -100,13 +131,25 @@ export interface ResultadoCalculoOnda4 {
   aditivoIdadeCondutor?: number;
   fatorTempoCNH?: number;
   aditivoTempoCNH?: number;
-  // Novos campos ONDA 4
+  // Campos ONDA 4
   usoVeiculo?: UsoVeiculo;
   fatorQuilometragem?: number;
   aditivoQuilometragem?: number;
   fatorFinalidade?: number;
   aditivoFinalidade?: number;
   descontoRastreador?: number;
+  // Novos campos ONDA 5
+  coberturas?: CoberturasPersonalizadas;
+  valorFranquia?: number;
+  fatorFranquia?: number;
+  aditivoFranquia?: number;
+  custoVidros?: number;
+  custoRCF?: number;
+  custoAPP?: number;
+  custoCarroReserva?: number;
+  fatorAssistencia?: number;
+  aditivoAssistencia?: number;
+  totalCoberturasOpcionais?: number;
   premioAnual: number;
   premioMensal: number;
 }
@@ -231,17 +274,70 @@ export function obterDescricaoFinalidade(finalidade: string): string {
   return descricoes[finalidade] || 'Não especificado';
 }
 
+/**
+ * Retorna o valor da franquia baseado no tipo
+ */
+export function obterValorFranquia(valorFipe: number, tipoFranquia: string): number {
+  const franquia = FRANQUIAS[tipoFranquia as keyof typeof FRANQUIAS];
+  return franquia ? valorFipe * franquia.percentualFIPE : 0;
+}
+
+/**
+ * Retorna o fator de impacto da franquia no prêmio
+ */
+export function obterFatorFranquia(tipoFranquia: string): number {
+  const franquia = FRANQUIAS[tipoFranquia as keyof typeof FRANQUIAS];
+  return franquia ? franquia.fatorPremio : 0;
+}
+
+/**
+ * Retorna a descrição do tipo de franquia
+ */
+export function obterDescricaoFranquia(tipoFranquia: string): string {
+  const descricoes: Record<string, string> = {
+    'normal': 'Normal (6% FIPE)',
+    'reduzida': 'Reduzida (3% FIPE)',
+    'agravada': 'Agravada (12% FIPE)'
+  };
+  return descricoes[tipoFranquia] || 'Não especificado';
+}
+
+/**
+ * Retorna o custo mensal de uma cobertura opcional
+ */
+export function obterCustoCobertura(cobertura: string): number {
+  return COBERTURAS_OPCIONAIS[cobertura as keyof typeof COBERTURAS_OPCIONAIS] || 0;
+}
+
+/**
+ * Retorna o fator de assistência 24h
+ */
+export function obterFatorAssistencia(tipoAssistencia: string): number {
+  return ASSISTENCIA_24H[tipoAssistencia as keyof typeof ASSISTENCIA_24H] || 0;
+}
+
+/**
+ * Retorna a descrição da assistência 24h
+ */
+export function obterDescricaoAssistencia(tipoAssistencia: string): string {
+  const descricoes: Record<string, string> = {
+    'basica': 'Básica (100km)',
+    'completa': 'Completa (500km)'
+  };
+  return descricoes[tipoAssistencia] || 'Não especificado';
+}
+
 // ============================================================================
 // FUNÇÃO PRINCIPAL DE CÁLCULO
 // ============================================================================
 
 /**
- * Calcula o prêmio do seguro com base no modelo ONDA 4
+ * Calcula o prêmio do seguro com base no modelo ONDA 5
  * 
- * @param dados - Dados completos do veículo, condutor e uso
+ * @param dados - Dados completos do veículo, condutor, uso e coberturas
  * @returns Resultado completo do cálculo
  */
-export function calcularPremioOnda4(dados: DadosVeiculoOnda4): ResultadoCalculoOnda4 {
+export function calcularPremioOnda5(dados: DadosVeiculoOnda5): ResultadoCalculoOnda5 {
   // Validações básicas
   if (dados.valorFipe <= 0) {
     return {
@@ -418,12 +514,46 @@ export function calcularPremioOnda4(dados: DadosVeiculoOnda4): ResultadoCalculoO
   // 8. Prêmio com Uso do Veículo
   const premioComUso = premioComPerfil + aditivoQuilometragem + aditivoFinalidade - descontoRastreador;
 
-  // 9. Aplicar Desconto Regional (se aplicável)
-  const isRegiao3Calc = dados.uf ? isRegiao3(dados.uf) : false;
-  const valorDesconto = isRegiao3Calc ? premioComUso * PERCENTUAL_DESCONTO_REGIAO_3 : 0;
+  // 9. Calcular Ajustes de Coberturas (se fornecido)
+  let valorFranquia = 0;
+  let fatorFranquia = 0;
+  let aditivoFranquia = 0;
+  let custoVidros = 0;
+  let custoRCF = 0;
+  let custoAPP = 0;
+  let custoCarroReserva = 0;
+  let fatorAssistencia = 0;
+  let aditivoAssistencia = 0;
+  let totalCoberturasOpcionais = 0;
 
-  // 10. Prêmio Final
-  const premioAnual = premioComUso - valorDesconto;
+  if (dados.coberturas) {
+    // Franquia
+    valorFranquia = obterValorFranquia(dados.valorFipe, dados.coberturas.franquia);
+    fatorFranquia = obterFatorFranquia(dados.coberturas.franquia);
+    aditivoFranquia = premioComUso * fatorFranquia;
+
+    // Coberturas opcionais (valores fixos)
+    if (dados.coberturas.vidros) custoVidros = COBERTURAS_OPCIONAIS.vidros;
+    if (dados.coberturas.rcf) custoRCF = COBERTURAS_OPCIONAIS.rcf;
+    if (dados.coberturas.app) custoAPP = COBERTURAS_OPCIONAIS.app;
+    if (dados.coberturas.carroReserva) custoCarroReserva = COBERTURAS_OPCIONAIS.carroReserva;
+
+    totalCoberturasOpcionais = custoVidros + custoRCF + custoAPP + custoCarroReserva;
+
+    // Assistência 24h
+    fatorAssistencia = obterFatorAssistencia(dados.coberturas.assistencia);
+    aditivoAssistencia = premioComUso * fatorAssistencia;
+  }
+
+  // 10. Prêmio com Coberturas
+  const premioComCoberturas = premioComUso + aditivoFranquia + aditivoAssistencia;
+
+  // 11. Aplicar Desconto Regional (se aplicável)
+  const isRegiao3Calc = dados.uf ? isRegiao3(dados.uf) : false;
+  const valorDesconto = isRegiao3Calc ? premioComCoberturas * PERCENTUAL_DESCONTO_REGIAO_3 : 0;
+
+  // 12. Prêmio Final
+  const premioAnual = premioComCoberturas - valorDesconto + (totalCoberturasOpcionais * 12);
   const premioMensal = premioAnual / 12;
 
   return {
@@ -450,6 +580,17 @@ export function calcularPremioOnda4(dados: DadosVeiculoOnda4): ResultadoCalculoO
     fatorFinalidade: dados.usoVeiculo ? fatorFinalidade : undefined,
     aditivoFinalidade: dados.usoVeiculo ? Math.round(aditivoFinalidade * 100) / 100 : undefined,
     descontoRastreador: dados.usoVeiculo ? Math.round(descontoRastreador * 100) / 100 : undefined,
+    coberturas: dados.coberturas,
+    valorFranquia: dados.coberturas ? Math.round(valorFranquia * 100) / 100 : undefined,
+    fatorFranquia: dados.coberturas ? fatorFranquia : undefined,
+    aditivoFranquia: dados.coberturas ? Math.round(aditivoFranquia * 100) / 100 : undefined,
+    custoVidros: dados.coberturas ? custoVidros : undefined,
+    custoRCF: dados.coberturas ? custoRCF : undefined,
+    custoAPP: dados.coberturas ? custoAPP : undefined,
+    custoCarroReserva: dados.coberturas ? custoCarroReserva : undefined,
+    fatorAssistencia: dados.coberturas ? fatorAssistencia : undefined,
+    aditivoAssistencia: dados.coberturas ? Math.round(aditivoAssistencia * 100) / 100 : undefined,
+    totalCoberturasOpcionais: dados.coberturas ? Math.round(totalCoberturasOpcionais * 100) / 100 : undefined,
     premioAnual: Math.round(premioAnual * 100) / 100,
     premioMensal: Math.round(premioMensal * 100) / 100
   };

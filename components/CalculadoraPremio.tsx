@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { DollarSign, Shield, CheckCircle2, Info, MapPin } from "lucide-react";
 import { 
-  calcularPremioOnda4, 
+  calcularPremioOnda5, 
   formatarMoeda, 
   formatarPercentual, 
   formatarPercentualComSinal,
@@ -14,11 +14,14 @@ import {
   obterFaixaIdadeCondutor,
   obterFaixaTempoCNH,
   obterFaixaQuilometragem,
-  obterDescricaoFinalidade
+  obterDescricaoFinalidade,
+  obterDescricaoFranquia,
+  obterDescricaoAssistencia
 } from "@/lib/precificacao";
 import ConsultaCEP, { DadosCEP } from "@/components/ConsultaCEP";
 import PerfilCondutor, { DadosCondutor } from "@/components/PerfilCondutor";
 import UsoVeiculo, { DadosUso } from "@/components/UsoVeiculo";
+import CoberturasPersonalizadas, { DadosCoberturas } from "@/components/CoberturasPersonalizadas";
 
 interface CalculadoraPremioProps {
   valorFipe: number;
@@ -36,6 +39,7 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
   const [dadosCEP, setDadosCEP] = useState<DadosCEP | null>(null);
   const [dadosCondutor, setDadosCondutor] = useState<DadosCondutor | null>(null);
   const [dadosUso, setDadosUso] = useState<DadosUso | null>(null);
+  const [dadosCoberturas, setDadosCoberturas] = useState<DadosCoberturas | null>(null);
   const [mostrarCalculadora, setMostrarCalculadora] = useState(false);
 
   const planos: Plano[] = [
@@ -75,8 +79,8 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
     },
   ];
 
-  // Calcular prêmio com ONDA 4
-  const resultado = calcularPremioOnda4({
+  // Calcular prêmio com ONDA 5
+  const resultado = calcularPremioOnda5({
     valorFipe,
     anoFabricacao,
     uf: dadosCEP?.uf,
@@ -88,6 +92,14 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
       quilometragemAnual: dadosUso.quilometragemAnual,
       finalidade: dadosUso.finalidade,
       temRastreador: dadosUso.temRastreador
+    } : undefined,
+    coberturas: dadosCoberturas ? {
+      franquia: dadosCoberturas.franquia,
+      vidros: dadosCoberturas.vidros,
+      rcf: dadosCoberturas.rcf,
+      app: dadosCoberturas.app,
+      carroReserva: dadosCoberturas.carroReserva,
+      assistencia: dadosCoberturas.assistencia
     } : undefined
   });
 
@@ -95,14 +107,17 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
   const anoAtual = new Date().getFullYear();
   const anos = Array.from({ length: 31 }, (_, i) => anoAtual - i);
 
-  // Mostrar calculadora quando CEP, Condutor e Uso forem validados
+  // Mostrar calculadora quando todos os dados forem validados
   useEffect(() => {
-    if (dadosCEP && dadosCEP.valido && dadosCondutor && dadosCondutor.valido && dadosUso && dadosUso.valido) {
+    if (dadosCEP && dadosCEP.valido && 
+        dadosCondutor && dadosCondutor.valido && 
+        dadosUso && dadosUso.valido &&
+        dadosCoberturas && dadosCoberturas.valido) {
       setMostrarCalculadora(true);
     } else {
       setMostrarCalculadora(false);
     }
-  }, [dadosCEP, dadosCondutor, dadosUso]);
+  }, [dadosCEP, dadosCondutor, dadosUso, dadosCoberturas]);
 
   const handleCEPConsultado = (dados: DadosCEP | null) => {
     setDadosCEP(dados);
@@ -114,6 +129,10 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
 
   const handleUsoPreenchido = (dados: DadosUso | null) => {
     setDadosUso(dados);
+  };
+
+  const handleCoberturasPreenchidas = (dados: DadosCoberturas | null) => {
+    setDadosCoberturas(dados);
   };
 
   // Calcular prêmios para cada plano (usando sinistralidade como base)
@@ -154,8 +173,16 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
         <UsoVeiculo onUsoPreenchido={handleUsoPreenchido} />
       )}
 
-      {/* Calculadora (só aparece após CEP, Condutor e Uso válidos) */}
-      {mostrarCalculadora && dadosCEP && dadosCondutor && dadosUso && resultado.sucesso && (
+      {/* Coberturas Personalizadas (só aparece após Uso válido) */}
+      {dadosCEP && dadosCEP.valido && dadosCondutor && dadosCondutor.valido && dadosUso && dadosUso.valido && (
+        <CoberturasPersonalizadas 
+          valorFipe={valorFipe}
+          onCoberturasPreenchidas={handleCoberturasPreenchidas} 
+        />
+      )}
+
+      {/* Calculadora (só aparece após todos os dados válidos) */}
+      {mostrarCalculadora && dadosCEP && dadosCondutor && dadosUso && dadosCoberturas && resultado.sucesso && (
         <>
           {/* Campos de Ajuste */}
           <Card className="p-6 bg-gradient-to-br from-slate-50 to-white">
@@ -214,6 +241,13 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
                         🎯 Desconto de rastreador: -{formatarMoeda(resultado.descontoRastreador || 0)}
                       </p>
                     )}
+                    <p>• <strong>Franquia:</strong> {obterDescricaoFranquia(dadosCoberturas.franquia)} - {formatarMoeda(resultado.valorFranquia || 0)} {resultado.fatorFranquia !== 0 && `(${formatarPercentualComSinal(resultado.fatorFranquia || 0)})`}</p>
+                    {resultado.totalCoberturasOpcionais && resultado.totalCoberturasOpcionais > 0 && (
+                      <p className="text-purple-700 font-semibold">
+                        🛡️ Coberturas opcionais: +{formatarMoeda(resultado.totalCoberturasOpcionais)}/mês
+                      </p>
+                    )}
+                    <p>• <strong>Assistência:</strong> {obterDescricaoAssistencia(dadosCoberturas.assistencia)} {resultado.fatorAssistencia && resultado.fatorAssistencia > 0 && `(${formatarPercentualComSinal(resultado.fatorAssistencia)})`}</p>
                     <p>• <strong>Região:</strong> {obterNomeRegiao(dadosCEP.uf)}</p>
                     {resultado.isRegiao3 && (
                       <p className="text-green-700 font-semibold">
@@ -306,12 +340,15 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
                 <h4 className="font-bold text-slate-800 mb-2">Sobre os Cálculos</h4>
                 <p className="text-sm text-slate-700">
                   Os prêmios são calculados com base no valor FIPE do veículo, idade do veículo, localização (CEP), 
-                  idade do condutor, tempo de habilitação, quilometragem anual, finalidade de uso e dispositivos de segurança. 
-                  A Região 3 (AL, PB, PE, RN) recebe um desconto de 10% sobre o prêmio final. Condutores jovens (18-25 anos) 
-                  e com pouca experiência (0-2 anos de CNH) têm ajustes positivos no prêmio. Condutores experientes (6+ anos de CNH) 
-                  recebem desconto de 3%. Veículos com rastreador homologado recebem desconto de 5%. Quilometragem acima de 70.000 km/ano 
-                  e uso comercial aumentam o prêmio. Todos os carregamentos (administração, margem de risco, comissão e impostos) já estão 
-                  incluídos. Os valores são estimados e podem variar conforme análise de risco individual. Vigência mensal com renovação automática.
+                  idade do condutor, tempo de habilitação, quilometragem anual, finalidade de uso, dispositivos de segurança,
+                  franquia escolhida, coberturas opcionais e assistência 24h. A Região 3 (AL, PB, PE, RN) recebe um desconto 
+                  de 10% sobre o prêmio final. Condutores jovens (18-25 anos) e com pouca experiência (0-2 anos de CNH) têm 
+                  ajustes positivos no prêmio. Condutores experientes (6+ anos de CNH) recebem desconto de 3%. Veículos com 
+                  rastreador homologado recebem desconto de 5%. Quilometragem acima de 70.000 km/ano e uso comercial aumentam 
+                  o prêmio. Franquia reduzida aumenta o prêmio em 20%, franquia agravada reduz em 10%. Coberturas opcionais 
+                  têm valores fixos mensais. Todos os carregamentos (administração, margem de risco, comissão e impostos) já 
+                  estão incluídos. Os valores são estimados e podem variar conforme análise de risco individual. Vigência 
+                  mensal com renovação automática.
                 </p>
               </div>
             </div>
@@ -319,7 +356,7 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
         </>
       )}
 
-      {/* Mensagem quando CEP não foi consultado */}
+      {/* Mensagens de progresso */}
       {!dadosCEP && (
         <Card className="p-8 text-center bg-gradient-to-br from-blue-50 to-white">
           <MapPin className="w-12 h-12 text-blue-600 mx-auto mb-4" />
@@ -332,7 +369,6 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
         </Card>
       )}
 
-      {/* Mensagem quando Condutor não foi preenchido */}
       {dadosCEP && dadosCEP.valido && !dadosCondutor && (
         <Card className="p-8 text-center bg-gradient-to-br from-purple-50 to-white">
           <svg className="w-12 h-12 text-purple-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -347,7 +383,6 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
         </Card>
       )}
 
-      {/* Mensagem quando Uso não foi preenchido */}
       {dadosCEP && dadosCEP.valido && dadosCondutor && dadosCondutor.valido && !dadosUso && (
         <Card className="p-8 text-center bg-gradient-to-br from-green-50 to-white">
           <svg className="w-12 h-12 text-green-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -357,7 +392,19 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
             Informe o uso do veículo
           </h4>
           <p className="text-sm text-slate-600">
-            Preencha a quilometragem anual, finalidade e dispositivos de segurança para ver os prêmios personalizados.
+            Preencha a quilometragem anual, finalidade e dispositivos de segurança para continuar.
+          </p>
+        </Card>
+      )}
+
+      {dadosCEP && dadosCEP.valido && dadosCondutor && dadosCondutor.valido && dadosUso && dadosUso.valido && !dadosCoberturas && (
+        <Card className="p-8 text-center bg-gradient-to-br from-purple-50 to-white">
+          <Shield className="w-12 h-12 text-purple-600 mx-auto mb-4" />
+          <h4 className="text-lg font-bold text-slate-800 mb-2">
+            Personalize suas coberturas
+          </h4>
+          <p className="text-sm text-slate-600">
+            Escolha a franquia e as coberturas adicionais para ver os prêmios finais.
           </p>
         </Card>
       )}
