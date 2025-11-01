@@ -1,7 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
-import { DollarSign, Shield, CheckCircle2 } from "lucide-react";
+import { DollarSign, Shield, CheckCircle2, Info, TrendingUp } from "lucide-react";
+import { calcularTodosPlanosOnda1, formatarMoeda, formatarPercentual } from "@/lib/precificacao";
 
 interface CalculadoraPremioProps {
   valorFipe: number;
@@ -9,17 +11,20 @@ interface CalculadoraPremioProps {
 
 interface Plano {
   nome: string;
-  taxa: number;
+  plano: 'digital' | 'basico' | 'essencial';
   sinistralidade: number;
   coberturas: string[];
   destaque?: boolean;
 }
 
 export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps) {
+  const [origem, setOrigem] = useState<'Nacional' | 'Importado'>('Nacional');
+  const [anoFabricacao, setAnoFabricacao] = useState<number>(new Date().getFullYear() - 5);
+
   const planos: Plano[] = [
     {
       nome: "AURA Digital",
-      taxa: 0.0075,
+      plano: "digital",
       sinistralidade: 44.5,
       coberturas: [
         "Danos ao Veículo",
@@ -30,7 +35,7 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
     },
     {
       nome: "AURA Básico",
-      taxa: 0.0084,
+      plano: "basico",
       sinistralidade: 51.5,
       coberturas: [
         "Danos ao Veículo",
@@ -43,7 +48,7 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
     },
     {
       nome: "AURA Essencial",
-      taxa: 0.0097,
+      plano: "essencial",
       sinistralidade: 54.8,
       coberturas: [
         "Danos ao Veículo",
@@ -56,20 +61,13 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
     },
   ];
 
-  function calcularPremio(taxa: number): { mensal: number; anual: number } {
-    const premioMensal = valorFipe * taxa;
-    return {
-      mensal: premioMensal,
-      anual: premioMensal * 12,
-    };
-  }
+  // Calcular prêmios com ajustes
+  const resultados = calcularTodosPlanosOnda1(valorFipe, origem, anoFabricacao);
+  const fatorAjuste = resultados.fatorAjuste;
 
-  function formatarMoeda(valor: number): string {
-    return valor.toLocaleString("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    });
-  }
+  // Gerar anos disponíveis (últimos 30 anos)
+  const anoAtual = new Date().getFullYear();
+  const anos = Array.from({ length: 31 }, (_, i) => anoAtual - i);
 
   return (
     <div className="space-y-6">
@@ -82,9 +80,71 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
         </p>
       </div>
 
+      {/* Campos de Ajuste */}
+      <Card className="p-6 bg-gradient-to-br from-slate-50 to-white">
+        <h4 className="font-bold text-slate-800 mb-4 flex items-center gap-2">
+          <TrendingUp className="w-5 h-5 text-aura-primary" />
+          Informações do Veículo
+        </h4>
+        
+        <div className="grid md:grid-cols-2 gap-4">
+          {/* Origem */}
+          <div>
+            <label className="block text-sm font-semibold text-slate-700 mb-2">
+              Origem do Veículo
+            </label>
+            <select
+              value={origem}
+              onChange={(e) => setOrigem(e.target.value as 'Nacional' | 'Importado')}
+              className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-aura-primary focus:border-transparent"
+            >
+              <option value="Nacional">Nacional</option>
+              <option value="Importado">Importado</option>
+            </select>
+          </div>
+
+          {/* Ano de Fabricação */}
+          <div>
+            <label className="block text-sm font-semibold text-slate-700 mb-2">
+              Ano de Fabricação
+            </label>
+            <select
+              value={anoFabricacao}
+              onChange={(e) => setAnoFabricacao(parseInt(e.target.value))}
+              className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-aura-primary focus:border-transparent"
+            >
+              {anos.map((ano) => (
+                <option key={ano} value={ano}>
+                  {ano}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        {/* Fator de Ajuste */}
+        {fatorAjuste !== 1.0 && (
+          <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+            <div className="flex items-start gap-2">
+              <Info className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+              <div className="text-sm">
+                <p className="font-semibold text-blue-900">
+                  Fator de Ajuste: {formatarPercentual(fatorAjuste)}
+                </p>
+                <p className="text-blue-700 mt-1">
+                  {origem === 'Importado' && 'Veículo importado (+5%). '}
+                  {(anoAtual - anoFabricacao) > 15 && 'Idade superior a 15 anos (+5%). '}
+                  {origem === 'Nacional' && (anoAtual - anoFabricacao) <= 5 && 'Veículo nacional novo (-3%). '}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+      </Card>
+
       <div className="grid md:grid-cols-3 gap-6">
         {planos.map((plano) => {
-          const { mensal, anual } = calcularPremio(plano.taxa);
+          const resultado = resultados[plano.plano];
           return (
             <Card
               key={plano.nome}
@@ -108,12 +168,12 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
                 </h4>
                 <div className="flex items-baseline justify-center gap-1">
                   <span className="text-3xl font-bold text-aura-primary">
-                    {formatarMoeda(mensal)}
+                    {formatarMoeda(resultado.premioMensal)}
                   </span>
                   <span className="text-sm text-slate-600">/mês</span>
                 </div>
                 <p className="text-xs text-slate-500 mt-1">
-                  ou {formatarMoeda(anual)}/ano
+                  ou {formatarMoeda(resultado.premioAnual)}/ano
                 </p>
               </div>
 
@@ -160,9 +220,10 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
           <div>
             <h4 className="font-bold text-slate-800 mb-2">Sobre os Cálculos</h4>
             <p className="text-sm text-slate-700">
-              Os prêmios são calculados com base no valor FIPE do veículo e incluem todos os carregamentos
-              (administração, margem de risco, comissão e impostos). Os valores são estimados e podem
-              variar conforme análise de risco individual. Vigência mensal com renovação automática.
+              Os prêmios são calculados com base no valor FIPE do veículo e incluem ajustes por origem 
+              (nacional/importado) e idade do veículo. Todos os carregamentos (administração, margem de risco, 
+              comissão e impostos) já estão incluídos. Os valores são estimados e podem variar conforme análise 
+              de risco individual. Vigência mensal com renovação automática.
             </p>
           </div>
         </div>
