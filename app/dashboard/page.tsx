@@ -1,0 +1,174 @@
+'use client';
+
+import { useAuth } from '@/contexts/AuthContext';
+import { listarCotacoes, listarApolices, listarSinistros } from '@/lib/storage';
+import {
+  FileText,
+  Shield,
+  AlertCircle,
+  TrendingUp,
+  Users,
+  DollarSign,
+} from 'lucide-react';
+
+export default function DashboardPage() {
+  const { usuario } = useAuth();
+  
+  // Carrega dados
+  const cotacoes = listarCotacoes();
+  const apolices = listarApolices();
+  const sinistros = listarSinistros();
+  
+  // Estatísticas
+  const totalCotacoes = cotacoes.length;
+  const totalApolices = apolices.length;
+  const totalSinistros = sinistros.length;
+  const taxaConversao = totalCotacoes > 0 
+    ? ((totalApolices / totalCotacoes) * 100).toFixed(1) 
+    : '0.0';
+
+  const cards = [
+    {
+      titulo: 'Cotações',
+      valor: totalCotacoes,
+      icon: FileText,
+      cor: 'bg-blue-500',
+      descricao: 'Total de cotações realizadas',
+    },
+    {
+      titulo: 'Apólices',
+      valor: totalApolices,
+      icon: Shield,
+      cor: 'bg-green-500',
+      descricao: 'Apólices ativas',
+    },
+    {
+      titulo: 'Sinistros',
+      valor: totalSinistros,
+      icon: AlertCircle,
+      cor: 'bg-red-500',
+      descricao: 'Sinistros registrados',
+    },
+    {
+      titulo: 'Conversão',
+      valor: `${taxaConversao}%`,
+      icon: TrendingUp,
+      cor: 'bg-purple-500',
+      descricao: 'Taxa de conversão',
+    },
+  ];
+
+  return (
+    <div className="space-y-6">
+      {/* Cabeçalho */}
+      <div>
+        <h1 className="text-3xl font-bold text-gray-900">
+          Bem-vindo, {usuario?.nome.split(' ')[0]}!
+        </h1>
+        <p className="text-gray-600 mt-1">
+          Aqui está um resumo das suas atividades
+        </p>
+      </div>
+
+      {/* Cards de Estatísticas */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {cards.map((card) => {
+          const Icon = card.icon;
+          return (
+            <div
+              key={card.titulo}
+              className="bg-white rounded-lg shadow p-6 hover:shadow-lg transition-shadow"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <div className={`w-12 h-12 ${card.cor} rounded-lg flex items-center justify-center`}>
+                  <Icon className="w-6 h-6 text-white" />
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-1">
+                {card.valor}
+              </h3>
+              <p className="text-sm font-medium text-gray-600 mb-1">
+                {card.titulo}
+              </p>
+              <p className="text-xs text-gray-500">
+                {card.descricao}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Informação de Desenvolvimento */}
+      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+        <h3 className="text-lg font-semibold text-yellow-900 mb-2">
+          🚧 Dashboard em Desenvolvimento
+        </h3>
+        <p className="text-sm text-yellow-800 mb-4">
+          Você está na <strong>ONDA 8.1</strong> - Autenticação e Estrutura Base
+        </p>
+        <div className="space-y-2 text-sm text-yellow-700">
+          <p>✅ Sistema de autenticação implementado</p>
+          <p>✅ Controle de permissões (5 níveis)</p>
+          <p>✅ Layout do dashboard criado</p>
+          <p>✅ Navegação com sidebar</p>
+          <p>⏳ Próxima: ONDA 8.2 - Painel de Cotações</p>
+        </div>
+      </div>
+
+      {/* Próximas Funcionalidades */}
+      <div className="bg-white rounded-lg shadow p-6">
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+          📅 Próximas Funcionalidades
+        </h3>
+        <div className="space-y-3">
+          <div className="flex items-start gap-3">
+            <div className="w-6 h-6 bg-blue-100 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span className="text-xs font-bold text-blue-600">1</span>
+            </div>
+            <div>
+              <p className="font-medium text-gray-900">Painel de Cotações</p>
+              <p className="text-sm text-gray-600">Listagem, filtros, busca e detalhes</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-3">
+            <div className="w-6 h-6 bg-blue-100 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span className="text-xs font-bold text-blue-600">2</span>
+            </div>
+            <div>
+              <p className="font-medium text-gray-900">Análise de Sinistralidade</p>
+              <p className="text-sm text-gray-600">Gráficos por região, perfil e idade</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-3">
+            <div className="w-6 h-6 bg-blue-100 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span className="text-xs font-bold text-blue-600">3</span>
+            </div>
+            <div>
+              <p className="font-medium text-gray-900">Relatórios Financeiros</p>
+              <p className="text-sm text-gray-600">Prêmios, projeções e inadimplência</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-3">
+            <div className="w-6 h-6 bg-blue-100 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span className="text-xs font-bold text-blue-600">4</span>
+            </div>
+            <div>
+              <p className="font-medium text-gray-900">Ajuste Dinâmico de Fatores</p>
+              <p className="text-sm text-gray-600">Interface para alterar % e testar impacto</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-3">
+            <div className="w-6 h-6 bg-blue-100 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span className="text-xs font-bold text-blue-600">5</span>
+            </div>
+            <div>
+              <p className="font-medium text-gray-900">Exportação de Dados</p>
+              <p className="text-sm text-gray-600">Excel, CSV e PDF</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
