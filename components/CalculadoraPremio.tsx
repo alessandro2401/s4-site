@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { DollarSign, Shield, CheckCircle2, Info, MapPin } from "lucide-react";
 import { 
-  calcularPremioOnda3, 
+  calcularPremioOnda4, 
   formatarMoeda, 
   formatarPercentual, 
   formatarPercentualComSinal,
@@ -12,10 +12,13 @@ import {
   isRegiao3,
   obterNomeRegiao,
   obterFaixaIdadeCondutor,
-  obterFaixaTempoCNH
+  obterFaixaTempoCNH,
+  obterFaixaQuilometragem,
+  obterDescricaoFinalidade
 } from "@/lib/precificacao";
 import ConsultaCEP, { DadosCEP } from "@/components/ConsultaCEP";
 import PerfilCondutor, { DadosCondutor } from "@/components/PerfilCondutor";
+import UsoVeiculo, { DadosUso } from "@/components/UsoVeiculo";
 
 interface CalculadoraPremioProps {
   valorFipe: number;
@@ -32,6 +35,7 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
   const [anoFabricacao, setAnoFabricacao] = useState<number>(new Date().getFullYear() - 5);
   const [dadosCEP, setDadosCEP] = useState<DadosCEP | null>(null);
   const [dadosCondutor, setDadosCondutor] = useState<DadosCondutor | null>(null);
+  const [dadosUso, setDadosUso] = useState<DadosUso | null>(null);
   const [mostrarCalculadora, setMostrarCalculadora] = useState(false);
 
   const planos: Plano[] = [
@@ -71,14 +75,19 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
     },
   ];
 
-  // Calcular prêmio com ONDA 3
-  const resultado = calcularPremioOnda3({
+  // Calcular prêmio com ONDA 4
+  const resultado = calcularPremioOnda4({
     valorFipe,
     anoFabricacao,
     uf: dadosCEP?.uf,
     perfilCondutor: dadosCondutor ? {
       idadeCondutor: dadosCondutor.idadeCondutor,
       tempoCNH: dadosCondutor.tempoCNH
+    } : undefined,
+    usoVeiculo: dadosUso ? {
+      quilometragemAnual: dadosUso.quilometragemAnual,
+      finalidade: dadosUso.finalidade,
+      temRastreador: dadosUso.temRastreador
     } : undefined
   });
 
@@ -86,14 +95,14 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
   const anoAtual = new Date().getFullYear();
   const anos = Array.from({ length: 31 }, (_, i) => anoAtual - i);
 
-  // Mostrar calculadora quando CEP e Condutor forem validados
+  // Mostrar calculadora quando CEP, Condutor e Uso forem validados
   useEffect(() => {
-    if (dadosCEP && dadosCEP.valido && dadosCondutor && dadosCondutor.valido) {
+    if (dadosCEP && dadosCEP.valido && dadosCondutor && dadosCondutor.valido && dadosUso && dadosUso.valido) {
       setMostrarCalculadora(true);
     } else {
       setMostrarCalculadora(false);
     }
-  }, [dadosCEP, dadosCondutor]);
+  }, [dadosCEP, dadosCondutor, dadosUso]);
 
   const handleCEPConsultado = (dados: DadosCEP | null) => {
     setDadosCEP(dados);
@@ -103,14 +112,14 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
     setDadosCondutor(dados);
   };
 
+  const handleUsoPreenchido = (dados: DadosUso | null) => {
+    setDadosUso(dados);
+  };
+
   // Calcular prêmios para cada plano (usando sinistralidade como base)
   const calcularPremioPorPlano = (sinistralidade: number) => {
     if (!resultado.sucesso) return { mensal: 0, anual: 0 };
     
-    // Ajustar prêmio baseado na sinistralidade do plano
-    // Digital (44.5%) = base
-    // Básico (51.5%) = +15.7%
-    // Essencial (54.8%) = +23.1%
     const fatorPlano = sinistralidade / 44.5;
     const premioAnual = resultado.premioAnual * fatorPlano;
     const premioMensal = premioAnual / 12;
@@ -140,8 +149,13 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
         <PerfilCondutor onCondutorPreenchido={handleCondutorPreenchido} />
       )}
 
-      {/* Calculadora (só aparece após CEP e Condutor válidos) */}
-      {mostrarCalculadora && dadosCEP && dadosCondutor && resultado.sucesso && (
+      {/* Uso do Veículo (só aparece após Condutor válido) */}
+      {dadosCEP && dadosCEP.valido && dadosCondutor && dadosCondutor.valido && (
+        <UsoVeiculo onUsoPreenchido={handleUsoPreenchido} />
+      )}
+
+      {/* Calculadora (só aparece após CEP, Condutor e Uso válidos) */}
+      {mostrarCalculadora && dadosCEP && dadosCondutor && dadosUso && resultado.sucesso && (
         <>
           {/* Campos de Ajuste */}
           <Card className="p-6 bg-gradient-to-br from-slate-50 to-white">
@@ -193,6 +207,13 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
                     <p>• <strong>Veículo:</strong> {resultado.idadeVeiculo} anos ({obterFaixaIdadeVeiculo(resultado.idadeVeiculo)}) - {formatarPercentual(resultado.fatorIdadeVeiculo)}</p>
                     <p>• <strong>Condutor:</strong> {dadosCondutor.idadeCondutor} anos ({obterFaixaIdadeCondutor(dadosCondutor.idadeCondutor)}) - {formatarPercentualComSinal(resultado.fatorIdadeCondutor || 0)}</p>
                     <p>• <strong>Experiência:</strong> {dadosCondutor.tempoCNH} {dadosCondutor.tempoCNH === 1 ? 'ano' : 'anos'} de CNH ({obterFaixaTempoCNH(dadosCondutor.tempoCNH)}) - {formatarPercentualComSinal(resultado.fatorTempoCNH || 0)}</p>
+                    <p>• <strong>Quilometragem:</strong> {dadosUso.quilometragemAnual.toLocaleString('pt-BR')} km/ano ({obterFaixaQuilometragem(dadosUso.quilometragemAnual)}) - {formatarPercentualComSinal(resultado.fatorQuilometragem || 0)}</p>
+                    <p>• <strong>Finalidade:</strong> {obterDescricaoFinalidade(dadosUso.finalidade)} - {formatarPercentualComSinal(resultado.fatorFinalidade || 0)}</p>
+                    {dadosUso.temRastreador && (
+                      <p className="text-green-700 font-semibold">
+                        🎯 Desconto de rastreador: -{formatarMoeda(resultado.descontoRastreador || 0)}
+                      </p>
+                    )}
                     <p>• <strong>Região:</strong> {obterNomeRegiao(dadosCEP.uf)}</p>
                     {resultado.isRegiao3 && (
                       <p className="text-green-700 font-semibold">
@@ -285,12 +306,12 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
                 <h4 className="font-bold text-slate-800 mb-2">Sobre os Cálculos</h4>
                 <p className="text-sm text-slate-700">
                   Os prêmios são calculados com base no valor FIPE do veículo, idade do veículo, localização (CEP), 
-                  idade do condutor e tempo de habilitação. A Região 3 (AL, PB, PE, RN) recebe um desconto de 10% 
-                  sobre o prêmio final. Condutores jovens (18-25 anos) e com pouca experiência (0-2 anos de CNH) têm 
-                  ajustes positivos no prêmio. Condutores experientes (6+ anos de CNH) recebem desconto de 3%. 
-                  Todos os carregamentos (administração, margem de risco, comissão e impostos) já estão incluídos. 
-                  Os valores são estimados e podem variar conforme análise de risco individual. Vigência mensal com 
-                  renovação automática.
+                  idade do condutor, tempo de habilitação, quilometragem anual, finalidade de uso e dispositivos de segurança. 
+                  A Região 3 (AL, PB, PE, RN) recebe um desconto de 10% sobre o prêmio final. Condutores jovens (18-25 anos) 
+                  e com pouca experiência (0-2 anos de CNH) têm ajustes positivos no prêmio. Condutores experientes (6+ anos de CNH) 
+                  recebem desconto de 3%. Veículos com rastreador homologado recebem desconto de 5%. Quilometragem acima de 70.000 km/ano 
+                  e uso comercial aumentam o prêmio. Todos os carregamentos (administração, margem de risco, comissão e impostos) já estão 
+                  incluídos. Os valores são estimados e podem variar conforme análise de risco individual. Vigência mensal com renovação automática.
                 </p>
               </div>
             </div>
@@ -321,7 +342,22 @@ export default function CalculadoraPremio({ valorFipe }: CalculadoraPremioProps)
             Informe os dados do condutor
           </h4>
           <p className="text-sm text-slate-600">
-            Preencha a idade e o tempo de habilitação do condutor principal para ver os prêmios personalizados.
+            Preencha a idade e o tempo de habilitação do condutor principal para continuar.
+          </p>
+        </Card>
+      )}
+
+      {/* Mensagem quando Uso não foi preenchido */}
+      {dadosCEP && dadosCEP.valido && dadosCondutor && dadosCondutor.valido && !dadosUso && (
+        <Card className="p-8 text-center bg-gradient-to-br from-green-50 to-white">
+          <svg className="w-12 h-12 text-green-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <h4 className="text-lg font-bold text-slate-800 mb-2">
+            Informe o uso do veículo
+          </h4>
+          <p className="text-sm text-slate-600">
+            Preencha a quilometragem anual, finalidade e dispositivos de segurança para ver os prêmios personalizados.
           </p>
         </Card>
       )}

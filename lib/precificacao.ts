@@ -1,13 +1,13 @@
 /**
  * Biblioteca de Precificação AURA Auto Mensal
- * ONDA 3: Perfil do Condutor
+ * ONDA 4: Uso do Veículo
  * 
  * @module precificacao
- * @version 3.0.0 - ONDA 3 (Perfil do Condutor)
+ * @version 4.0.0 - ONDA 4 (Uso do Veículo)
  */
 
 // ============================================================================
-// CONFIGURAÇÕES DO MODELO ATUARIAL - VERSÃO 3.0
+// CONFIGURAÇÕES DO MODELO ATUARIAL - VERSÃO 4.0
 // ============================================================================
 
 const TAXA_BASE = 0.03; // 3,0% sobre o valor FIPE
@@ -35,6 +35,19 @@ const FATORES_TEMPO_CNH: Record<string, number> = {
   '6+': -0.03      // 6+ anos: -3%
 };
 
+// Fatores Aditivos de Quilometragem (em % sobre o prêmio com perfil)
+const FATOR_QUILOMETRAGEM_ALTA = 0.01; // +1% para > 70.001 km/ano
+
+// Fatores Aditivos de Finalidade (em % sobre o prêmio com perfil)
+const FATORES_FINALIDADE: Record<string, number> = {
+  'particular': 0.00,  // Particular: 0% (base)
+  'uber': 0.05,        // Uber/Táxi: +5%
+  'comercial': 0.03    // Comercial (entregas): +3%
+};
+
+// Desconto de Rastreador (em % sobre o prêmio com perfil)
+const DESCONTO_RASTREADOR = 0.05; // -5%
+
 // Estados autorizados (Regiões 3 e 5)
 export const ESTADOS_AUTORIZADOS = ['AL', 'PB', 'PE', 'RN', 'DF', 'ES', 'GO', 'MG', 'TO'];
 
@@ -53,14 +66,21 @@ export interface PerfilCondutor {
   tempoCNH: number; // em anos
 }
 
-export interface DadosVeiculoOnda3 {
-  valorFipe: number;
-  anoFabricacao: number;
-  uf?: string; // UF do CEP (opcional, mas recomendado)
-  perfilCondutor?: PerfilCondutor; // Opcional para manter compatibilidade
+export interface UsoVeiculo {
+  quilometragemAnual: number;
+  finalidade: 'particular' | 'uber' | 'comercial';
+  temRastreador: boolean;
 }
 
-export interface ResultadoCalculoOnda3 {
+export interface DadosVeiculoOnda4 {
+  valorFipe: number;
+  anoFabricacao: number;
+  uf?: string;
+  perfilCondutor?: PerfilCondutor;
+  usoVeiculo?: UsoVeiculo; // Novo campo ONDA 4
+}
+
+export interface ResultadoCalculoOnda4 {
   sucesso: boolean;
   erro?: string;
   valorFipe: number;
@@ -74,12 +94,19 @@ export interface ResultadoCalculoOnda3 {
   premioSemDesconto: number;
   percentualDesconto: number;
   valorDesconto: number;
-  // Novos campos ONDA 3
+  // Campos ONDA 3
   perfilCondutor?: PerfilCondutor;
   fatorIdadeCondutor?: number;
   aditivoIdadeCondutor?: number;
   fatorTempoCNH?: number;
   aditivoTempoCNH?: number;
+  // Novos campos ONDA 4
+  usoVeiculo?: UsoVeiculo;
+  fatorQuilometragem?: number;
+  aditivoQuilometragem?: number;
+  fatorFinalidade?: number;
+  aditivoFinalidade?: number;
+  descontoRastreador?: number;
   premioAnual: number;
   premioMensal: number;
 }
@@ -134,7 +161,7 @@ export function obterFaixaIdadeVeiculo(idadeVeiculo: number): string {
  * Retorna o fator aditivo de idade do condutor
  */
 export function obterFatorIdadeCondutor(idadeCondutor: number): number {
-  if (idadeCondutor < 18) return 0; // Menor de idade não pode contratar
+  if (idadeCondutor < 18) return 0;
   if (idadeCondutor <= 25) return FATORES_IDADE_CONDUTOR['18-25'];
   if (idadeCondutor <= 35) return FATORES_IDADE_CONDUTOR['26-35'];
   if (idadeCondutor <= 60) return FATORES_IDADE_CONDUTOR['36-60'];
@@ -170,29 +197,51 @@ export function obterFaixaTempoCNH(tempoCNH: number): string {
   return '6+ anos';
 }
 
+/**
+ * Retorna o fator de quilometragem
+ */
+export function obterFatorQuilometragem(km: number): number {
+  return km > 70000 ? FATOR_QUILOMETRAGEM_ALTA : 0;
+}
+
+/**
+ * Retorna a descrição da faixa de quilometragem
+ */
+export function obterFaixaQuilometragem(km: number): string {
+  if (km <= 70000) return 'Até 70.000 km/ano';
+  return 'Acima de 70.000 km/ano';
+}
+
+/**
+ * Retorna o fator de finalidade
+ */
+export function obterFatorFinalidade(finalidade: string): number {
+  return FATORES_FINALIDADE[finalidade] || 0;
+}
+
+/**
+ * Retorna a descrição da finalidade
+ */
+export function obterDescricaoFinalidade(finalidade: string): string {
+  const descricoes: Record<string, string> = {
+    'particular': 'Particular',
+    'uber': 'Transporte de Passageiros (Uber/Táxi)',
+    'comercial': 'Comercial (Entregas)'
+  };
+  return descricoes[finalidade] || 'Não especificado';
+}
+
 // ============================================================================
 // FUNÇÃO PRINCIPAL DE CÁLCULO
 // ============================================================================
 
 /**
- * Calcula o prêmio do seguro com base no modelo ONDA 3
+ * Calcula o prêmio do seguro com base no modelo ONDA 4
  * 
- * @param dados - Dados do veículo e condutor para cálculo
- * @returns Resultado completo do cálculo com perfil do condutor
- * 
- * @example
- * // Veículo em Recife com condutor jovem
- * calcularPremioOnda3({
- *   valorFipe: 32000,
- *   anoFabricacao: 2015,
- *   uf: 'PE',
- *   perfilCondutor: {
- *     idadeCondutor: 23,
- *     tempoCNH: 2
- *   }
- * })
+ * @param dados - Dados completos do veículo, condutor e uso
+ * @returns Resultado completo do cálculo
  */
-export function calcularPremioOnda3(dados: DadosVeiculoOnda3): ResultadoCalculoOnda3 {
+export function calcularPremioOnda4(dados: DadosVeiculoOnda4): ResultadoCalculoOnda4 {
   // Validações básicas
   if (dados.valorFipe <= 0) {
     return {
@@ -274,6 +323,28 @@ export function calcularPremioOnda3(dados: DadosVeiculoOnda3): ResultadoCalculoO
     }
   }
 
+  // Validar uso do veículo se fornecido
+  if (dados.usoVeiculo) {
+    if (dados.usoVeiculo.quilometragemAnual < 0) {
+      return {
+        sucesso: false,
+        erro: 'Quilometragem anual inválida',
+        valorFipe: dados.valorFipe,
+        idadeVeiculo: 0,
+        isRegiao3: false,
+        taxaBase: 0,
+        premioBase: 0,
+        fatorIdadeVeiculo: 0,
+        aditivoIdadeVeiculo: 0,
+        premioSemDesconto: 0,
+        percentualDesconto: 0,
+        valorDesconto: 0,
+        premioAnual: 0,
+        premioMensal: 0
+      };
+    }
+  }
+
   // Validar área de atuação (se UF fornecida)
   if (dados.uf && !validarAreaAtuacao(dados.uf)) {
     return {
@@ -305,7 +376,7 @@ export function calcularPremioOnda3(dados: DadosVeiculoOnda3): ResultadoCalculoO
   const fatorIdadeVeiculo = obterFatorIdadeVeiculo(idadeVeiculo);
   const aditivoIdadeVeiculo = dados.valorFipe * fatorIdadeVeiculo;
 
-  // 4. Calcular Prêmio Sem Desconto (base para cálculos de condutor)
+  // 4. Calcular Prêmio Sem Desconto
   const premioSemDesconto = premioBase + aditivoIdadeVeiculo;
 
   // 5. Calcular Aditivos de Perfil do Condutor (se fornecido)
@@ -325,12 +396,34 @@ export function calcularPremioOnda3(dados: DadosVeiculoOnda3): ResultadoCalculoO
   // 6. Prêmio com Perfil do Condutor
   const premioComPerfil = premioSemDesconto + aditivoIdadeCondutor + aditivoTempoCNH;
 
-  // 7. Aplicar Desconto Regional (se aplicável)
-  const isRegiao3Calc = dados.uf ? isRegiao3(dados.uf) : false;
-  const valorDesconto = isRegiao3Calc ? premioComPerfil * PERCENTUAL_DESCONTO_REGIAO_3 : 0;
+  // 7. Calcular Aditivos de Uso do Veículo (se fornecido)
+  let fatorQuilometragem = 0;
+  let aditivoQuilometragem = 0;
+  let fatorFinalidade = 0;
+  let aditivoFinalidade = 0;
+  let descontoRastreador = 0;
 
-  // 8. Prêmio Final
-  const premioAnual = premioComPerfil - valorDesconto;
+  if (dados.usoVeiculo) {
+    fatorQuilometragem = obterFatorQuilometragem(dados.usoVeiculo.quilometragemAnual);
+    aditivoQuilometragem = premioComPerfil * fatorQuilometragem;
+
+    fatorFinalidade = obterFatorFinalidade(dados.usoVeiculo.finalidade);
+    aditivoFinalidade = premioComPerfil * fatorFinalidade;
+
+    if (dados.usoVeiculo.temRastreador) {
+      descontoRastreador = premioComPerfil * DESCONTO_RASTREADOR;
+    }
+  }
+
+  // 8. Prêmio com Uso do Veículo
+  const premioComUso = premioComPerfil + aditivoQuilometragem + aditivoFinalidade - descontoRastreador;
+
+  // 9. Aplicar Desconto Regional (se aplicável)
+  const isRegiao3Calc = dados.uf ? isRegiao3(dados.uf) : false;
+  const valorDesconto = isRegiao3Calc ? premioComUso * PERCENTUAL_DESCONTO_REGIAO_3 : 0;
+
+  // 10. Prêmio Final
+  const premioAnual = premioComUso - valorDesconto;
   const premioMensal = premioAnual / 12;
 
   return {
@@ -351,6 +444,12 @@ export function calcularPremioOnda3(dados: DadosVeiculoOnda3): ResultadoCalculoO
     aditivoIdadeCondutor: dados.perfilCondutor ? Math.round(aditivoIdadeCondutor * 100) / 100 : undefined,
     fatorTempoCNH: dados.perfilCondutor ? fatorTempoCNH : undefined,
     aditivoTempoCNH: dados.perfilCondutor ? Math.round(aditivoTempoCNH * 100) / 100 : undefined,
+    usoVeiculo: dados.usoVeiculo,
+    fatorQuilometragem: dados.usoVeiculo ? fatorQuilometragem : undefined,
+    aditivoQuilometragem: dados.usoVeiculo ? Math.round(aditivoQuilometragem * 100) / 100 : undefined,
+    fatorFinalidade: dados.usoVeiculo ? fatorFinalidade : undefined,
+    aditivoFinalidade: dados.usoVeiculo ? Math.round(aditivoFinalidade * 100) / 100 : undefined,
+    descontoRastreador: dados.usoVeiculo ? Math.round(descontoRastreador * 100) / 100 : undefined,
     premioAnual: Math.round(premioAnual * 100) / 100,
     premioMensal: Math.round(premioMensal * 100) / 100
   };
