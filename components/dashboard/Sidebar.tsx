@@ -48,10 +48,10 @@ const menuItems: MenuItem[] = [
     niveisPermitidos: ['master', 'admin', 'atuario', 'administrativo'],
   },
   {
-    nome: 'Análise',
-    href: '/dashboard/analise',
+    nome: 'Análises',
+    href: '/dashboard/analises',
     icon: BarChart3,
-    niveisPermitidos: ['master', 'admin', 'atuario'],
+    niveisPermitidos: ['master', 'admin', 'atuario', 'administrativo', 'vendedor'],
   },
   {
     nome: 'Financeiro',

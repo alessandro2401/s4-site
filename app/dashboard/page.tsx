@@ -98,72 +98,91 @@ export default function DashboardPage() {
         })}
       </div>
 
-      {/* Informação de Desenvolvimento */}
-      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
-        <h3 className="text-lg font-semibold text-yellow-900 mb-2">
-          🚧 Dashboard em Desenvolvimento
+      {/* Links Rápidos */}
+      <div className="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-lg p-6">
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+          🚀 Acesso Rápido
         </h3>
-        <p className="text-sm text-yellow-800 mb-4">
-          Você está na <strong>ONDA 8.1</strong> - Autenticação e Estrutura Base
-        </p>
-        <div className="space-y-2 text-sm text-yellow-700">
-          <p>✅ Sistema de autenticação implementado</p>
-          <p>✅ Controle de permissões (5 níveis)</p>
-          <p>✅ Layout do dashboard criado</p>
-          <p>✅ Navegação com sidebar</p>
-          <p>⏳ Próxima: ONDA 8.2 - Painel de Cotações</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a
+            href="/dashboard/cotacoes"
+            className="bg-white rounded-lg p-4 hover:shadow-md transition-shadow border border-gray-200"
+          >
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                <FileText className="w-5 h-5 text-blue-600" />
+              </div>
+              <h4 className="font-semibold text-gray-900">Cotações</h4>
+            </div>
+            <p className="text-sm text-gray-600">Visualize e gerencie todas as cotações</p>
+          </a>
+          <a
+            href="/dashboard/analises"
+            className="bg-white rounded-lg p-4 hover:shadow-md transition-shadow border border-gray-200"
+          >
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                <TrendingUp className="w-5 h-5 text-purple-600" />
+              </div>
+              <h4 className="font-semibold text-gray-900">Análises</h4>
+            </div>
+            <p className="text-sm text-gray-600">Gráficos e indicadores de performance</p>
+          </a>
+          <a
+            href="/calculadora"
+            className="bg-white rounded-lg p-4 hover:shadow-md transition-shadow border border-gray-200"
+          >
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                <DollarSign className="w-5 h-5 text-green-600" />
+              </div>
+              <h4 className="font-semibold text-gray-900">Calculadora</h4>
+            </div>
+            <p className="text-sm text-gray-600">Realizar nova cotação</p>
+          </a>
         </div>
       </div>
 
-      {/* Próximas Funcionalidades */}
+      {/* Status da Implementação */}
       <div className="bg-white rounded-lg shadow p-6">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">
-          📅 Próximas Funcionalidades
+          ✅ ONDA 8.2 - Painel de Cotações Implementado
         </h3>
         <div className="space-y-3">
           <div className="flex items-start gap-3">
-            <div className="w-6 h-6 bg-blue-100 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
-              <span className="text-xs font-bold text-blue-600">1</span>
+            <div className="w-6 h-6 bg-green-100 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span className="text-xs font-bold text-green-600">✓</span>
             </div>
             <div>
-              <p className="font-medium text-gray-900">Painel de Cotações</p>
-              <p className="text-sm text-gray-600">Listagem, filtros, busca e detalhes</p>
+              <p className="font-medium text-gray-900">Listagem de Cotações</p>
+              <p className="text-sm text-gray-600">Tabela completa com filtros e busca</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <div className="w-6 h-6 bg-blue-100 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
-              <span className="text-xs font-bold text-blue-600">2</span>
+            <div className="w-6 h-6 bg-green-100 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span className="text-xs font-bold text-green-600">✓</span>
             </div>
             <div>
-              <p className="font-medium text-gray-900">Análise de Sinistralidade</p>
-              <p className="text-sm text-gray-600">Gráficos por região, perfil e idade</p>
+              <p className="font-medium text-gray-900">Gráficos e Análises</p>
+              <p className="text-sm text-gray-600">Funil de vendas, distribuição e evolução</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <div className="w-6 h-6 bg-blue-100 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
-              <span className="text-xs font-bold text-blue-600">3</span>
+            <div className="w-6 h-6 bg-green-100 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span className="text-xs font-bold text-green-600">✓</span>
             </div>
             <div>
-              <p className="font-medium text-gray-900">Relatórios Financeiros</p>
-              <p className="text-sm text-gray-600">Prêmios, projeções e inadimplência</p>
+              <p className="font-medium text-gray-900">Indicadores de Performance</p>
+              <p className="text-sm text-gray-600">Métricas de conversão e valores</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <div className="w-6 h-6 bg-blue-100 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
-              <span className="text-xs font-bold text-blue-600">4</span>
-            </div>
-            <div>
-              <p className="font-medium text-gray-900">Ajuste Dinâmico de Fatores</p>
-              <p className="text-sm text-gray-600">Interface para alterar % e testar impacto</p>
-            </div>
-          </div>
-          <div className="flex items-start gap-3">
-            <div className="w-6 h-6 bg-blue-100 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
-              <span className="text-xs font-bold text-blue-600">5</span>
+            <div className="w-6 h-6 bg-green-100 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span className="text-xs font-bold text-green-600">✓</span>
             </div>
             <div>
               <p className="font-medium text-gray-900">Exportação de Dados</p>
-              <p className="text-sm text-gray-600">Excel, CSV e PDF</p>
+              <p className="text-sm text-gray-600">Excel, PDF e resumo para compartilhamento</p>
             </div>
           </div>
         </div>
