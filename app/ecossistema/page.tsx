@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Building2, Users, HeadphonesIcon, Wrench, TrendingUp, Network } from "lucide-react";
+import { Building2, Users, HeadphonesIcon, Wrench, TrendingUp, Network, Shield, Store } from "lucide-react";
 
 export default function Page() {
   return (
@@ -9,8 +9,16 @@ export default function Page() {
           Ecossistema AURA
         </h1>
         <p className="text-lg text-slate-600">
-          Integração estratégica com parceiros do Grupo MMB
+          Integração estratégica com parceiros do Grupo MMB e BVix Seguradora
         </p>
+        <div className="mt-4 p-4 bg-blue-50 border-l-4 border-blue-500 rounded">
+          <p className="text-sm font-semibold text-blue-900 mb-1">⚠️ Modelo Operacional Temporário</p>
+          <p className="text-sm text-blue-800">
+            Enquanto a AURA Seguradora aguarda autorização final da SUSEP, a <strong>BVix Seguradora</strong> atua 
+            como seguradora operacional, em parceria com <strong>Potere Seguro Auto</strong> (MGA) e 
+            <strong> Soluções Corretora</strong> (intermediadora).
+          </p>
+        </div>
       </div>
 
       {/* Modelo de Sinergia */}
@@ -61,6 +69,65 @@ export default function Page() {
           Parceiros Estratégicos
         </h2>
         <div className="grid md:grid-cols-2 gap-6">
+          {/* BVix Seguradora - NOVO */}
+          <Card className="p-6 border-l-4 border-l-cyan-500 bg-cyan-50/50">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-3 bg-cyan-100 rounded-lg">
+                <Shield className="w-6 h-6 text-cyan-600" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-800">
+                BVix Seguradora
+              </h3>
+            </div>
+            <div className="space-y-3">
+              <div>
+                <p className="font-semibold text-slate-800">Função</p>
+                <p className="text-slate-600">Seguradora Operacional (Temporário)</p>
+              </div>
+              <div>
+                <p className="font-semibold text-slate-800">Atuação</p>
+                <p className="text-slate-600">
+                  Responsável pela cobertura securitária do produto Auto Mensal enquanto a AURA aguarda 
+                  autorização SUSEP. Parceria estratégica para aprovação do produto junto à SUSEP.
+                </p>
+              </div>
+              <div>
+                <a 
+                  href="https://www.bvixseguradora.com.br/quem-somos" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-sm text-cyan-600 hover:text-cyan-700 font-medium underline"
+                >
+                  Saiba mais sobre a BVix →
+                </a>
+              </div>
+            </div>
+          </Card>
+
+          {/* Soluções Corretora - NOVO */}
+          <Card className="p-6 border-l-4 border-l-teal-500 bg-teal-50/50">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-3 bg-teal-100 rounded-lg">
+                <Store className="w-6 h-6 text-teal-600" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-800">
+                Soluções Corretora de Seguros
+              </h3>
+            </div>
+            <div className="space-y-3">
+              <div>
+                <p className="font-semibold text-slate-800">Função</p>
+                <p className="text-slate-600">Intermediadora / Corretora</p>
+              </div>
+              <div>
+                <p className="font-semibold text-slate-800">Atuação</p>
+                <p className="text-slate-600">
+                  Intermediação comercial entre segurados e seguradora. Canal de distribuição e 
+                  relacionamento com clientes finais no modelo operacional temporário.
+                </p>
+              </div>
+            </div>
+          </Card>
           {/* Grupo MMB Holding */}
           <Card className="p-6 border-l-4 border-l-purple-500">
             <div className="flex items-center gap-3 mb-4">
