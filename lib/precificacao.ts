@@ -10,7 +10,7 @@
 // CONFIGURAÇÕES DO MODELO ATUARIAL - VERSÃO 5.0
 // ============================================================================
 
-const TAXA_BASE = 0.03; // 3,0% sobre o valor FIPE
+const TAXA_BASE = 0.025; // 2,5% sobre o valor FIPE
 
 // Fatores Aditivos de Idade do Veículo (em % sobre o valor FIPE)
 const FATORES_IDADE_VEICULO: Record<string, number> = {
