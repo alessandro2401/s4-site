@@ -1,11 +1,13 @@
-import SeletorPlanos from '@/components/SeletorPlanos';
+'use client';
 
-export const metadata = {
-  title: 'Calculadora - Seguro Auto Mensal | AURA Seguradora',
-  description: 'Escolha o plano ideal de seguro auto mensal. Valores fixos a partir de R$ 150/mês com todas as coberturas inclusas.',
-};
+import { useState } from 'react';
+import SeletorPlanos from '@/components/SeletorPlanos';
+import FipeConsulta from '@/components/FipeConsulta';
+import { Calculator, List } from 'lucide-react';
 
 export default function CalculadoraPage() {
+  const [mode, setMode] = useState<'planos' | 'calculo'>('planos');
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -15,14 +17,55 @@ export default function CalculadoraPage() {
             Seguro Auto Mensal
           </h1>
           <p className="text-xl text-blue-100">
-            Escolha o plano ideal para você. Valores fixos, sem surpresas.
+            {mode === 'planos' 
+              ? 'Escolha o plano ideal para você. Valores fixos, sem surpresas.'
+              : 'Consulte o valor FIPE do seu veículo e calcule o prêmio personalizado.'
+            }
           </p>
+        </div>
+      </div>
+
+      {/* Seletor de Modo */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="container mx-auto px-4">
+          <div className="flex gap-4 -mb-px">
+            <button
+              onClick={() => setMode('planos')}
+              className={`flex items-center gap-2 px-6 py-4 font-semibold border-b-2 transition-colors ${
+                mode === 'planos'
+                  ? 'border-blue-600 text-blue-600'
+                  : 'border-transparent text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              <List className="w-5 h-5" />
+              Planos Fixos
+            </button>
+            <button
+              onClick={() => setMode('calculo')}
+              className={`flex items-center gap-2 px-6 py-4 font-semibold border-b-2 transition-colors ${
+                mode === 'calculo'
+                  ? 'border-blue-600 text-blue-600'
+                  : 'border-transparent text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              <Calculator className="w-5 h-5" />
+              Cálculo Personalizado
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Conteúdo Principal */}
       <div className="container mx-auto px-4 py-12">
-        <SeletorPlanos />
+        {mode === 'planos' ? (
+          <SeletorPlanos />
+        ) : (
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-lg shadow-sm p-8">
+              <FipeConsulta />
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Informações Adicionais */}
