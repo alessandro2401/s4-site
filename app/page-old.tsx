@@ -1,0 +1,6 @@
+import { Hero } from "@/components/Hero"; import { Card } from "@/components/ui/card"; import Link from "next/link";
+export default function Home(){return(<><Hero/><section className="container grid md:grid-cols-3 gap-6 py-10">
+<Card className="p-6 space-y-2 hover:shadow-lg transition"><h2 className="text-xl font-semibold">Seguro Auto Mensal</h2><p>Indenização direta ao segurado, oficina livre e PT ≥ 65% FIPE.</p><Link href="/produtos/auto" className="text-aura-accent font-semibold">Saiba mais</Link></Card>
+<Card className="p-6 space-y-2 hover:shadow-lg transition"><h2 className="text-xl font-semibold">Seguro Vida Mensal</h2><p>Cobertura inclusiva com adesão simples e renovação mensal automática.</p><Link href="/produtos/vida" className="text-aura-accent font-semibold">Saiba mais</Link></Card>
+<Card className="p-6 space-y-2 hover:shadow-lg transition"><h2 className="text-xl font-semibold">Governança e SUSEP</h2><p>Transparência e conformidade (CNSP 416/2021 e Circular SUSEP 700/2024).</p><Link href="/regulatorio" className="text-aura-accent font-semibold">Ver documentos</Link></Card>
+</section></>)}

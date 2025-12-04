@@ -4,7 +4,7 @@ import { MapPin, Shield, Lightbulb } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="bg-gradient-to-br from-aura-primary to-aura-secondary text-white">
+    <section className="gradient-hero text-white">
       <div className="container py-20">
         <div className="max-w-4xl">
           <h1 className="text-5xl md:text-6xl font-bold mb-4">
