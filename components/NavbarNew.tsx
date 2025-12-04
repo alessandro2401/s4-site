@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import Image from "next/image";
 
 export function NavbarNew() {
   const [showProdutos, setShowProdutos] = useState(false);
@@ -11,8 +12,14 @@ export function NavbarNew() {
   return (
     <header className="border-b bg-white/70 backdrop-blur sticky top-0 z-50">
       <div className="container flex items-center justify-between py-3">
-        <Link href="/" className="font-bold text-aura-primary text-lg">
-          AURA Seguradora S/A
+        <Link href="/" className="flex items-center">
+          <Image 
+            src="/logos/aura/aura_horizontal_colorida.svg" 
+            alt="AURA Seguradora" 
+            width={180} 
+            height={50}
+            priority
+          />
         </Link>
         <nav className="flex gap-6 text-sm">
           <Link href="/sobre" className="hover:text-aura-primary transition-colors">

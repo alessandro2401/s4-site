@@ -10,9 +10,10 @@ const config: Config = {
     extend: {
       colors: {
         aura: {
-          primary: '#1C3B57',
-          secondary: '#3E6A8A',
-          accent: '#0EA5E9',
+          primary: '#3B82F6',      // Azul AURA
+          secondary: '#06B6D4',    // Ciano AURA
+          accent: '#0F172A',       // Azul Profundo
+          light: '#CBD5E1',        // Cinza Claro
         },
       },
     },

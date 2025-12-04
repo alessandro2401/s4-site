@@ -1,0 +1,38 @@
+<svg viewBox="0 0 500 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Definição dos Gradientes -->
+    <defs>
+        <linearGradient id="auraGradient" x1="0%" y1="50%" x2="100%" y2="50%">
+            <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+        </linearGradient>
+        <filter id="glow">
+            <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+
+    <!-- Símbolo (Ícone) -->
+    <g transform="translate(50, 75)">
+        <!-- Núcleo Central -->
+        <circle cx="0" cy="0" r="6" fill="url(#auraGradient)" filter="url(#glow)" />
+
+        <!-- Ondas da Esquerda -->
+        <path d="M -12 -10 Q -18 0 -12 10" stroke="url(#auraGradient)" stroke-width="3" stroke-linecap="round" fill="none" filter="url(#glow)" />
+        <path d="M -20 -15 Q -30 0 -20 15" stroke="url(#auraGradient)" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.8" />
+        <path d="M -28 -20 Q -42 0 -28 20" stroke="url(#auraGradient)" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5" />
+
+        <!-- Ondas da Direita -->
+        <path d="M 12 -10 Q 18 0 12 10" stroke="url(#auraGradient)" stroke-width="3" stroke-linecap="round" fill="none" filter="url(#glow)" />
+        <path d="M 20 -15 Q 30 0 20 15" stroke="url(#auraGradient)" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.8" />
+        <path d="M 28 -20 Q 42 0 28 20" stroke="url(#auraGradient)" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5" />
+    </g>
+
+    <!-- Tipografia AURA -->
+    <text x="120" y="85" font-family="Arial, sans-serif" font-size="48" font-weight="900" letter-spacing="8" fill="url(#auraGradient)">AURA</text>
+    
+    <!-- Tipografia SEGURADORA -->
+    <text x="120" y="105" font-family="Arial, sans-serif" font-size="14" font-weight="300" letter-spacing="6" fill="#CBD5E1">SEGURADORA</text>
+</svg>

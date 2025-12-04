@@ -2,6 +2,13 @@ import "@/app/globals.css";
 import { NavbarNew as Navbar } from "@/components/NavbarNew";
 import { Footer } from "@/components/Footer";
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ 
+  subsets: ["latin"],
+  weight: ["300", "400", "600", "700"],
+  variable: "--font-inter",
+});
 export const metadata: Metadata = {
   title: "AURA Seguradora S/A | Seguro Auto e Vida Mensal | S4 SUSEP",
   description: "AURA Seguradora S/A - Seguro Auto e Vida Mensal com indenização direta, renovação automática e adesão simples. Regulada pela SUSEP (S4). A energia que protege, ampara e inspira.",
@@ -15,5 +22,5 @@ export const metadata: Metadata = {
   },
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (<html lang="pt-BR"><body className="min-h-screen flex flex-col"><Navbar /><main className="flex-1">{children}</main><Footer /></body></html>);
+  return (<html lang="pt-BR" className={inter.variable}><body className="min-h-screen flex flex-col font-sans"><Navbar /><main className="flex-1">{children}</main><Footer /></body></html>);
 }

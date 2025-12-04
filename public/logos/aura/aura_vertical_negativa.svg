@@ -1,0 +1,26 @@
+<svg viewBox="0 0 200 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Fundo Azul Profundo -->
+    <rect width="200" height="250" fill="#0F172A"/>
+    
+    <!-- Símbolo (Ícone) -->
+    <g transform="translate(100, 70)">
+        <!-- Núcleo Central -->
+        <circle cx="0" cy="0" r="6" fill="#FFFFFF" />
+
+        <!-- Ondas da Esquerda -->
+        <path d="M -12 -10 Q -18 0 -12 10" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" fill="none" />
+        <path d="M -20 -15 Q -30 0 -20 15" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.8" />
+        <path d="M -28 -20 Q -42 0 -28 20" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5" />
+
+        <!-- Ondas da Direita -->
+        <path d="M 12 -10 Q 18 0 12 10" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" fill="none" />
+        <path d="M 20 -15 Q 30 0 20 15" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.8" />
+        <path d="M 28 -20 Q 42 0 28 20" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5" />
+    </g>
+
+    <!-- Tipografia AURA -->
+    <text x="100" y="160" font-family="Arial, sans-serif" font-size="48" font-weight="900" letter-spacing="8" fill="#FFFFFF" text-anchor="middle">AURA</text>
+    
+    <!-- Tipografia SEGURADORA -->
+    <text x="100" y="185" font-family="Arial, sans-serif" font-size="14" font-weight="300" letter-spacing="6" fill="#FFFFFF" text-anchor="middle">SEGURADORA</text>
+</svg>
