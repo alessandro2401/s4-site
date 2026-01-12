@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Building2, CheckCircle2, Shield, TrendingUp, Users, Cpu } from "lucide-react";
+import { Building2, CheckCircle2, Shield, TrendingUp, Users, Cpu, FileText, Download, Calendar, Lock } from "lucide-react";
 
 const consultorias = [
   {
@@ -180,6 +180,94 @@ export default function Page() {
           >
             Conheça a BVix Seguradora →
           </a>
+        </div>
+      </Card>
+
+      {/* Documentação da Parceria BVix - NOVA SEÇÃO */}
+      <Card className="p-6 bg-gradient-to-r from-slate-50 to-blue-50 border-l-4 border-slate-500">
+        <div className="flex items-center gap-3 mb-4">
+          <FileText className="w-8 h-8 text-slate-600" />
+          <h2 className="text-2xl font-bold text-slate-800">
+            Documentação da Parceria BVix
+          </h2>
+        </div>
+        
+        <p className="text-slate-700 mb-6">
+          A formalização da parceria entre a <strong>Potere Gestão de Negócios</strong> e a <strong>BVix Seguradora</strong> está 
+          amparada por um Acordo de Sigilo e Confidencialidade de Informações (NDA), que estabelece os termos e condições 
+          para o compartilhamento seguro de informações estratégicas entre as partes.
+        </p>
+
+        <div className="bg-white p-6 rounded-lg border border-slate-200">
+          <div className="flex items-start gap-4">
+            <div className="p-3 bg-red-100 rounded-lg">
+              <FileText className="w-8 h-8 text-red-600" />
+            </div>
+            <div className="flex-1">
+              <h3 className="text-lg font-bold text-slate-800 mb-2">
+                Acordo de Sigilo e Confidencialidade de Informações (NDA)
+              </h3>
+              <p className="text-sm text-slate-600 mb-4">
+                Documento que regulamenta a proteção das informações confidenciais trocadas entre Potere Gestão de Negócios LTDA 
+                e BVix Seguradora S.A. no âmbito da parceria estratégica para operacionalização de produtos de seguros.
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-4 mb-4">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-sm text-slate-700">
+                    <Users className="w-4 h-4 text-blue-600" />
+                    <span><strong>Partes:</strong> Potere Gestão de Negócios × BVix Seguradora</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-slate-700">
+                    <Calendar className="w-4 h-4 text-green-600" />
+                    <span><strong>Data de Assinatura:</strong> 12 de janeiro de 2026</span>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-sm text-slate-700">
+                    <Lock className="w-4 h-4 text-purple-600" />
+                    <span><strong>Vigência:</strong> 3 anos (+ 5 anos de sigilo pós-término)</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-slate-700">
+                    <Shield className="w-4 h-4 text-cyan-600" />
+                    <span><strong>Conformidade:</strong> LGPD (Lei 13.709/2018)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-slate-50 p-4 rounded-lg mb-4">
+                <h4 className="font-semibold text-slate-800 mb-2">Principais Disposições:</h4>
+                <ul className="space-y-1 text-sm text-slate-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span>Proteção de informações técnicas, econômicas, financeiras e comerciais</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span>Estudos para emissão de apólices de seguros e informações de negócios</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span>Tratamento de dados pessoais em conformidade com a legislação brasileira</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span>Foro da Cidade de São Paulo para resolução de controvérsias</span>
+                  </li>
+                </ul>
+              </div>
+
+              <a 
+                href="/documentos/NDA-BVix-Seguradora-Potere.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+              >
+                <Download className="w-4 h-4" />
+                Baixar Documento Completo (PDF)
+              </a>
+            </div>
+          </div>
         </div>
       </Card>
 
