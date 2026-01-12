@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Building2, CheckCircle2, Shield, TrendingUp, Users, Cpu, FileText, Download, Calendar, Lock } from "lucide-react";
+import { Building2, CheckCircle2, Shield, TrendingUp, Users, Cpu, FileText, Download, Calendar, Lock, Scale, AlertTriangle, Globe, FileCheck, ChevronDown, ChevronUp } from "lucide-react";
 
 const consultorias = [
   {
@@ -25,6 +25,141 @@ const consultorias = [
     foco: "Constituição completa de seguradora (jurídico, atuarial, operacional e regulatório)",
     custo: "R$ 400.000 divididos em 3 etapas: R$ 160.000 (Memorando), R$ 180.000 (Plano de Negócios), R$ 60.000 (Constituição)",
     forcas: "Abordagem integrada jurídico-atuarial; experiência em processos SUSEP; entrega de seguradora pronta para operar em ~7 meses"
+  }
+];
+
+const clausulasNDA = [
+  {
+    numero: "1ª",
+    titulo: "Objeto do Acordo",
+    categoria: "Considerações Preliminares",
+    resumo: "Estabelece os fundamentos para viabilizar a divulgação e acesso a informações sigilosas entre as partes, incluindo estudos para emissão de apólices, informações de negócios, dados técnicos, econômicos, financeiros e comerciais."
+  },
+  {
+    numero: "2ª",
+    titulo: "Definição de Informações Confidenciais",
+    categoria: "Definições",
+    resumo: "Define como Informações Confidenciais todas as informações sigilosas transmitidas por qualquer meio (escrito, digital, magnético, eletrônico, fotográfico e oral), incluindo processos, tecnologia, segredos comerciais, know-how, pesquisas, estudos, metodologias, projetos e protótipos."
+  },
+  {
+    numero: "3ª",
+    titulo: "Tratamento das Informações",
+    categoria: "Obrigações",
+    resumo: "A RECEPTORA compromete-se a não divulgar, não utilizar em benefício próprio além dos fins estabelecidos, e necessita consentimento prévio por escrito para divulgar a terceiros. Inclui exceções para informações já públicas ou exigidas por lei."
+  },
+  {
+    numero: "4ª",
+    titulo: "Prazo da Confidencialidade",
+    categoria: "Vigência",
+    resumo: "Vigência de 3 (três) anos a partir da assinatura. As disposições de sigilo permanecem válidas por 5 (cinco) anos adicionais após o término da vigência."
+  },
+  {
+    numero: "5ª",
+    titulo: "Tratamento de Dados Pessoais",
+    categoria: "LGPD",
+    resumo: "Conformidade com a Lei 13.709/2018 (LGPD), incluindo registro de operações de tratamento, medidas técnicas e organizativas de proteção, notificação sobre reclamações e solicitações de titulares, e eliminação/anonimização de dados em caso de não celebração de contrato definitivo."
+  },
+  {
+    numero: "6ª",
+    titulo: "Propriedade Intelectual",
+    categoria: "Disposições Gerais",
+    resumo: "A DIVULGADORA mantém a titularidade e todos os direitos de propriedade intelectual das Informações Confidenciais."
+  },
+  {
+    numero: "7ª",
+    titulo: "Caráter Irrevogável",
+    categoria: "Disposições Gerais",
+    resumo: "Acordo firmado em caráter irretratável e irrevogável, constituindo acordo integral entre as Partes. Substitui todos os entendimentos anteriores e obriga herdeiros e sucessores."
+  },
+  {
+    numero: "8ª",
+    titulo: "Comunicações",
+    categoria: "Disposições Gerais",
+    resumo: "Comunicações por escrito, transmitidas por meio eletrônico. Notificações de descumprimento devem ser por fax ou carta registrada."
+  },
+  {
+    numero: "9ª",
+    titulo: "Tolerância",
+    categoria: "Disposições Gerais",
+    resumo: "A tolerância ou abstenção do exercício de qualquer direito somente terá eficácia se devidamente formalizada pelas Partes."
+  },
+  {
+    numero: "10ª",
+    titulo: "Cessão de Direitos",
+    categoria: "Disposições Gerais",
+    resumo: "Direitos e obrigações não podem ser cedidos ou substabelecidos sem consentimento prévio por escrito da outra parte."
+  },
+  {
+    numero: "11ª",
+    titulo: "Independência das Partes",
+    categoria: "Disposições Gerais",
+    resumo: "O Acordo não obriga as Partes a celebrar qualquer tipo de contrato, nem impede celebrar contratos com terceiros."
+  },
+  {
+    numero: "12ª",
+    titulo: "Capacidade das Partes",
+    categoria: "Disposições Gerais",
+    resumo: "As Partes declaram possuir plenos poderes e competência para celebrar o Contrato. A DIVULGADORA declara ter poderes para divulgar as Informações Confidenciais."
+  },
+  {
+    numero: "13ª",
+    titulo: "Lei Aplicável",
+    categoria: "Disposições Gerais",
+    resumo: "O Acordo será regido e interpretado de acordo com as leis da República Federativa do Brasil."
+  },
+  {
+    numero: "14ª",
+    titulo: "Capacidade Jurídica",
+    categoria: "Disposições Gerais",
+    resumo: "As Partes declaram, sob as penas da lei, possuir plena capacidade jurídica. Todos os dados fornecidos são verdadeiros."
+  },
+  {
+    numero: "15ª",
+    titulo: "Direito de Recusa",
+    categoria: "Disposições Gerais",
+    resumo: "A DIVULGADORA pode, a seu exclusivo critério, negar-se a fornecer informações que extrapolem os limites e finalidades do Acordo."
+  },
+  {
+    numero: "16ª",
+    titulo: "Penalidades",
+    categoria: "Sanções",
+    resumo: "A quebra do sigilo possibilita imediata rescisão de qualquer contrato. A parte responsável assume toda a responsabilidade, incluindo cível, penal e administrativa."
+  },
+  {
+    numero: "17ª",
+    titulo: "Validade das Disposições",
+    categoria: "Disposições Gerais",
+    resumo: "Se alguma disposição for considerada inválida, a validade das demais disposições não será afetada."
+  },
+  {
+    numero: "18ª",
+    titulo: "Interpretação",
+    categoria: "Disposições Gerais",
+    resumo: "Na impossibilidade de substituir disposições nulas, o acordo será interpretado sem a aplicação de tais disposições."
+  },
+  {
+    numero: "19ª",
+    titulo: "Consentimentos por Escrito",
+    categoria: "Disposições Gerais",
+    resumo: "Quaisquer consentimentos, alterações, acordos ou renúncias devem ser feitos por escrito."
+  },
+  {
+    numero: "20ª",
+    titulo: "Assinatura Digital",
+    categoria: "Formalização",
+    resumo: "As Partes reconhecem como válida a assinatura eletrônica/digital, nos termos da MP 2.200-2/2001, através das plataformas Docusign ou Autentique."
+  },
+  {
+    numero: "21ª",
+    titulo: "Documentos Necessários",
+    categoria: "Formalização",
+    resumo: "As Partes devem apresentar: Contrato/Estatuto Social, alterações societárias, ata de eleição da Diretoria e documentos de comprovação de poderes."
+  },
+  {
+    numero: "22ª",
+    titulo: "Foro",
+    categoria: "Jurisdição",
+    resumo: "Foro da Cidade de São Paulo, Estado de São Paulo, para dirimir quaisquer dúvidas ou controvérsias."
   }
 ];
 
@@ -183,7 +318,7 @@ export default function Page() {
         </div>
       </Card>
 
-      {/* Documentação da Parceria BVix - NOVA SEÇÃO */}
+      {/* Documentação da Parceria BVix - SEÇÃO EXPANDIDA */}
       <Card className="p-6 bg-gradient-to-r from-slate-50 to-blue-50 border-l-4 border-slate-500">
         <div className="flex items-center gap-3 mb-4">
           <FileText className="w-8 h-8 text-slate-600" />
@@ -198,7 +333,8 @@ export default function Page() {
           para o compartilhamento seguro de informações estratégicas entre as partes.
         </p>
 
-        <div className="bg-white p-6 rounded-lg border border-slate-200">
+        {/* Informações Gerais do Documento */}
+        <div className="bg-white p-6 rounded-lg border border-slate-200 mb-6">
           <div className="flex items-start gap-4">
             <div className="p-3 bg-red-100 rounded-lg">
               <FileText className="w-8 h-8 text-red-600" />
@@ -235,28 +371,6 @@ export default function Page() {
                 </div>
               </div>
 
-              <div className="bg-slate-50 p-4 rounded-lg mb-4">
-                <h4 className="font-semibold text-slate-800 mb-2">Principais Disposições:</h4>
-                <ul className="space-y-1 text-sm text-slate-700">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span>Proteção de informações técnicas, econômicas, financeiras e comerciais</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span>Estudos para emissão de apólices de seguros e informações de negócios</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span>Tratamento de dados pessoais em conformidade com a legislação brasileira</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span>Foro da Cidade de São Paulo para resolução de controvérsias</span>
-                  </li>
-                </ul>
-              </div>
-
               <a 
                 href="/documentos/NDA-BVix-Seguradora-Potere.pdf" 
                 target="_blank" 
@@ -267,6 +381,167 @@ export default function Page() {
                 Baixar Documento Completo (PDF)
               </a>
             </div>
+          </div>
+        </div>
+
+        {/* Resumo Detalhado das Cláusulas */}
+        <div className="bg-white p-6 rounded-lg border border-slate-200">
+          <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+            <Scale className="w-6 h-6 text-blue-600" />
+            Resumo Detalhado das Cláusulas
+          </h3>
+          <p className="text-sm text-slate-600 mb-6">
+            O Acordo de Sigilo e Confidencialidade é composto por 22 cláusulas que regulamentam todos os aspectos 
+            da proteção de informações confidenciais entre as partes. Abaixo, apresentamos um resumo explicativo de cada cláusula:
+          </p>
+
+          {/* Agrupamento por Categoria */}
+          <div className="space-y-6">
+            {/* Considerações Preliminares e Definições */}
+            <div>
+              <h4 className="text-md font-bold text-blue-700 mb-3 pb-2 border-b border-blue-200 flex items-center gap-2">
+                <FileCheck className="w-5 h-5" />
+                Considerações Preliminares e Definições
+              </h4>
+              <div className="space-y-3">
+                {clausulasNDA.filter(c => ["Considerações Preliminares", "Definições"].includes(c.categoria)).map(clausula => (
+                  <div key={clausula.numero} className="bg-slate-50 p-4 rounded-lg">
+                    <div className="flex items-start gap-3">
+                      <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">
+                        {clausula.numero}
+                      </span>
+                      <div>
+                        <h5 className="font-semibold text-slate-800">{clausula.titulo}</h5>
+                        <p className="text-sm text-slate-600 mt-1">{clausula.resumo}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Obrigações e Vigência */}
+            <div>
+              <h4 className="text-md font-bold text-green-700 mb-3 pb-2 border-b border-green-200 flex items-center gap-2">
+                <Lock className="w-5 h-5" />
+                Obrigações e Vigência
+              </h4>
+              <div className="space-y-3">
+                {clausulasNDA.filter(c => ["Obrigações", "Vigência"].includes(c.categoria)).map(clausula => (
+                  <div key={clausula.numero} className="bg-green-50 p-4 rounded-lg">
+                    <div className="flex items-start gap-3">
+                      <span className="bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">
+                        {clausula.numero}
+                      </span>
+                      <div>
+                        <h5 className="font-semibold text-slate-800">{clausula.titulo}</h5>
+                        <p className="text-sm text-slate-600 mt-1">{clausula.resumo}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* LGPD */}
+            <div>
+              <h4 className="text-md font-bold text-purple-700 mb-3 pb-2 border-b border-purple-200 flex items-center gap-2">
+                <Shield className="w-5 h-5" />
+                Proteção de Dados Pessoais (LGPD)
+              </h4>
+              <div className="space-y-3">
+                {clausulasNDA.filter(c => c.categoria === "LGPD").map(clausula => (
+                  <div key={clausula.numero} className="bg-purple-50 p-4 rounded-lg">
+                    <div className="flex items-start gap-3">
+                      <span className="bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded">
+                        {clausula.numero}
+                      </span>
+                      <div>
+                        <h5 className="font-semibold text-slate-800">{clausula.titulo}</h5>
+                        <p className="text-sm text-slate-600 mt-1">{clausula.resumo}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Disposições Gerais */}
+            <div>
+              <h4 className="text-md font-bold text-slate-700 mb-3 pb-2 border-b border-slate-200 flex items-center gap-2">
+                <FileText className="w-5 h-5" />
+                Disposições Gerais
+              </h4>
+              <div className="grid md:grid-cols-2 gap-3">
+                {clausulasNDA.filter(c => c.categoria === "Disposições Gerais").map(clausula => (
+                  <div key={clausula.numero} className="bg-slate-50 p-4 rounded-lg">
+                    <div className="flex items-start gap-3">
+                      <span className="bg-slate-600 text-white text-xs font-bold px-2 py-1 rounded">
+                        {clausula.numero}
+                      </span>
+                      <div>
+                        <h5 className="font-semibold text-slate-800 text-sm">{clausula.titulo}</h5>
+                        <p className="text-xs text-slate-600 mt-1">{clausula.resumo}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Sanções */}
+            <div>
+              <h4 className="text-md font-bold text-red-700 mb-3 pb-2 border-b border-red-200 flex items-center gap-2">
+                <AlertTriangle className="w-5 h-5" />
+                Sanções e Penalidades
+              </h4>
+              <div className="space-y-3">
+                {clausulasNDA.filter(c => c.categoria === "Sanções").map(clausula => (
+                  <div key={clausula.numero} className="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <div className="flex items-start gap-3">
+                      <span className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">
+                        {clausula.numero}
+                      </span>
+                      <div>
+                        <h5 className="font-semibold text-slate-800">{clausula.titulo}</h5>
+                        <p className="text-sm text-slate-600 mt-1">{clausula.resumo}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Formalização e Jurisdição */}
+            <div>
+              <h4 className="text-md font-bold text-cyan-700 mb-3 pb-2 border-b border-cyan-200 flex items-center gap-2">
+                <Globe className="w-5 h-5" />
+                Formalização e Jurisdição
+              </h4>
+              <div className="space-y-3">
+                {clausulasNDA.filter(c => ["Formalização", "Jurisdição"].includes(c.categoria)).map(clausula => (
+                  <div key={clausula.numero} className="bg-cyan-50 p-4 rounded-lg">
+                    <div className="flex items-start gap-3">
+                      <span className="bg-cyan-600 text-white text-xs font-bold px-2 py-1 rounded">
+                        {clausula.numero}
+                      </span>
+                      <div>
+                        <h5 className="font-semibold text-slate-800">{clausula.titulo}</h5>
+                        <p className="text-sm text-slate-600 mt-1">{clausula.resumo}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Nota Final */}
+          <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <p className="text-sm text-blue-900">
+              <strong>Nota:</strong> Este resumo tem caráter informativo e não substitui a leitura integral do documento original. 
+              Para informações completas e juridicamente vinculantes, consulte o documento PDF disponível para download acima.
+            </p>
           </div>
         </div>
       </Card>
