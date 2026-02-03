@@ -1,13 +1,41 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 
 export function NavbarNew() {
   const [showProdutos, setShowProdutos] = useState(false);
   const [showInstitucional, setShowInstitucional] = useState(false);
+  const produtosTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const institucionalTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleProdutosEnter = () => {
+    if (produtosTimeoutRef.current) {
+      clearTimeout(produtosTimeoutRef.current);
+    }
+    setShowProdutos(true);
+  };
+
+  const handleProdutosLeave = () => {
+    produtosTimeoutRef.current = setTimeout(() => {
+      setShowProdutos(false);
+    }, 150);
+  };
+
+  const handleInstitucionalEnter = () => {
+    if (institucionalTimeoutRef.current) {
+      clearTimeout(institucionalTimeoutRef.current);
+    }
+    setShowInstitucional(true);
+  };
+
+  const handleInstitucionalLeave = () => {
+    institucionalTimeoutRef.current = setTimeout(() => {
+      setShowInstitucional(false);
+    }, 150);
+  };
 
   return (
     <header className="border-b bg-white/70 backdrop-blur sticky top-0 z-50">
@@ -21,7 +49,7 @@ export function NavbarNew() {
             priority
           />
         </Link>
-        <nav className="flex gap-6 text-sm">
+        <nav className="flex gap-6 text-sm items-center">
           <Link href="/sobre" className="hover:text-aura-primary transition-colors">
             Sobre
           </Link>
@@ -29,15 +57,19 @@ export function NavbarNew() {
           {/* Dropdown Produtos */}
           <div 
             className="relative"
-            onMouseEnter={() => setShowProdutos(true)}
-            onMouseLeave={() => setShowProdutos(false)}
+            onMouseEnter={handleProdutosEnter}
+            onMouseLeave={handleProdutosLeave}
           >
             <button className="flex items-center gap-1 hover:text-aura-primary transition-colors">
               Produtos
-              <ChevronDown className="w-4 h-4" />
+              <ChevronDown className={`w-4 h-4 transition-transform ${showProdutos ? 'rotate-180' : ''}`} />
             </button>
-            {showProdutos && (
-              <div className="absolute top-full left-0 mt-2 bg-white border rounded-lg shadow-lg py-2 min-w-[180px]">
+            <div 
+              className={`absolute top-full left-0 pt-2 transition-all duration-150 ${
+                showProdutos ? 'opacity-100 visible' : 'opacity-0 invisible'
+              }`}
+            >
+              <div className="bg-white border rounded-lg shadow-lg py-2 min-w-[180px]">
                 <Link 
                   href="/produtos/auto" 
                   className="block px-4 py-2 hover:bg-slate-50 hover:text-aura-primary transition-colors"
@@ -57,21 +89,25 @@ export function NavbarNew() {
                   Calculadora
                 </Link>
               </div>
-            )}
+            </div>
           </div>
 
           {/* Dropdown Institucional */}
           <div 
             className="relative"
-            onMouseEnter={() => setShowInstitucional(true)}
-            onMouseLeave={() => setShowInstitucional(false)}
+            onMouseEnter={handleInstitucionalEnter}
+            onMouseLeave={handleInstitucionalLeave}
           >
             <button className="flex items-center gap-1 hover:text-aura-primary transition-colors">
               Institucional
-              <ChevronDown className="w-4 h-4" />
+              <ChevronDown className={`w-4 h-4 transition-transform ${showInstitucional ? 'rotate-180' : ''}`} />
             </button>
-            {showInstitucional && (
-              <div className="absolute top-full left-0 mt-2 bg-white border rounded-lg shadow-lg py-2 min-w-[200px]">
+            <div 
+              className={`absolute top-full left-0 pt-2 transition-all duration-150 ${
+                showInstitucional ? 'opacity-100 visible' : 'opacity-0 invisible'
+              }`}
+            >
+              <div className="bg-white border rounded-lg shadow-lg py-2 min-w-[200px]">
                 <Link 
                   href="/ecossistema" 
                   className="block px-4 py-2 hover:bg-slate-50 hover:text-aura-primary transition-colors"
@@ -97,7 +133,7 @@ export function NavbarNew() {
                   Consultorias
                 </Link>
               </div>
-            )}
+            </div>
           </div>
 
           <Link href="/contato" className="hover:text-aura-primary transition-colors">
