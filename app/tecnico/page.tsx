@@ -22,7 +22,7 @@ export default function Page() {
             <h3 className="font-bold text-slate-800 mb-2">Informação Técnica</h3>
             <p className="text-sm text-slate-700">
               As informações apresentadas nesta página são baseadas em premissas atuariais conservadoras e 
-              estão em conformidade com as normas SUSEP (Resolução CNSP nº 416/2021 e Circular SUSEP nº 700/2024). 
+              estão em conformidade com as normas SUSEP (Resolução CNSP nº 432/2021 e Circular SUSEP nº 700/2024). 
               Os valores projetados podem sofrer variações conforme a evolução da carteira e sinistralidade real.
             </p>
           </div>
@@ -577,7 +577,7 @@ export default function Page() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-slate-700">Funding (custo de capital)</span>
-                  <span className="font-semibold text-slate-800">3% a.m.</span>
+                  <span className="font-semibold text-slate-800">3% a.a.</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-slate-700">Comissão</span>
@@ -624,7 +624,7 @@ export default function Page() {
           triângulos de run-off reais.
         </p>
         <p className="text-sm text-slate-700">
-          O desenho está em conformidade com as normas <strong>SUSEP/CNSP</strong> (Resolução 416/2021, 
+          O desenho está em conformidade com as normas <strong>SUSEP/CNSP</strong> (Resolução CNSP 388/2020, 432/2021, 
           Circular 700/2024) e pronto para compor a Nota Técnica Atuarial (NTA), Parecer Atuarial e 
           Plano de Negócios a protocolar.
         </p>

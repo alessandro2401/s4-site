@@ -113,7 +113,7 @@ export function Footer() {
                 Regulada e fiscalizada pela <strong>SUSEP</strong> - Superintendência de Seguros Privados
               </p>
               <p>
-                Segmento S4 conforme Resolução CNSP nº 416/2021
+                Segmento S4 conforme Resolução CNSP nº 388/2020
               </p>
             </div>
           </div>
@@ -121,7 +121,7 @@ export function Footer() {
 
         {/* Copyright */}
         <div className="mt-6 pt-6 border-t border-slate-200 text-center text-xs text-slate-500">
-          <p>© 2025 AURA Seguradora S/A. Todos os direitos reservados.</p>
+          <p>© 2026 AURA Seguradora S/A. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

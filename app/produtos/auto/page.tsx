@@ -129,7 +129,7 @@ export default function Page() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-aura-primary mt-1">•</span>
-                <span><strong>Perda Total:</strong> ≥ 65% FIPE ou dano estrutural</span>
+                <span><strong>Perda Total:</strong> ≥ 75% FIPE ou dano estrutural irreparável</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-aura-primary mt-1">•</span>
