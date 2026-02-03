@@ -12,7 +12,7 @@ export default function Home() {
       <section className="container grid md:grid-cols-3 gap-6 py-10">
         <Card className="p-6 space-y-2 hover:shadow-lg transition">
           <h2 className="text-xl font-semibold">Seguro Auto Mensal</h2>
-          <p>Indenização direta ao segurado, oficina livre e PT ≥ 65% FIPE.</p>
+          <p>Indenização direta ao segurado, oficina livre e PT ≥ 75% FIPE.</p>
           <Link href="/produtos/auto" className="text-aura-accent font-semibold">
             Saiba mais
           </Link>
@@ -28,7 +28,7 @@ export default function Home() {
         
         <Card className="p-6 space-y-2 hover:shadow-lg transition">
           <h2 className="text-xl font-semibold">Governança e SUSEP</h2>
-          <p>Transparência e conformidade (CNSP 416/2021 e Circular SUSEP 700/2024).</p>
+          <p>Transparência e conformidade (CNSP 388/2020, 432/2021 e Circular SUSEP 700/2024).</p>
           <Link href="/regulatorio" className="text-aura-accent font-semibold">
             Ver documentos
           </Link>
