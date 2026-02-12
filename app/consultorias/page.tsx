@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
-import { Building2, CheckCircle2, Shield, TrendingUp, Users, Cpu, FileText, Download, Calendar, Lock, Scale, AlertTriangle, Globe, FileCheck, ChevronDown, ChevronUp, Briefcase, DollarSign, Clock, Award, BookOpen, Gavel, BarChart3 } from "lucide-react";
+import { Building2, CheckCircle2, Shield, TrendingUp, Users, Cpu, FileText, Download, Calendar, Lock, Scale, AlertTriangle, Globe, FileCheck, ChevronDown, ChevronUp, Briefcase, DollarSign, Clock, Award, BookOpen, Gavel, BarChart3, Target, Trophy, Star, Zap, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 const consultorias = [
   {
@@ -1057,6 +1058,330 @@ export default function Page() {
             regulatórios, operacionais, tecnológicos e humanos alinhados desde o início, garantindo 
             operação sustentável e escalável.
           </p>
+        </div>
+      </Card>
+
+      {/* ===================== PARECER TÉCNICO - ANÁLISE MULTICRITÉRIO ===================== */}
+      <Card className="p-8 bg-gradient-to-r from-emerald-50 to-teal-50 border-l-4 border-emerald-500">
+        <div className="flex items-center gap-3 mb-2">
+          <span className="px-3 py-1 bg-emerald-600 text-white text-xs font-bold rounded-full uppercase tracking-wide">Parecer Técnico</span>
+          <span className="text-sm text-slate-500">Elaborado em 12/02/2026</span>
+        </div>
+        <div className="flex items-center gap-3 mb-4">
+          <Target className="w-8 h-8 text-emerald-600" />
+          <h2 className="text-2xl font-bold text-slate-800">
+            Análise Multicritério das Propostas de Consultoria
+          </h2>
+        </div>
+        <p className="text-slate-700 mb-6">
+          Para garantir uma avaliação objetiva e imparcial, foi utilizada uma metodologia de <strong>Análise Multicritério Ponderada</strong>. 
+          Foram definidos 8 critérios-chave, cada um com peso específico que reflete sua importância estratégica para o sucesso do projeto. 
+          As propostas foram pontuadas de 1 a 10 em cada critério, e o score final foi calculado pela soma ponderada das notas.
+        </p>
+
+        {/* Critérios e Pesos */}
+        <div className="bg-white p-6 rounded-lg border border-slate-200 mb-6">
+          <h3 className="font-bold text-slate-800 mb-4 flex items-center gap-2">
+            <Scale className="w-5 h-5 text-emerald-600" />
+            Critérios de Avaliação e Pesos
+          </h3>
+          <div className="grid md:grid-cols-2 gap-3">
+            <div className="flex items-center gap-3 p-3 bg-emerald-50 rounded-lg">
+              <span className="text-lg font-bold text-emerald-700 w-12">20%</span>
+              <div>
+                <p className="font-semibold text-slate-800 text-sm">Custo-Benefício</p>
+                <p className="text-xs text-slate-500">Relação entre custo total e valor do escopo</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 p-3 bg-emerald-50 rounded-lg">
+              <span className="text-lg font-bold text-emerald-700 w-12">20%</span>
+              <div>
+                <p className="font-semibold text-slate-800 text-sm">Escopo e Abrangência</p>
+                <p className="text-xs text-slate-500">Profundidade e amplitude dos serviços</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
+              <span className="text-lg font-bold text-blue-700 w-12">15%</span>
+              <div>
+                <p className="font-semibold text-slate-800 text-sm">Prazo de Entrega</p>
+                <p className="text-xs text-slate-500">Velocidade para colocar a seguradora em operação</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
+              <span className="text-lg font-bold text-blue-700 w-12">15%</span>
+              <div>
+                <p className="font-semibold text-slate-800 text-sm">Experiência / Track Record</p>
+                <p className="text-xs text-slate-500">Histórico comprovado em projetos similares</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
+              <span className="text-lg font-bold text-slate-600 w-12">10%</span>
+              <div>
+                <p className="font-semibold text-slate-800 text-sm">Modelo de Pagamento</p>
+                <p className="text-xs text-slate-500">Alinhamento com o sucesso do projeto</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
+              <span className="text-lg font-bold text-slate-600 w-12">10%</span>
+              <div>
+                <p className="font-semibold text-slate-800 text-sm">Portaria Autorizativa</p>
+                <p className="text-xs text-slate-500">Comprometimento com a entrega final SUSEP</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+              <span className="text-lg font-bold text-gray-500 w-12">5%</span>
+              <div>
+                <p className="font-semibold text-slate-800 text-sm">Serviços Complementares</p>
+                <p className="text-xs text-slate-500">Inclusão de TI, RH e outros</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+              <span className="text-lg font-bold text-gray-500 w-12">5%</span>
+              <div>
+                <p className="font-semibold text-slate-800 text-sm">Flexibilidade</p>
+                <p className="text-xs text-slate-500">Capacidade de adaptação (ex: opção S3)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Ranking Final */}
+        <div className="bg-white p-6 rounded-lg border border-slate-200 mb-6">
+          <h3 className="font-bold text-slate-800 mb-4 flex items-center gap-2">
+            <Trophy className="w-5 h-5 text-amber-500" />
+            Ranking Final
+          </h3>
+          <div className="space-y-3">
+            <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-emerald-50 to-green-50 rounded-lg border-2 border-emerald-300">
+              <div className="w-10 h-10 bg-emerald-600 text-white rounded-full flex items-center justify-center font-bold text-lg">1</div>
+              <div className="flex-1">
+                <p className="font-bold text-emerald-800 text-lg">SABZ + Prevue</p>
+                <p className="text-sm text-slate-600">Melhor relação custo-benefício, menor prazo (~7 meses), escopo completo</p>
+              </div>
+              <div className="text-right">
+                <p className="text-2xl font-bold text-emerald-600">7.75</p>
+                <p className="text-xs text-slate-500">R$ 400.000</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-amber-50 to-orange-50 rounded-lg border border-amber-200">
+              <div className="w-10 h-10 bg-amber-500 text-white rounded-full flex items-center justify-center font-bold text-lg">2</div>
+              <div className="flex-1">
+                <p className="font-bold text-amber-800 text-lg">JH Administração</p>
+                <p className="text-sm text-slate-600">Pagamento por performance, media training, flexibilidade S3/S4</p>
+              </div>
+              <div className="text-right">
+                <p className="text-2xl font-bold text-amber-600">7.50</p>
+                <p className="text-xs text-slate-500">R$ 560.000</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border border-blue-200">
+              <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg">3</div>
+              <div className="flex-1">
+                <p className="font-bold text-blue-800 text-lg">MC Seguros</p>
+                <p className="text-sm text-slate-600">Escopo mais completo (TI + RH), experiência comprovada, parceria BVix</p>
+              </div>
+              <div className="text-right">
+                <p className="text-2xl font-bold text-blue-600">7.15</p>
+                <p className="text-xs text-slate-500">~R$ 1.000.000</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 p-3 bg-slate-50 rounded-lg border border-slate-200">
+              <div className="w-10 h-10 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-lg">4</div>
+              <div className="flex-1">
+                <p className="font-bold text-slate-700">Way Business</p>
+                <p className="text-sm text-slate-500">Foco jurídico-regulatório, menor valor total</p>
+              </div>
+              <div className="text-right">
+                <p className="text-xl font-bold text-slate-600">5.70</p>
+                <p className="text-xs text-slate-500">R$ 250.000</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 p-3 bg-slate-50 rounded-lg border border-slate-200">
+              <div className="w-10 h-10 bg-red-400 text-white rounded-full flex items-center justify-center font-bold text-lg">5</div>
+              <div className="flex-1">
+                <p className="font-bold text-slate-700">R2 Assessoria</p>
+                <p className="text-sm text-slate-500">Foco contábil, escopo limitado para constituição</p>
+              </div>
+              <div className="text-right">
+                <p className="text-xl font-bold text-slate-600">4.45</p>
+                <p className="text-xs text-slate-500">R$ 318.000/ano</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Tabela de Notas Detalhada */}
+        <div className="bg-white p-6 rounded-lg border border-slate-200 mb-6">
+          <h3 className="font-bold text-slate-800 mb-4 flex items-center gap-2">
+            <BarChart3 className="w-5 h-5 text-indigo-600" />
+            Notas Detalhadas por Critério (1-10)
+          </h3>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-slate-100">
+                  <th className="text-left p-3 border border-slate-200 font-bold text-slate-700">Critério</th>
+                  <th className="text-left p-3 border border-slate-200 font-bold text-slate-700">Peso</th>
+                  <th className="text-center p-3 border border-slate-200 font-bold text-slate-700">MC Seguros</th>
+                  <th className="text-center p-3 border border-slate-200 font-bold text-amber-700 bg-amber-50">JH Adm.</th>
+                  <th className="text-center p-3 border border-slate-200 font-bold text-emerald-700 bg-emerald-50">SABZ + Prevue</th>
+                  <th className="text-center p-3 border border-slate-200 font-bold text-slate-700">Way Business</th>
+                  <th className="text-center p-3 border border-slate-200 font-bold text-slate-700">R2 Assess.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="p-3 border border-slate-200 font-semibold text-slate-700">Custo-Benefício</td>
+                  <td className="p-3 border border-slate-200 text-emerald-700 font-semibold">20%</td>
+                  <td className="p-3 border border-slate-200 text-center">5</td>
+                  <td className="p-3 border border-slate-200 text-center bg-amber-50">7</td>
+                  <td className="p-3 border border-slate-200 text-center bg-emerald-50 font-bold text-emerald-700">8</td>
+                  <td className="p-3 border border-slate-200 text-center">7</td>
+                  <td className="p-3 border border-slate-200 text-center">4</td>
+                </tr>
+                <tr className="bg-slate-50">
+                  <td className="p-3 border border-slate-200 font-semibold text-slate-700">Escopo e Abrangência</td>
+                  <td className="p-3 border border-slate-200 text-emerald-700 font-semibold">20%</td>
+                  <td className="p-3 border border-slate-200 text-center font-bold text-blue-700">10</td>
+                  <td className="p-3 border border-slate-200 text-center bg-amber-50">8</td>
+                  <td className="p-3 border border-slate-200 text-center bg-emerald-50">8</td>
+                  <td className="p-3 border border-slate-200 text-center">5</td>
+                  <td className="p-3 border border-slate-200 text-center">3</td>
+                </tr>
+                <tr>
+                  <td className="p-3 border border-slate-200 font-semibold text-slate-700">Prazo de Entrega</td>
+                  <td className="p-3 border border-slate-200 text-blue-700 font-semibold">15%</td>
+                  <td className="p-3 border border-slate-200 text-center">6</td>
+                  <td className="p-3 border border-slate-200 text-center bg-amber-50">7</td>
+                  <td className="p-3 border border-slate-200 text-center bg-emerald-50 font-bold text-emerald-700">9</td>
+                  <td className="p-3 border border-slate-200 text-center">3</td>
+                  <td className="p-3 border border-slate-200 text-center">5</td>
+                </tr>
+                <tr className="bg-slate-50">
+                  <td className="p-3 border border-slate-200 font-semibold text-slate-700">Experiência / Track Record</td>
+                  <td className="p-3 border border-slate-200 text-blue-700 font-semibold">15%</td>
+                  <td className="p-3 border border-slate-200 text-center font-bold text-blue-700">9</td>
+                  <td className="p-3 border border-slate-200 text-center bg-amber-50">6</td>
+                  <td className="p-3 border border-slate-200 text-center bg-emerald-50">8</td>
+                  <td className="p-3 border border-slate-200 text-center">7</td>
+                  <td className="p-3 border border-slate-200 text-center">7</td>
+                </tr>
+                <tr>
+                  <td className="p-3 border border-slate-200 font-semibold text-slate-700">Modelo de Pagamento</td>
+                  <td className="p-3 border border-slate-200 text-slate-600 font-semibold">10%</td>
+                  <td className="p-3 border border-slate-200 text-center">5</td>
+                  <td className="p-3 border border-slate-200 text-center bg-amber-50 font-bold text-amber-700">9</td>
+                  <td className="p-3 border border-slate-200 text-center bg-emerald-50">7</td>
+                  <td className="p-3 border border-slate-200 text-center">6</td>
+                  <td className="p-3 border border-slate-200 text-center">5</td>
+                </tr>
+                <tr className="bg-slate-50">
+                  <td className="p-3 border border-slate-200 font-semibold text-slate-700">Portaria Autorizativa</td>
+                  <td className="p-3 border border-slate-200 text-slate-600 font-semibold">10%</td>
+                  <td className="p-3 border border-slate-200 text-center">6</td>
+                  <td className="p-3 border border-slate-200 text-center bg-amber-50 font-bold text-amber-700">10</td>
+                  <td className="p-3 border border-slate-200 text-center bg-emerald-50">8</td>
+                  <td className="p-3 border border-slate-200 text-center">8</td>
+                  <td className="p-3 border border-slate-200 text-center">2</td>
+                </tr>
+                <tr>
+                  <td className="p-3 border border-slate-200 font-semibold text-slate-700">Serviços Complementares</td>
+                  <td className="p-3 border border-slate-200 text-gray-500 font-semibold">5%</td>
+                  <td className="p-3 border border-slate-200 text-center font-bold text-blue-700">10</td>
+                  <td className="p-3 border border-slate-200 text-center bg-amber-50">4</td>
+                  <td className="p-3 border border-slate-200 text-center bg-emerald-50">4</td>
+                  <td className="p-3 border border-slate-200 text-center">3</td>
+                  <td className="p-3 border border-slate-200 text-center">6</td>
+                </tr>
+                <tr className="bg-slate-50">
+                  <td className="p-3 border border-slate-200 font-semibold text-slate-700">Flexibilidade</td>
+                  <td className="p-3 border border-slate-200 text-gray-500 font-semibold">5%</td>
+                  <td className="p-3 border border-slate-200 text-center">6</td>
+                  <td className="p-3 border border-slate-200 text-center bg-amber-50 font-bold text-amber-700">9</td>
+                  <td className="p-3 border border-slate-200 text-center bg-emerald-50">6</td>
+                  <td className="p-3 border border-slate-200 text-center">5</td>
+                  <td className="p-3 border border-slate-200 text-center">5</td>
+                </tr>
+                <tr className="bg-emerald-100 font-bold">
+                  <td className="p-3 border border-slate-200 text-slate-800">SCORE FINAL</td>
+                  <td className="p-3 border border-slate-200 text-slate-800">100%</td>
+                  <td className="p-3 border border-slate-200 text-center text-blue-700">7.15</td>
+                  <td className="p-3 border border-slate-200 text-center text-amber-700 bg-amber-100">7.50</td>
+                  <td className="p-3 border border-slate-200 text-center text-emerald-700 bg-emerald-200">7.75</td>
+                  <td className="p-3 border border-slate-200 text-center text-slate-700">5.70</td>
+                  <td className="p-3 border border-slate-200 text-center text-slate-700">4.45</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Gráficos */}
+        <div className="bg-white p-6 rounded-lg border border-slate-200 mb-6">
+          <h3 className="font-bold text-slate-800 mb-4 flex items-center gap-2">
+            <BarChart3 className="w-5 h-5 text-blue-600" />
+            Visualizações da Análise
+          </h3>
+          <div className="space-y-6">
+            <div>
+              <p className="text-sm text-slate-600 mb-3 font-semibold">Análise Radar e Ranking Final</p>
+              <div className="rounded-lg overflow-hidden border border-slate-200">
+                <Image src="/analise/grafico_analise_consultorias.png" alt="Análise Radar e Ranking Final" width={1800} height={800} className="w-full h-auto" />
+              </div>
+            </div>
+            <div>
+              <p className="text-sm text-slate-600 mb-3 font-semibold">Decomposição do Score por Critério</p>
+              <div className="rounded-lg overflow-hidden border border-slate-200">
+                <Image src="/analise/grafico_decomposicao_consultorias.png" alt="Decomposição do Score por Critério" width={1400} height={700} className="w-full h-auto" />
+              </div>
+            </div>
+            <div>
+              <p className="text-sm text-slate-600 mb-3 font-semibold">Custo vs. Escopo (tamanho da bolha = score final)</p>
+              <div className="rounded-lg overflow-hidden border border-slate-200">
+                <Image src="/analise/grafico_custo_escopo.png" alt="Custo vs Escopo" width={1000} height={700} className="w-full h-auto" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Recomendação */}
+        <div className="bg-gradient-to-r from-emerald-600 to-teal-600 p-6 rounded-lg text-white mb-6">
+          <div className="flex items-center gap-3 mb-4">
+            <Star className="w-7 h-7 text-amber-300" />
+            <h3 className="text-xl font-bold">Recomendação Principal: SABZ + Prevue</h3>
+          </div>
+          <p className="text-emerald-50 mb-4">
+            A combinação de um <strong className="text-white">preço competitivo (R$ 400.000)</strong>, o <strong className="text-white">menor prazo de entrega 
+            do mercado (~7 meses)</strong> e um <strong className="text-white">escopo abrangente</strong> que cobre as frentes jurídica, atuarial e operacional, 
+            posiciona a SABZ + Prevue como a opção de maior valor agregado. A proposta demonstra profundo entendimento do processo SUSEP 
+            e oferece um caminho claro e eficiente para a obtenção da portaria autorizativa.
+          </p>
+        </div>
+
+        {/* Considerações Estratégicas */}
+        <div className="bg-white p-6 rounded-lg border border-slate-200">
+          <h3 className="font-bold text-slate-800 mb-4 flex items-center gap-2">
+            <Zap className="w-5 h-5 text-amber-500" />
+            Considerações Estratégicas
+          </h3>
+          <div className="space-y-4 text-sm text-slate-700">
+            <p>
+              Embora a SABZ + Prevue seja a recomendação principal, a <strong>JH Administração</strong> representa uma alternativa 
+              extremamente forte. Seu modelo de pagamento por performance mitiga riscos financeiros, e a flexibilidade para o 
+              segmento S3 pode ser uma vantagem estratégica. A diferença de pontuação entre as duas é mínima (7.75 vs 7.50), 
+              e a escolha pode depender do apetite ao risco e da prioridade entre custo/prazo (SABZ) vs. pagamento por performance/flexibilidade (JH).
+            </p>
+            <p>
+              A <strong>MC Seguros</strong>, apesar do score mais baixo devido ao custo, permanece como parceira estratégica valiosa, 
+              especialmente pela expertise na estruturação de TI e RH, que não são o foco das outras duas finalistas. Uma <strong>estratégia 
+              híbrida</strong>, contratando a SABZ + Prevue para o processo de constituição e a MC Seguros para projetos complementares 
+              de TI/RH, poderia ser uma abordagem robusta para garantir excelência em todas as frentes.
+            </p>
+            <p>
+              Recomenda-se uma <strong>reunião final com a JH Administração</strong> para discutir a flexibilidade de sua proposta e, 
+              paralelamente, manter a <strong>MC Seguros como parceira</strong> para escopos complementares de tecnologia e recursos humanos.
+            </p>
+          </div>
         </div>
       </Card>
 
