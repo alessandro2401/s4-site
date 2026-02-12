@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+
 import { MapPin, Mail, Shield, Phone, ExternalLink } from "lucide-react";
 import Image from "next/image";
 
@@ -15,10 +18,7 @@ export function Footer() {
               width={150} 
               height={42}
               className="mb-4 brightness-0 invert"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
-              }}
+
             />
             <p className="text-sm text-white/60 mb-5 leading-relaxed italic">
               "A energia que protege, ampara e inspira."
