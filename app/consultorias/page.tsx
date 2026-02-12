@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Building2, CheckCircle2, Shield, TrendingUp, Users, Cpu, FileText, Download, Calendar, Lock, Scale, AlertTriangle, Globe, FileCheck, ChevronDown, ChevronUp } from "lucide-react";
+import { Building2, CheckCircle2, Shield, TrendingUp, Users, Cpu, FileText, Download, Calendar, Lock, Scale, AlertTriangle, Globe, FileCheck, ChevronDown, ChevronUp, Briefcase, DollarSign, Clock, Award, BookOpen, Gavel, BarChart3 } from "lucide-react";
 
 const consultorias = [
   {
@@ -25,6 +25,12 @@ const consultorias = [
     foco: "Constituição completa de seguradora (jurídico, atuarial, operacional e regulatório)",
     custo: "R$ 400.000 divididos em 3 etapas: R$ 160.000 (Memorando), R$ 180.000 (Plano de Negócios), R$ 60.000 (Constituição)",
     forcas: "Abordagem integrada jurídico-atuarial; experiência em processos SUSEP; entrega de seguradora pronta para operar em ~7 meses"
+  },
+  {
+    nome: "JH Administração Empreendimentos",
+    foco: "Constituição completa de seguradora S3 ou S4 (viabilidade, projeto, plano de negócios, instrução SUSEP, assessoria jurídica)",
+    custo: "R$ 560.000 em 2 fases: R$ 392.000 (Fase 1) + R$ 168.000 (Fase 2)",
+    forcas: "Escopo flexível S3/S4; media training; pagamento vinculado a marcos regulatórios; assessoria jurídica para constituição inclusa"
   }
 ];
 
@@ -175,7 +181,445 @@ export default function Page() {
         </p>
       </div>
 
-      {/* Destaque MC Seguros */}
+      {/* ===================== NOVA PROPOSTA: JH Administração ===================== */}
+      <Card className="p-6 bg-gradient-to-r from-amber-50 to-orange-50 border-l-4 border-amber-500">
+        <div className="flex items-center gap-3 mb-2">
+          <span className="px-3 py-1 bg-amber-500 text-white text-xs font-bold rounded-full uppercase tracking-wide">Nova Proposta</span>
+          <span className="text-sm text-slate-500">Recebida em 06/02/2026</span>
+        </div>
+        <div className="flex items-center gap-3 mb-4">
+          <Briefcase className="w-8 h-8 text-amber-600" />
+          <h2 className="text-2xl font-bold text-slate-800">
+            JH Administração Empreendimentos Consultoria e Participações LTDA
+          </h2>
+        </div>
+        <p className="text-slate-700 mb-4">
+          Proposta de consultoria técnica integral para estudo de viabilidade e estruturação de projeto técnico e jurídico 
+          visando a <strong>Constituição de Sociedade Seguradora junto à SUSEP – Segmento S3 ou S4</strong>. 
+          Endereçada ao Sr. Renner Fidélis, com origem em Goiânia.
+        </p>
+        <p className="text-sm text-slate-500 mb-6">
+          CNPJ: 28.993.821/0001-95
+        </p>
+
+        {/* Resumo Financeiro */}
+        <div className="grid md:grid-cols-3 gap-4 mb-6">
+          <div className="bg-white p-4 rounded-lg border border-amber-200 text-center">
+            <DollarSign className="w-6 h-6 text-amber-600 mx-auto mb-2" />
+            <p className="text-sm text-slate-500 mb-1">Valor Total</p>
+            <p className="text-2xl font-bold text-amber-600">R$ 560.000</p>
+          </div>
+          <div className="bg-white p-4 rounded-lg border border-amber-200 text-center">
+            <Clock className="w-6 h-6 text-blue-600 mx-auto mb-2" />
+            <p className="text-sm text-slate-500 mb-1">Prazo Fase 1</p>
+            <p className="text-2xl font-bold text-blue-600">120-180 dias</p>
+          </div>
+          <div className="bg-white p-4 rounded-lg border border-amber-200 text-center">
+            <Award className="w-6 h-6 text-green-600 mx-auto mb-2" />
+            <p className="text-sm text-slate-500 mb-1">Segmentos</p>
+            <p className="text-2xl font-bold text-green-600">S3 ou S4</p>
+          </div>
+        </div>
+
+        {/* Fase 1 */}
+        <div className="bg-white p-6 rounded-lg border border-slate-200 mb-4">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded">FASE 1</span>
+            <h3 className="text-lg font-bold text-slate-800">Instrução Pré-Processual</h3>
+            <span className="ml-auto text-lg font-bold text-blue-600">R$ 392.000</span>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            <div>
+              <h4 className="font-semibold text-slate-700 mb-2 flex items-center gap-2">
+                <BookOpen className="w-4 h-4 text-blue-600" />
+                1. Estudo de Viabilidade
+              </h4>
+              <ul className="space-y-1 text-sm text-slate-600 ml-6">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-blue-500 flex-shrink-0 mt-1" />
+                  <span>Levantamento de requisitos regulatórios S3/S4</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-blue-500 flex-shrink-0 mt-1" />
+                  <span>Análise de viabilidade operacional (administrativa, TI, governança)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-blue-500 flex-shrink-0 mt-1" />
+                  <span>Estudo jurídico (obrigações legais, regulamentação)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-blue-500 flex-shrink-0 mt-1" />
+                  <span>Avaliação econômica (capital, fluxo de caixa, modelagem com cenários)</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-semibold text-slate-700 mb-2 flex items-center gap-2">
+                <FileText className="w-4 h-4 text-blue-600" />
+                2. Elaboração do Projeto
+              </h4>
+              <ul className="space-y-1 text-sm text-slate-600 ml-6">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-blue-500 flex-shrink-0 mt-1" />
+                  <span>Viabilidade técnica, jurídica e econômico-financeira</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-blue-500 flex-shrink-0 mt-1" />
+                  <span>Estratégias de estruturação e modelos societários</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-blue-500 flex-shrink-0 mt-1" />
+                  <span>Diretrizes estratégicas e cronograma-base</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-semibold text-slate-700 mb-2 flex items-center gap-2">
+                <Users className="w-4 h-4 text-blue-600" />
+                3. Dirigentes e Grupo de Controle
+              </h4>
+              <ul className="space-y-1 text-sm text-slate-600 ml-6">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-blue-500 flex-shrink-0 mt-1" />
+                  <span>Avaliação econômica dos dirigentes estatutários</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-blue-500 flex-shrink-0 mt-1" />
+                  <span>Verificação de origem e lastro dos recursos</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-blue-500 flex-shrink-0 mt-1" />
+                  <span>Análise de idoneidade conforme SUSEP</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-blue-500 flex-shrink-0 mt-1" />
+                  <span>Composição ideal do grupo de controle</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-semibold text-slate-700 mb-2 flex items-center gap-2">
+                <BarChart3 className="w-4 h-4 text-blue-600" />
+                5. Plano de Negócios Completo
+              </h4>
+              <ul className="space-y-1 text-sm text-slate-600 ml-6">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-blue-500 flex-shrink-0 mt-1" />
+                  <span>Estratégia institucional, missão, visão e objetivos</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-blue-500 flex-shrink-0 mt-1" />
+                  <span>Projeções econômico-financeiras detalhadas</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-blue-500 flex-shrink-0 mt-1" />
+                  <span>Análise de riscos e mecanismos de mitigação</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-blue-500 flex-shrink-0 mt-1" />
+                  <span>Cronograma de implementação e marcos principais</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Condições de Pagamento Fase 1 */}
+          <div className="mt-4 p-3 bg-blue-50 rounded-lg">
+            <p className="text-sm text-blue-900">
+              <strong>Pagamento Fase 1:</strong> R$ 160.000 na assinatura + 4 parcelas de R$ 58.000 (mensal, a partir de 30 dias)
+            </p>
+          </div>
+        </div>
+
+        {/* Fase 2 */}
+        <div className="bg-white p-6 rounded-lg border border-slate-200 mb-4">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="bg-green-600 text-white text-sm font-bold px-3 py-1 rounded">FASE 2</span>
+            <h3 className="text-lg font-bold text-slate-800">Instrução Processual SUSEP</h3>
+            <span className="ml-auto text-lg font-bold text-green-600">R$ 168.000</span>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            <div>
+              <h4 className="font-semibold text-slate-700 mb-2 flex items-center gap-2">
+                <Building2 className="w-4 h-4 text-green-600" />
+                1. Reuniões Técnicas SUSEP
+              </h4>
+              <ul className="space-y-1 text-sm text-slate-600 ml-6">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-green-500 flex-shrink-0 mt-1" />
+                  <span>Preparação da apresentação institucional do projeto</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-green-500 flex-shrink-0 mt-1" />
+                  <span>Organização e condução da 1ª reunião técnica com a SUSEP</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-green-500 flex-shrink-0 mt-1" />
+                  <span><strong>Media Training</strong> dos representantes da seguradora</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-green-500 flex-shrink-0 mt-1" />
+                  <span>Reuniões técnicas complementares (se necessárias)</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-semibold text-slate-700 mb-2 flex items-center gap-2">
+                <Shield className="w-4 h-4 text-green-600" />
+                2. Aprovação Prévia SUSEP
+              </h4>
+              <ul className="space-y-1 text-sm text-slate-600 ml-6">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-green-500 flex-shrink-0 mt-1" />
+                  <span>Preparação da documentação regulatória completa</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-green-500 flex-shrink-0 mt-1" />
+                  <span>Protocolo administrativo na SUSEP</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-green-500 flex-shrink-0 mt-1" />
+                  <span>Acompanhamento contínuo do processo</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-green-500 flex-shrink-0 mt-1" />
+                  <span>Obtenção do <strong>Ofício Autorizativo de Aprovação Prévia</strong></span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-semibold text-slate-700 mb-2 flex items-center gap-2">
+                <Gavel className="w-4 h-4 text-green-600" />
+                3. Assessoria Jurídica para Constituição
+              </h4>
+              <ul className="space-y-1 text-sm text-slate-600 ml-6">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-green-500 flex-shrink-0 mt-1" />
+                  <span>Elaboração de Estatuto Social, Atas, Nomeações formais</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-green-500 flex-shrink-0 mt-1" />
+                  <span>Registros em cartório, Junta Comercial e órgãos competentes</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-green-500 flex-shrink-0 mt-1" />
+                  <span>Acompanhamento da integralização de capital</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-semibold text-slate-700 mb-2 flex items-center gap-2">
+                <Award className="w-4 h-4 text-green-600" />
+                4. Aprovação Definitiva
+              </h4>
+              <ul className="space-y-1 text-sm text-slate-600 ml-6">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-green-500 flex-shrink-0 mt-1" />
+                  <span>Preparação e protocolo do processo definitivo na SUSEP</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-green-500 flex-shrink-0 mt-1" />
+                  <span>Acompanhamento da análise regulatória</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-green-500 flex-shrink-0 mt-1" />
+                  <span>Obtenção da <strong>Portaria Autorizativa</strong> (constituição e funcionamento)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3 h-3 text-green-500 flex-shrink-0 mt-1" />
+                  <span>Publicação no Diário Oficial da União</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Condições de Pagamento Fase 2 */}
+          <div className="mt-4 p-3 bg-green-50 rounded-lg">
+            <p className="text-sm text-green-900">
+              <strong>Pagamento Fase 2 (vinculado a marcos):</strong> R$ 84.000 após reunião técnica SUSEP | 
+              R$ 42.000 na expedição do Ofício de Aprovação Prévia | R$ 42.000 na publicação da Portaria Definitiva no DOU
+            </p>
+          </div>
+        </div>
+
+        {/* Diferenciais */}
+        <div className="bg-white p-4 rounded-lg border border-amber-200 mb-4">
+          <h3 className="font-bold text-slate-800 mb-3 flex items-center gap-2">
+            <TrendingUp className="w-5 h-5 text-amber-600" />
+            Diferenciais da Proposta
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3">
+            <div className="bg-amber-50 p-3 rounded-lg text-center">
+              <p className="text-sm font-semibold text-amber-700">Flexibilidade S3/S4</p>
+              <p className="text-xs text-slate-600 mt-1">Abrange ambos os segmentos</p>
+            </div>
+            <div className="bg-amber-50 p-3 rounded-lg text-center">
+              <p className="text-sm font-semibold text-amber-700">Media Training</p>
+              <p className="text-xs text-slate-600 mt-1">Preparação de dirigentes para SUSEP</p>
+            </div>
+            <div className="bg-amber-50 p-3 rounded-lg text-center">
+              <p className="text-sm font-semibold text-amber-700">Pagamento por Marco</p>
+              <p className="text-xs text-slate-600 mt-1">Fase 2 vinculada a resultados</p>
+            </div>
+            <div className="bg-amber-50 p-3 rounded-lg text-center">
+              <p className="text-sm font-semibold text-amber-700">Assessoria Jurídica</p>
+              <p className="text-xs text-slate-600 mt-1">Constituição societária inclusa</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Download da proposta */}
+        <a 
+          href="/documentos/Proposta-JH-Administracao-S4.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-amber-600 text-white rounded-lg font-medium hover:bg-amber-700 transition-colors"
+        >
+          <Download className="w-4 h-4" />
+          Baixar Proposta Completa (PDF)
+        </a>
+      </Card>
+
+      {/* ===================== TABELA COMPARATIVA COMPLETA ===================== */}
+      <Card className="p-6 border-l-4 border-indigo-500">
+        <div className="flex items-center gap-3 mb-6">
+          <BarChart3 className="w-8 h-8 text-indigo-600" />
+          <h2 className="text-2xl font-bold text-slate-800">
+            Tabela Comparativa Completa
+          </h2>
+        </div>
+
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border-collapse">
+            <thead>
+              <tr className="bg-slate-100">
+                <th className="text-left p-3 border border-slate-200 font-bold text-slate-700">Critério</th>
+                <th className="text-left p-3 border border-slate-200 font-bold text-slate-700">MC Seguros</th>
+                <th className="text-left p-3 border border-slate-200 font-bold text-amber-700 bg-amber-50">JH Administração</th>
+                <th className="text-left p-3 border border-slate-200 font-bold text-slate-700">SABZ + Prevue</th>
+                <th className="text-left p-3 border border-slate-200 font-bold text-slate-700">Way Business</th>
+                <th className="text-left p-3 border border-slate-200 font-bold text-slate-700">R2 Assessoria</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="p-3 border border-slate-200 font-semibold text-slate-700">Valor Total</td>
+                <td className="p-3 border border-slate-200 text-slate-600">~R$ 1.000.000</td>
+                <td className="p-3 border border-slate-200 text-amber-700 bg-amber-50 font-semibold">R$ 560.000</td>
+                <td className="p-3 border border-slate-200 text-slate-600">R$ 400.000</td>
+                <td className="p-3 border border-slate-200 text-slate-600">R$ 250.000</td>
+                <td className="p-3 border border-slate-200 text-slate-600">R$ 26.500/mês + serviços</td>
+              </tr>
+              <tr className="bg-slate-50">
+                <td className="p-3 border border-slate-200 font-semibold text-slate-700">Escopo Principal</td>
+                <td className="p-3 border border-slate-200 text-slate-600">Estruturação integral (viabilidade, RH, TI, processos)</td>
+                <td className="p-3 border border-slate-200 text-amber-700 bg-amber-50">Constituição completa S3/S4 (viabilidade + instrução SUSEP + jurídico)</td>
+                <td className="p-3 border border-slate-200 text-slate-600">Constituição completa (jurídico, atuarial, operacional)</td>
+                <td className="p-3 border border-slate-200 text-slate-600">Jurídico-regulatório SUSEP</td>
+                <td className="p-3 border border-slate-200 text-slate-600">Contabilidade SUSEP, FIP, controles</td>
+              </tr>
+              <tr>
+                <td className="p-3 border border-slate-200 font-semibold text-slate-700">Segmento</td>
+                <td className="p-3 border border-slate-200 text-slate-600">S4</td>
+                <td className="p-3 border border-slate-200 text-amber-700 bg-amber-50 font-semibold">S3 ou S4 (flexível)</td>
+                <td className="p-3 border border-slate-200 text-slate-600">S4</td>
+                <td className="p-3 border border-slate-200 text-slate-600">S4</td>
+                <td className="p-3 border border-slate-200 text-slate-600">S4</td>
+              </tr>
+              <tr className="bg-slate-50">
+                <td className="p-3 border border-slate-200 font-semibold text-slate-700">Prazo Estimado</td>
+                <td className="p-3 border border-slate-200 text-slate-600">~12 meses</td>
+                <td className="p-3 border border-slate-200 text-amber-700 bg-amber-50">120-180 dias (Fase 1) + prazos SUSEP (Fase 2)</td>
+                <td className="p-3 border border-slate-200 text-slate-600">~7 meses</td>
+                <td className="p-3 border border-slate-200 text-slate-600">~40 meses (parcelamento)</td>
+                <td className="p-3 border border-slate-200 text-slate-600">Contínuo (mensal)</td>
+              </tr>
+              <tr>
+                <td className="p-3 border border-slate-200 font-semibold text-slate-700">Plano de Negócios</td>
+                <td className="p-3 border border-slate-200 text-green-600 font-semibold">Incluso</td>
+                <td className="p-3 border border-slate-200 text-green-600 bg-amber-50 font-semibold">Incluso</td>
+                <td className="p-3 border border-slate-200 text-green-600 font-semibold">Incluso</td>
+                <td className="p-3 border border-slate-200 text-red-500">Não incluso</td>
+                <td className="p-3 border border-slate-200 text-slate-600">R$ 53.000 (à parte)</td>
+              </tr>
+              <tr className="bg-slate-50">
+                <td className="p-3 border border-slate-200 font-semibold text-slate-700">Assessoria Jurídica</td>
+                <td className="p-3 border border-slate-200 text-slate-600">Via parceiros</td>
+                <td className="p-3 border border-slate-200 text-green-600 bg-amber-50 font-semibold">Inclusa (constituição societária)</td>
+                <td className="p-3 border border-slate-200 text-green-600 font-semibold">Inclusa</td>
+                <td className="p-3 border border-slate-200 text-green-600 font-semibold">Inclusa</td>
+                <td className="p-3 border border-slate-200 text-red-500">Não inclusa</td>
+              </tr>
+              <tr>
+                <td className="p-3 border border-slate-200 font-semibold text-slate-700">Media Training</td>
+                <td className="p-3 border border-slate-200 text-red-500">Não incluso</td>
+                <td className="p-3 border border-slate-200 text-green-600 bg-amber-50 font-semibold">Incluso</td>
+                <td className="p-3 border border-slate-200 text-red-500">Não incluso</td>
+                <td className="p-3 border border-slate-200 text-red-500">Não incluso</td>
+                <td className="p-3 border border-slate-200 text-red-500">Não incluso</td>
+              </tr>
+              <tr className="bg-slate-50">
+                <td className="p-3 border border-slate-200 font-semibold text-slate-700">Reuniões SUSEP</td>
+                <td className="p-3 border border-slate-200 text-green-600 font-semibold">Incluso</td>
+                <td className="p-3 border border-slate-200 text-green-600 bg-amber-50 font-semibold">Incluso</td>
+                <td className="p-3 border border-slate-200 text-green-600 font-semibold">Incluso</td>
+                <td className="p-3 border border-slate-200 text-green-600 font-semibold">Incluso</td>
+                <td className="p-3 border border-slate-200 text-red-500">Não incluso</td>
+              </tr>
+              <tr>
+                <td className="p-3 border border-slate-200 font-semibold text-slate-700">Estruturação TI</td>
+                <td className="p-3 border border-slate-200 text-green-600 font-semibold">Incluso</td>
+                <td className="p-3 border border-slate-200 text-red-500 bg-amber-50">Não incluso</td>
+                <td className="p-3 border border-slate-200 text-red-500">Não incluso</td>
+                <td className="p-3 border border-slate-200 text-red-500">Não incluso</td>
+                <td className="p-3 border border-slate-200 text-red-500">Não incluso</td>
+              </tr>
+              <tr className="bg-slate-50">
+                <td className="p-3 border border-slate-200 font-semibold text-slate-700">Estruturação RH</td>
+                <td className="p-3 border border-slate-200 text-green-600 font-semibold">Incluso</td>
+                <td className="p-3 border border-slate-200 text-red-500 bg-amber-50">Não incluso</td>
+                <td className="p-3 border border-slate-200 text-red-500">Não incluso</td>
+                <td className="p-3 border border-slate-200 text-red-500">Não incluso</td>
+                <td className="p-3 border border-slate-200 text-red-500">Não incluso</td>
+              </tr>
+              <tr>
+                <td className="p-3 border border-slate-200 font-semibold text-slate-700">Pagamento por Performance</td>
+                <td className="p-3 border border-slate-200 text-red-500">Não</td>
+                <td className="p-3 border border-slate-200 text-green-600 bg-amber-50 font-semibold">Sim (Fase 2 vinculada a marcos)</td>
+                <td className="p-3 border border-slate-200 text-slate-600">Parcial (por etapas)</td>
+                <td className="p-3 border border-slate-200 text-red-500">Não (parcelamento fixo)</td>
+                <td className="p-3 border border-slate-200 text-red-500">Não (mensal fixo)</td>
+              </tr>
+              <tr className="bg-slate-50">
+                <td className="p-3 border border-slate-200 font-semibold text-slate-700">Portaria Autorizativa</td>
+                <td className="p-3 border border-slate-200 text-green-600 font-semibold">Acompanhamento</td>
+                <td className="p-3 border border-slate-200 text-green-600 bg-amber-50 font-semibold">Incluso (até publicação no DOU)</td>
+                <td className="p-3 border border-slate-200 text-green-600 font-semibold">Incluso</td>
+                <td className="p-3 border border-slate-200 text-green-600 font-semibold">Incluso</td>
+                <td className="p-3 border border-slate-200 text-red-500">Não incluso</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div className="mt-4 p-4 bg-indigo-50 rounded-lg border border-indigo-200">
+          <p className="text-sm text-indigo-900">
+            <strong>Nota:</strong> A tabela acima apresenta uma análise comparativa baseada nas propostas recebidas. 
+            Cada consultoria possui especialidades distintas e complementares. A escolha deve considerar não apenas 
+            o valor, mas o escopo de serviços, a experiência no segmento e o modelo de pagamento oferecido.
+          </p>
+        </div>
+      </Card>
+
+      {/* ===================== MC Seguros - Escolha Estratégica ===================== */}
       <Card className="p-6 bg-gradient-to-r from-blue-50 to-cyan-50 border-l-4 border-blue-500">
         <div className="flex items-center gap-3 mb-4">
           <Building2 className="w-8 h-8 text-blue-600" />
@@ -224,7 +668,7 @@ export default function Page() {
                 <span><strong>Parcerias consolidadas</strong> com BVix, R2, Way Business</span>
               </li>
               <li className="flex items-start gap-2">
-                <Cpu className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                <Cpu className="w-4 h-4 text-orange-600 flex-shrink-0 mt-0.5" />
                 <span><strong>Visão holística</strong> integrando todos os aspectos da seguradora</span>
               </li>
               <li className="flex items-start gap-2">
@@ -318,7 +762,7 @@ export default function Page() {
         </div>
       </Card>
 
-      {/* Documentação da Parceria BVix - SEÇÃO EXPANDIDA */}
+      {/* Documentação da Parceria BVix - NDA */}
       <Card className="p-6 bg-gradient-to-r from-slate-50 to-blue-50 border-l-4 border-slate-500">
         <div className="flex items-center gap-3 mb-4">
           <FileText className="w-8 h-8 text-slate-600" />
@@ -395,7 +839,6 @@ export default function Page() {
             da proteção de informações confidenciais entre as partes. Abaixo, apresentamos um resumo explicativo de cada cláusula:
           </p>
 
-          {/* Agrupamento por Categoria */}
           <div className="space-y-6">
             {/* Considerações Preliminares e Definições */}
             <div>
@@ -546,14 +989,17 @@ export default function Page() {
         </div>
       </Card>
 
-      {/* Comparativo Geral */}
+      {/* Comparativo Geral em Cards */}
       <div>
         <h2 className="text-2xl font-bold text-aura-primary mb-4">
           Comparativo Geral de Consultorias
         </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {consultorias.map(c => (
-            <Card key={c.nome} className="p-6 space-y-3">
+            <Card key={c.nome} className={`p-6 space-y-3 ${c.nome === "JH Administração Empreendimentos" ? "border-2 border-amber-400 bg-amber-50/30" : ""}`}>
+              {c.nome === "JH Administração Empreendimentos" && (
+                <span className="inline-block px-2 py-1 bg-amber-500 text-white text-xs font-bold rounded-full mb-1">NOVA</span>
+              )}
               <h3 className="text-xl font-semibold text-aura-primary">{c.nome}</h3>
               <div>
                 <p className="text-sm font-bold text-slate-800 mb-1">Foco:</p>
@@ -607,7 +1053,7 @@ export default function Page() {
 
         <div className="mt-6 p-4 bg-blue-100 rounded-lg">
           <p className="text-sm text-blue-900">
-            <strong>✨ Resultado:</strong> Seguradora estruturada de forma integral, com todos os aspectos 
+            <strong>Resultado:</strong> Seguradora estruturada de forma integral, com todos os aspectos 
             regulatórios, operacionais, tecnológicos e humanos alinhados desde o início, garantindo 
             operação sustentável e escalável.
           </p>
