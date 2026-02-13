@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Building2, CheckCircle2, Shield, TrendingUp, Users, Cpu, FileText, Download, Calendar, Lock, Scale, AlertTriangle, Globe, FileCheck, ChevronDown, ChevronUp, Briefcase, DollarSign, Clock, Award, BookOpen, Gavel, BarChart3, Target, Trophy, Star, Zap, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import AccordionBlindagem from "@/components/AccordionBlindagem";
 
 const consultorias = [
   {
@@ -1606,115 +1607,8 @@ export default function Page() {
           Guia completo de <strong>51 questões estratégicas</strong> organizadas em <strong>8 blocos temáticos</strong>, com mapa de riscos e cláusulas recomendadas, para servir de base na construção do <strong>Acordo de Sócios</strong> entre <strong>Renner</strong> (Grupo A12), <strong>Alessandro</strong> (Movimento Mais Brasil), <strong>Rodrigo</strong> (Uniauto) e <strong>Dennis</strong> (Grupo Ello).
         </p>
 
-        {/* Bloco 1 */}
-        <div className="bg-white rounded-xl p-6 mb-4 shadow-sm border-l-4 border-blue-500">
-          <h3 className="text-lg font-bold text-blue-700 mb-2 flex items-center gap-2"><Shield className="w-5 h-5" /> Bloco 1: Blindagem Patrimonial Individual</h3>
-          <p className="text-sm text-slate-600 mb-3">Define a estrutura de participação de cada sócio e estabelece barreiras para proteger o patrimônio pessoal contra riscos originados por um deles.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
-            <div className="bg-blue-50 rounded p-2"><strong>1.</strong> Estrutura de Participação (PF vs Holdings)</div>
-            <div className="bg-blue-50 rounded p-2"><strong>2.</strong> Responsabilidade por Dívidas Pessoais</div>
-            <div className="bg-blue-50 rounded p-2"><strong>3.</strong> Vedações a Garantias Pessoais</div>
-            <div className="bg-blue-50 rounded p-2"><strong>4.</strong> Proibição de Solidariedade</div>
-            <div className="bg-blue-50 rounded p-2 md:col-span-2"><strong>5.</strong> Holding Operacional vs. Patrimonial — Separação do risco operacional do patrimônio dos sócios</div>
-          </div>
-        </div>
-
-        {/* Bloco 2 */}
-        <div className="bg-white rounded-xl p-6 mb-4 shadow-sm border-l-4 border-emerald-500">
-          <h3 className="text-lg font-bold text-emerald-700 mb-2 flex items-center gap-2"><DollarSign className="w-5 h-5" /> Bloco 2: Capital, Aportes e Inadimplência</h3>
-          <p className="text-sm text-slate-600 mb-3">Regras claras de capitalização e consequências automáticas para inadimplência — risco crítico em negócios regulados.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
-            <div className="bg-emerald-50 rounded p-2"><strong>6.</strong> Chamadas de Capital (Capital Calls)</div>
-            <div className="bg-emerald-50 rounded p-2"><strong>7.</strong> Procedimento e Prazos de Integralização</div>
-            <div className="bg-emerald-50 rounded p-2"><strong>8.</strong> Consequências da Inadimplência (Multa, Suspensão)</div>
-            <div className="bg-emerald-50 rounded p-2"><strong>9.</strong> Mecanismo de Suprimento (Cure Period)</div>
-            <div className="bg-emerald-50 rounded p-2"><strong>10.</strong> Diluição Compulsória (Punitive Dilution)</div>
-            <div className="bg-emerald-50 rounded p-2"><strong>11.</strong> Opção de Compra Forçada (Buy-out)</div>
-          </div>
-        </div>
-
-        {/* Bloco 3 */}
-        <div className="bg-white rounded-xl p-6 mb-4 shadow-sm border-l-4 border-red-500">
-          <h3 className="text-lg font-bold text-red-700 mb-2 flex items-center gap-2"><AlertTriangle className="w-5 h-5" /> Bloco 3: Responsabilidade Regulatória e Técnica</h3>
-          <p className="text-sm text-slate-600 mb-3">Alocação de responsabilidades perante a SUSEP e mecanismos para isolar a operação de riscos por conduta de sócio.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
-            <div className="bg-red-50 rounded p-2"><strong>12.</strong> Responsável Técnico perante a SUSEP</div>
-            <div className="bg-red-50 rounded p-2"><strong>13.</strong> Segregação Seguradora vs Administradora</div>
-            <div className="bg-red-50 rounded p-2"><strong>14.</strong> Afastamento por Risco Regulatório</div>
-            <div className="bg-red-50 rounded p-2"><strong>15.</strong> Voto de Afastamento (2/3 maioria)</div>
-            <div className="bg-red-50 rounded p-2"><strong>16.</strong> Responsabilidade por Multas/Sanções</div>
-            <div className="bg-red-50 rounded p-2"><strong>17.</strong> Comunicação Oficial com Regulador</div>
-          </div>
-        </div>
-
-        {/* Bloco 4 */}
-        <div className="bg-white rounded-xl p-6 mb-4 shadow-sm border-l-4 border-amber-500">
-          <h3 className="text-lg font-bold text-amber-700 mb-2 flex items-center gap-2"><Scale className="w-5 h-5" /> Bloco 4: Poder, Veto e Travamento Decisório</h3>
-          <p className="text-sm text-slate-600 mb-3">Com participações igualitárias (25% cada), o risco de impasses é elevado. Mecanismos para evitar paralisia da gestão.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
-            <div className="bg-amber-50 rounded p-2"><strong>18.</strong> Matérias de Veto (Quórum Qualificado)</div>
-            <div className="bg-amber-50 rounded p-2"><strong>19.</strong> Decisões de Gestão Ordinária (Diretoria)</div>
-            <div className="bg-amber-50 rounded p-2"><strong>20.</strong> Mecanismos de Desempate (Deadlock)</div>
-            <div className="bg-amber-50 rounded p-2"><strong>21.</strong> Exclusão por Justa Causa Societária</div>
-            <div className="bg-amber-50 rounded p-2 md:col-span-2"><strong>22.</strong> Shotgun Clause (Buy-Sell Agreement) — Último recurso para impasses graves</div>
-          </div>
-        </div>
-
-        {/* Bloco 5 */}
-        <div className="bg-white rounded-xl p-6 mb-4 shadow-sm border-l-4 border-indigo-500">
-          <h3 className="text-lg font-bold text-indigo-700 mb-2 flex items-center gap-2"><TrendingUp className="w-5 h-5" /> Bloco 5: Remuneração, Retiradas e Distribuição</h3>
-          <p className="text-sm text-slate-600 mb-3">Garantir que a política de remuneração não comprometa solvência, capital regulatório e capacidade de investimento.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
-            <div className="bg-indigo-50 rounded p-2"><strong>23.</strong> Política de Pró-labore</div>
-            <div className="bg-indigo-50 rounded p-2"><strong>24.</strong> Remuneração Variável (Bônus)</div>
-            <div className="bg-indigo-50 rounded p-2"><strong>25.</strong> Distribuição de Dividendos</div>
-            <div className="bg-indigo-50 rounded p-2"><strong>26.</strong> Vedação a Antecipações de Lucros</div>
-            <div className="bg-indigo-50 rounded p-2 md:col-span-2"><strong>27.</strong> Limites de Endividamento e Despesas</div>
-          </div>
-        </div>
-
-        {/* Bloco 6 */}
-        <div className="bg-white rounded-xl p-6 mb-4 shadow-sm border-l-4 border-pink-500">
-          <h3 className="text-lg font-bold text-pink-700 mb-2 flex items-center gap-2"><Lock className="w-5 h-5" /> Bloco 6: Conflitos, Conduta e Quebra de Confiança</h3>
-          <p className="text-sm text-slate-600 mb-3">Código de conduta claro e consequências para violação de deveres fiduciários.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
-            <div className="bg-pink-50 rounded p-2"><strong>28.</strong> Não Concorrência (Non-Compete)</div>
-            <div className="bg-pink-50 rounded p-2"><strong>29.</strong> Confidencialidade e Não Aliciamento</div>
-            <div className="bg-pink-50 rounded p-2"><strong>30.</strong> Condutas Vedadas (Lista Exaustiva)</div>
-            <div className="bg-pink-50 rounded p-2"><strong>31.</strong> Consequências da Quebra Fiduciária</div>
-            <div className="bg-pink-50 rounded p-2 md:col-span-2"><strong>32.</strong> Canal de Denúncias e Apuração — Comitê independente ou auditoria externa</div>
-          </div>
-        </div>
-
-        {/* Bloco 7 */}
-        <div className="bg-white rounded-xl p-6 mb-4 shadow-sm border-l-4 border-teal-500">
-          <h3 className="text-lg font-bold text-teal-700 mb-2 flex items-center gap-2"><Gavel className="w-5 h-5" /> Bloco 7: Saída, Exclusão e Liquidação</h3>
-          <p className="text-sm text-slate-600 mb-3">Garantir continuidade da empresa e evitar judicialização em eventos de saída de sócios.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
-            <div className="bg-teal-50 rounded p-2"><strong>33.</strong> Direito de Saída Voluntária (Lock-up)</div>
-            <div className="bg-teal-50 rounded p-2"><strong>34.</strong> Procedimento de Saída (180 dias)</div>
-            <div className="bg-teal-50 rounded p-2"><strong>35.</strong> Valuation para Saída</div>
-            <div className="bg-teal-50 rounded p-2"><strong>36.</strong> Exclusão por Justa Causa</div>
-            <div className="bg-teal-50 rounded p-2"><strong>37.</strong> Valuation na Exclusão (Deságio Punitivo)</div>
-            <div className="bg-teal-50 rounded p-2"><strong>38.</strong> Direito de Preferência e Tag Along</div>
-            <div className="bg-teal-50 rounded p-2 md:col-span-2"><strong>39.</strong> Falecimento, Incapacidade e Divórcio — Liquidação obrigatória da participação</div>
-          </div>
-        </div>
-
-        {/* Bloco 8 */}
-        <div className="bg-white rounded-xl p-6 mb-4 shadow-sm border-l-4 border-cyan-500">
-          <h3 className="text-lg font-bold text-cyan-700 mb-2 flex items-center gap-2"><Globe className="w-5 h-5" /> Bloco 8: Captação de Recursos via Investidores Externos</h3>
-          <p className="text-sm text-slate-600 mb-3">Regras, instrumentos e governança para captação de recursos de investidores não sócios.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
-            <div className="bg-cyan-50 rounded p-2"><strong>45.</strong> Momento e Gatilhos para Captação</div>
-            <div className="bg-cyan-50 rounded p-2"><strong>46.</strong> Instrumentos (Anjo, SCP, Debêntures, Mútuo)</div>
-            <div className="bg-cyan-50 rounded p-2"><strong>47.</strong> Due Diligence do Investidor (PLD-FT)</div>
-            <div className="bg-cyan-50 rounded p-2"><strong>48.</strong> Direitos e Vedações do Investidor</div>
-            <div className="bg-cyan-50 rounded p-2"><strong>49.</strong> Estrutura de Rentabilidade</div>
-            <div className="bg-cyan-50 rounded p-2"><strong>50.</strong> Regras de Saída (Exit)</div>
-            <div className="bg-cyan-50 rounded p-2 md:col-span-2"><strong>51.</strong> Conformidade Regulatória (SUSEP/CVM)</div>
-          </div>
-        </div>
+        {/* Blocos com Accordion - Texto na Íntegra */}
+        <AccordionBlindagem />
 
         {/* Mapa de Riscos */}
         <div className="bg-white rounded-xl p-6 mb-4 shadow-sm">
