@@ -1385,6 +1385,455 @@ export default function Page() {
         </div>
       </Card>
 
+      {/* ========== PROPOSTA CONJUNTA JH CONSULTORIA ========== */}
+      <Card className="p-8 border-2 border-emerald-500 bg-gradient-to-br from-emerald-50 to-teal-50">
+        <div className="flex items-center gap-3 mb-6">
+          <span className="px-3 py-1 bg-emerald-600 text-white text-xs font-bold rounded-full uppercase tracking-wide">Proposta Conjunta</span>
+          <span className="px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full uppercase tracking-wide">JH Consultoria</span>
+        </div>
+        <h2 className="text-3xl font-bold text-aura-primary mb-2">Fluxo de Investimento — Seguradora + Administradora</h2>
+        <p className="text-slate-600 mb-6">
+          Proposta conjunta da <strong>JH Administração Empreendimentos</strong> para constituição simultânea da <strong>Seguradora S3/S4</strong> e da <strong>Administradora de Proteção Patrimonial Mutualista</strong>, com divisão igualitária entre os 3 sócios aportadores.
+        </p>
+
+        {/* Estrutura Societária */}
+        <div className="bg-white rounded-xl p-6 mb-6 shadow-sm">
+          <h3 className="text-xl font-bold text-aura-primary mb-4 flex items-center gap-2"><Users className="w-5 h-5" /> Estrutura Societária</h3>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div className="bg-blue-50 rounded-lg p-4 text-center border border-blue-200">
+              <div className="text-2xl font-bold text-blue-700">25%</div>
+              <div className="font-semibold text-blue-800">Renner Fidélis</div>
+              <div className="text-xs text-blue-600 mt-1">Grupo A12</div>
+              <span className="inline-block mt-2 px-2 py-0.5 bg-amber-100 text-amber-700 text-xs font-bold rounded-full">Administrador</span>
+            </div>
+            <div className="bg-emerald-50 rounded-lg p-4 text-center border border-emerald-200">
+              <div className="text-2xl font-bold text-emerald-700">25%</div>
+              <div className="font-semibold text-emerald-800">Alessandro</div>
+              <div className="text-xs text-emerald-600 mt-1">Movimento Mais Brasil</div>
+              <span className="inline-block mt-2 px-2 py-0.5 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full">Aportador</span>
+            </div>
+            <div className="bg-purple-50 rounded-lg p-4 text-center border border-purple-200">
+              <div className="text-2xl font-bold text-purple-700">25%</div>
+              <div className="font-semibold text-purple-800">Rodrigo</div>
+              <div className="text-xs text-purple-600 mt-1">Uniauto</div>
+              <span className="inline-block mt-2 px-2 py-0.5 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full">Aportador</span>
+            </div>
+            <div className="bg-orange-50 rounded-lg p-4 text-center border border-orange-200">
+              <div className="text-2xl font-bold text-orange-700">25%</div>
+              <div className="font-semibold text-orange-800">Dennis</div>
+              <div className="text-xs text-orange-600 mt-1">Grupo Ello</div>
+              <span className="inline-block mt-2 px-2 py-0.5 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full">Aportador</span>
+            </div>
+          </div>
+          <p className="text-sm text-slate-500 mt-3 text-center">Renner Fidélis participa como administrador (sem aporte financeiro). Os custos são divididos igualmente entre os 3 sócios aportadores.</p>
+        </div>
+
+        {/* Resumo Consolidado */}
+        <div className="bg-white rounded-xl p-6 mb-6 shadow-sm">
+          <h3 className="text-xl font-bold text-aura-primary mb-4 flex items-center gap-2"><DollarSign className="w-5 h-5" /> Resumo Consolidado</h3>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="bg-aura-primary text-white">
+                  <th className="p-3 text-left rounded-tl-lg">Projeto</th>
+                  <th className="p-3 text-right">Valor Total</th>
+                  <th className="p-3 text-right">Grupo Ello (Dennis)</th>
+                  <th className="p-3 text-right">Mov. Mais (Alessandro)</th>
+                  <th className="p-3 text-right rounded-tr-lg">Uniauto (Rodrigo)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-slate-200">
+                  <td className="p-3 font-semibold">Seguradora S3/S4</td>
+                  <td className="p-3 text-right font-bold">R$ 560.000</td>
+                  <td className="p-3 text-right">R$ 186.667</td>
+                  <td className="p-3 text-right">R$ 186.667</td>
+                  <td className="p-3 text-right">R$ 186.667</td>
+                </tr>
+                <tr className="border-b border-slate-200">
+                  <td className="p-3 font-semibold">Administradora PPM</td>
+                  <td className="p-3 text-right font-bold">R$ 196.000</td>
+                  <td className="p-3 text-right">R$ 65.333</td>
+                  <td className="p-3 text-right">R$ 65.333</td>
+                  <td className="p-3 text-right">R$ 65.333</td>
+                </tr>
+                <tr className="border-b border-slate-200 bg-amber-50">
+                  <td className="p-3 font-semibold">Gestão Renner Fidélis</td>
+                  <td className="p-3 text-right font-bold">R$ 50.000</td>
+                  <td className="p-3 text-right">R$ 16.667</td>
+                  <td className="p-3 text-right">R$ 16.667</td>
+                  <td className="p-3 text-right">R$ 16.667</td>
+                </tr>
+                <tr className="bg-aura-primary/10 font-bold">
+                  <td className="p-3 rounded-bl-lg">TOTAL GERAL</td>
+                  <td className="p-3 text-right text-lg text-aura-primary">R$ 806.000</td>
+                  <td className="p-3 text-right text-aura-primary">R$ 268.667</td>
+                  <td className="p-3 text-right text-aura-primary">R$ 268.667</td>
+                  <td className="p-3 text-right text-aura-primary rounded-br-lg">R$ 268.667</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Cronograma Seguradora */}
+        <div className="bg-white rounded-xl p-6 mb-6 shadow-sm">
+          <h3 className="text-xl font-bold text-aura-primary mb-4 flex items-center gap-2"><Calendar className="w-5 h-5" /> Cronograma — Seguradora S3/S4 (R$ 560.000)</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 className="font-bold text-slate-700 mb-3">Fase I — Instrução Pré-Processual (R$ 392.000)</h4>
+              <div className="space-y-2">
+                <div className="flex justify-between items-center bg-blue-50 rounded-lg p-3">
+                  <span className="text-sm"><strong>Assinatura</strong> (Fevereiro)</span>
+                  <div className="text-right"><div className="font-bold">R$ 160.000</div><div className="text-xs text-slate-500">R$ 53.333/sócio</div></div>
+                </div>
+                <div className="flex justify-between items-center bg-slate-50 rounded-lg p-3">
+                  <span className="text-sm"><strong>30 dias</strong> (Março)</span>
+                  <div className="text-right"><div className="font-bold">R$ 58.000</div><div className="text-xs text-slate-500">R$ 19.333/sócio</div></div>
+                </div>
+                <div className="flex justify-between items-center bg-blue-50 rounded-lg p-3">
+                  <span className="text-sm"><strong>60 dias</strong> (Abril)</span>
+                  <div className="text-right"><div className="font-bold">R$ 58.000</div><div className="text-xs text-slate-500">R$ 19.333/sócio</div></div>
+                </div>
+                <div className="flex justify-between items-center bg-slate-50 rounded-lg p-3">
+                  <span className="text-sm"><strong>90 dias</strong> (Maio)</span>
+                  <div className="text-right"><div className="font-bold">R$ 58.000</div><div className="text-xs text-slate-500">R$ 19.333/sócio</div></div>
+                </div>
+                <div className="flex justify-between items-center bg-blue-50 rounded-lg p-3">
+                  <span className="text-sm"><strong>120 dias</strong> (Junho)</span>
+                  <div className="text-right"><div className="font-bold">R$ 58.000</div><div className="text-xs text-slate-500">R$ 19.333/sócio</div></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h4 className="font-bold text-slate-700 mb-3">Fase II — Instrução Processual SUSEP (R$ 168.000)</h4>
+              <div className="space-y-2">
+                <div className="flex justify-between items-center bg-emerald-50 rounded-lg p-3">
+                  <span className="text-sm"><strong>Ofício SUSEP</strong></span>
+                  <div className="text-right"><div className="font-bold">R$ 84.000</div><div className="text-xs text-slate-500">R$ 28.000/sócio</div></div>
+                </div>
+                <div className="flex justify-between items-center bg-teal-50 rounded-lg p-3">
+                  <span className="text-sm"><strong>Publicação DOU</strong></span>
+                  <div className="text-right"><div className="font-bold">R$ 84.000</div><div className="text-xs text-slate-500">R$ 28.000/sócio</div></div>
+                </div>
+              </div>
+              <div className="mt-4 bg-amber-50 border border-amber-200 rounded-lg p-3">
+                <p className="text-sm text-amber-800"><strong>Nota:</strong> Pagamentos da Fase II vinculados a marcos regulatórios (emissão de ofício e publicação da Portaria Autorizativa no DOU).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Cronograma Administradora */}
+        <div className="bg-white rounded-xl p-6 mb-6 shadow-sm">
+          <h3 className="text-xl font-bold text-aura-primary mb-4 flex items-center gap-2"><Calendar className="w-5 h-5" /> Cronograma — Administradora PPM (R$ 196.000)</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 className="font-bold text-slate-700 mb-3">Fase 1 — Instrução Pré-Processual (R$ 196.000)</h4>
+              <div className="space-y-2">
+                <div className="flex justify-between items-center bg-purple-50 rounded-lg p-3">
+                  <span className="text-sm"><strong>Assinatura</strong> (até 5 dias)</span>
+                  <div className="text-right"><div className="font-bold">R$ 76.000</div><div className="text-xs text-slate-500">R$ 25.333/sócio</div></div>
+                </div>
+                <div className="flex justify-between items-center bg-slate-50 rounded-lg p-3">
+                  <span className="text-sm"><strong>30 dias</strong></span>
+                  <div className="text-right"><div className="font-bold">R$ 40.000</div><div className="text-xs text-slate-500">R$ 13.333/sócio</div></div>
+                </div>
+                <div className="flex justify-between items-center bg-purple-50 rounded-lg p-3">
+                  <span className="text-sm"><strong>60 dias</strong></span>
+                  <div className="text-right"><div className="font-bold">R$ 40.000</div><div className="text-xs text-slate-500">R$ 13.333/sócio</div></div>
+                </div>
+                <div className="flex justify-between items-center bg-slate-50 rounded-lg p-3">
+                  <span className="text-sm"><strong>90 dias</strong></span>
+                  <div className="text-right"><div className="font-bold">R$ 40.000</div><div className="text-xs text-slate-500">R$ 13.333/sócio</div></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h4 className="font-bold text-slate-700 mb-3">Fase 2 — Instrução Processual SUSEP</h4>
+              <div className="bg-slate-100 rounded-lg p-4">
+                <p className="text-sm text-slate-600"><strong>Valores a definir</strong> conforme regulamentação futura do CNSP e SUSEP para a figura da Administradora no Subsistema de Proteção Patrimonial Mutualista.</p>
+              </div>
+              <div className="mt-4 bg-blue-50 border border-blue-200 rounded-lg p-3">
+                <p className="text-sm text-blue-800"><strong>Observação:</strong> Caso os sócios contratem a JH Consultoria também para a seguradora S3/S4, o valor da Fase 1 da Administradora permanece R$ 196.000. Caso optem apenas pela administradora, novo valor será estabelecido.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Gestão Renner */}
+        <div className="bg-white rounded-xl p-6 mb-6 shadow-sm">
+          <h3 className="text-xl font-bold text-aura-primary mb-4 flex items-center gap-2"><Briefcase className="w-5 h-5" /> Gestão Renner Fidélis (R$ 50.000)</h3>
+          <p className="text-slate-600 mb-3">Valor referente à remuneração do administrador Renner Fidélis pela gestão do projeto de constituição, pago em 90 dias e dividido igualmente entre os 3 sócios aportadores.</p>
+          <div className="grid grid-cols-3 gap-4">
+            <div className="bg-orange-50 rounded-lg p-3 text-center border border-orange-200">
+              <div className="text-sm text-orange-600">Grupo Ello (Dennis)</div>
+              <div className="text-lg font-bold text-orange-700">R$ 16.667</div>
+            </div>
+            <div className="bg-emerald-50 rounded-lg p-3 text-center border border-emerald-200">
+              <div className="text-sm text-emerald-600">Mov. Mais (Alessandro)</div>
+              <div className="text-lg font-bold text-emerald-700">R$ 16.667</div>
+            </div>
+            <div className="bg-purple-50 rounded-lg p-3 text-center border border-purple-200">
+              <div className="text-sm text-purple-600">Uniauto (Rodrigo)</div>
+              <div className="text-lg font-bold text-purple-700">R$ 16.667</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Downloads */}
+        <div className="flex flex-wrap gap-4">
+          <a href="/documentos/Fluxo-Investimento-Consultoria.xlsx" download className="flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors text-sm font-semibold">
+            <Download className="w-4 h-4" /> Baixar Planilha de Investimento (XLSX)
+          </a>
+          <a href="/documentos/Proposta-JH-Administracao-S4.pdf" download className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-semibold">
+            <Download className="w-4 h-4" /> Proposta Seguradora (PDF)
+          </a>
+          <a href="/documentos/Proposta-Consultoria-Administradora-PPM.pdf" download className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm font-semibold">
+            <Download className="w-4 h-4" /> Proposta Administradora (PDF)
+          </a>
+        </div>
+      </Card>
+
+      {/* ========== GUIA DE BLINDAGEM SOCIETÁRIA ========== */}
+      <Card className="p-8 border-2 border-red-400 bg-gradient-to-br from-red-50 to-orange-50">
+        <div className="flex items-center gap-3 mb-6">
+          <span className="px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full uppercase tracking-wide">Guia Estratégico</span>
+          <span className="px-3 py-1 bg-aura-primary text-white text-xs font-bold rounded-full uppercase tracking-wide">Acordo de Sócios</span>
+        </div>
+        <h2 className="text-3xl font-bold text-aura-primary mb-2">Blindagem Societária e Estruturação Regulatória</h2>
+        <p className="text-slate-600 mb-6">
+          Guia completo de <strong>51 questões estratégicas</strong> organizadas em <strong>8 blocos temáticos</strong>, com mapa de riscos e cláusulas recomendadas, para servir de base na construção do <strong>Acordo de Sócios</strong> entre <strong>Renner</strong> (Grupo A12), <strong>Alessandro</strong> (Movimento Mais Brasil), <strong>Rodrigo</strong> (Uniauto) e <strong>Dennis</strong> (Grupo Ello).
+        </p>
+
+        {/* Bloco 1 */}
+        <div className="bg-white rounded-xl p-6 mb-4 shadow-sm border-l-4 border-blue-500">
+          <h3 className="text-lg font-bold text-blue-700 mb-2 flex items-center gap-2"><Shield className="w-5 h-5" /> Bloco 1: Blindagem Patrimonial Individual</h3>
+          <p className="text-sm text-slate-600 mb-3">Define a estrutura de participação de cada sócio e estabelece barreiras para proteger o patrimônio pessoal contra riscos originados por um deles.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+            <div className="bg-blue-50 rounded p-2"><strong>1.</strong> Estrutura de Participação (PF vs Holdings)</div>
+            <div className="bg-blue-50 rounded p-2"><strong>2.</strong> Responsabilidade por Dívidas Pessoais</div>
+            <div className="bg-blue-50 rounded p-2"><strong>3.</strong> Vedações a Garantias Pessoais</div>
+            <div className="bg-blue-50 rounded p-2"><strong>4.</strong> Proibição de Solidariedade</div>
+            <div className="bg-blue-50 rounded p-2 md:col-span-2"><strong>5.</strong> Holding Operacional vs. Patrimonial — Separação do risco operacional do patrimônio dos sócios</div>
+          </div>
+        </div>
+
+        {/* Bloco 2 */}
+        <div className="bg-white rounded-xl p-6 mb-4 shadow-sm border-l-4 border-emerald-500">
+          <h3 className="text-lg font-bold text-emerald-700 mb-2 flex items-center gap-2"><DollarSign className="w-5 h-5" /> Bloco 2: Capital, Aportes e Inadimplência</h3>
+          <p className="text-sm text-slate-600 mb-3">Regras claras de capitalização e consequências automáticas para inadimplência — risco crítico em negócios regulados.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+            <div className="bg-emerald-50 rounded p-2"><strong>6.</strong> Chamadas de Capital (Capital Calls)</div>
+            <div className="bg-emerald-50 rounded p-2"><strong>7.</strong> Procedimento e Prazos de Integralização</div>
+            <div className="bg-emerald-50 rounded p-2"><strong>8.</strong> Consequências da Inadimplência (Multa, Suspensão)</div>
+            <div className="bg-emerald-50 rounded p-2"><strong>9.</strong> Mecanismo de Suprimento (Cure Period)</div>
+            <div className="bg-emerald-50 rounded p-2"><strong>10.</strong> Diluição Compulsória (Punitive Dilution)</div>
+            <div className="bg-emerald-50 rounded p-2"><strong>11.</strong> Opção de Compra Forçada (Buy-out)</div>
+          </div>
+        </div>
+
+        {/* Bloco 3 */}
+        <div className="bg-white rounded-xl p-6 mb-4 shadow-sm border-l-4 border-red-500">
+          <h3 className="text-lg font-bold text-red-700 mb-2 flex items-center gap-2"><AlertTriangle className="w-5 h-5" /> Bloco 3: Responsabilidade Regulatória e Técnica</h3>
+          <p className="text-sm text-slate-600 mb-3">Alocação de responsabilidades perante a SUSEP e mecanismos para isolar a operação de riscos por conduta de sócio.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+            <div className="bg-red-50 rounded p-2"><strong>12.</strong> Responsável Técnico perante a SUSEP</div>
+            <div className="bg-red-50 rounded p-2"><strong>13.</strong> Segregação Seguradora vs Administradora</div>
+            <div className="bg-red-50 rounded p-2"><strong>14.</strong> Afastamento por Risco Regulatório</div>
+            <div className="bg-red-50 rounded p-2"><strong>15.</strong> Voto de Afastamento (2/3 maioria)</div>
+            <div className="bg-red-50 rounded p-2"><strong>16.</strong> Responsabilidade por Multas/Sanções</div>
+            <div className="bg-red-50 rounded p-2"><strong>17.</strong> Comunicação Oficial com Regulador</div>
+          </div>
+        </div>
+
+        {/* Bloco 4 */}
+        <div className="bg-white rounded-xl p-6 mb-4 shadow-sm border-l-4 border-amber-500">
+          <h3 className="text-lg font-bold text-amber-700 mb-2 flex items-center gap-2"><Scale className="w-5 h-5" /> Bloco 4: Poder, Veto e Travamento Decisório</h3>
+          <p className="text-sm text-slate-600 mb-3">Com participações igualitárias (25% cada), o risco de impasses é elevado. Mecanismos para evitar paralisia da gestão.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+            <div className="bg-amber-50 rounded p-2"><strong>18.</strong> Matérias de Veto (Quórum Qualificado)</div>
+            <div className="bg-amber-50 rounded p-2"><strong>19.</strong> Decisões de Gestão Ordinária (Diretoria)</div>
+            <div className="bg-amber-50 rounded p-2"><strong>20.</strong> Mecanismos de Desempate (Deadlock)</div>
+            <div className="bg-amber-50 rounded p-2"><strong>21.</strong> Exclusão por Justa Causa Societária</div>
+            <div className="bg-amber-50 rounded p-2 md:col-span-2"><strong>22.</strong> Shotgun Clause (Buy-Sell Agreement) — Último recurso para impasses graves</div>
+          </div>
+        </div>
+
+        {/* Bloco 5 */}
+        <div className="bg-white rounded-xl p-6 mb-4 shadow-sm border-l-4 border-indigo-500">
+          <h3 className="text-lg font-bold text-indigo-700 mb-2 flex items-center gap-2"><TrendingUp className="w-5 h-5" /> Bloco 5: Remuneração, Retiradas e Distribuição</h3>
+          <p className="text-sm text-slate-600 mb-3">Garantir que a política de remuneração não comprometa solvência, capital regulatório e capacidade de investimento.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+            <div className="bg-indigo-50 rounded p-2"><strong>23.</strong> Política de Pró-labore</div>
+            <div className="bg-indigo-50 rounded p-2"><strong>24.</strong> Remuneração Variável (Bônus)</div>
+            <div className="bg-indigo-50 rounded p-2"><strong>25.</strong> Distribuição de Dividendos</div>
+            <div className="bg-indigo-50 rounded p-2"><strong>26.</strong> Vedação a Antecipações de Lucros</div>
+            <div className="bg-indigo-50 rounded p-2 md:col-span-2"><strong>27.</strong> Limites de Endividamento e Despesas</div>
+          </div>
+        </div>
+
+        {/* Bloco 6 */}
+        <div className="bg-white rounded-xl p-6 mb-4 shadow-sm border-l-4 border-pink-500">
+          <h3 className="text-lg font-bold text-pink-700 mb-2 flex items-center gap-2"><Lock className="w-5 h-5" /> Bloco 6: Conflitos, Conduta e Quebra de Confiança</h3>
+          <p className="text-sm text-slate-600 mb-3">Código de conduta claro e consequências para violação de deveres fiduciários.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+            <div className="bg-pink-50 rounded p-2"><strong>28.</strong> Não Concorrência (Non-Compete)</div>
+            <div className="bg-pink-50 rounded p-2"><strong>29.</strong> Confidencialidade e Não Aliciamento</div>
+            <div className="bg-pink-50 rounded p-2"><strong>30.</strong> Condutas Vedadas (Lista Exaustiva)</div>
+            <div className="bg-pink-50 rounded p-2"><strong>31.</strong> Consequências da Quebra Fiduciária</div>
+            <div className="bg-pink-50 rounded p-2 md:col-span-2"><strong>32.</strong> Canal de Denúncias e Apuração — Comitê independente ou auditoria externa</div>
+          </div>
+        </div>
+
+        {/* Bloco 7 */}
+        <div className="bg-white rounded-xl p-6 mb-4 shadow-sm border-l-4 border-teal-500">
+          <h3 className="text-lg font-bold text-teal-700 mb-2 flex items-center gap-2"><Gavel className="w-5 h-5" /> Bloco 7: Saída, Exclusão e Liquidação</h3>
+          <p className="text-sm text-slate-600 mb-3">Garantir continuidade da empresa e evitar judicialização em eventos de saída de sócios.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+            <div className="bg-teal-50 rounded p-2"><strong>33.</strong> Direito de Saída Voluntária (Lock-up)</div>
+            <div className="bg-teal-50 rounded p-2"><strong>34.</strong> Procedimento de Saída (180 dias)</div>
+            <div className="bg-teal-50 rounded p-2"><strong>35.</strong> Valuation para Saída</div>
+            <div className="bg-teal-50 rounded p-2"><strong>36.</strong> Exclusão por Justa Causa</div>
+            <div className="bg-teal-50 rounded p-2"><strong>37.</strong> Valuation na Exclusão (Deságio Punitivo)</div>
+            <div className="bg-teal-50 rounded p-2"><strong>38.</strong> Direito de Preferência e Tag Along</div>
+            <div className="bg-teal-50 rounded p-2 md:col-span-2"><strong>39.</strong> Falecimento, Incapacidade e Divórcio — Liquidação obrigatória da participação</div>
+          </div>
+        </div>
+
+        {/* Bloco 8 */}
+        <div className="bg-white rounded-xl p-6 mb-4 shadow-sm border-l-4 border-cyan-500">
+          <h3 className="text-lg font-bold text-cyan-700 mb-2 flex items-center gap-2"><Globe className="w-5 h-5" /> Bloco 8: Captação de Recursos via Investidores Externos</h3>
+          <p className="text-sm text-slate-600 mb-3">Regras, instrumentos e governança para captação de recursos de investidores não sócios.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+            <div className="bg-cyan-50 rounded p-2"><strong>45.</strong> Momento e Gatilhos para Captação</div>
+            <div className="bg-cyan-50 rounded p-2"><strong>46.</strong> Instrumentos (Anjo, SCP, Debêntures, Mútuo)</div>
+            <div className="bg-cyan-50 rounded p-2"><strong>47.</strong> Due Diligence do Investidor (PLD-FT)</div>
+            <div className="bg-cyan-50 rounded p-2"><strong>48.</strong> Direitos e Vedações do Investidor</div>
+            <div className="bg-cyan-50 rounded p-2"><strong>49.</strong> Estrutura de Rentabilidade</div>
+            <div className="bg-cyan-50 rounded p-2"><strong>50.</strong> Regras de Saída (Exit)</div>
+            <div className="bg-cyan-50 rounded p-2 md:col-span-2"><strong>51.</strong> Conformidade Regulatória (SUSEP/CVM)</div>
+          </div>
+        </div>
+
+        {/* Mapa de Riscos */}
+        <div className="bg-white rounded-xl p-6 mb-4 shadow-sm">
+          <h3 className="text-xl font-bold text-red-700 mb-4 flex items-center gap-2"><AlertTriangle className="w-5 h-5" /> Mapa de Riscos Societários Críticos</h3>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="bg-red-700 text-white">
+                  <th className="p-3 text-left rounded-tl-lg">Risco</th>
+                  <th className="p-3 text-center">Financeiro</th>
+                  <th className="p-3 text-center">Regulatório</th>
+                  <th className="p-3 text-center">Reputacional</th>
+                  <th className="p-3 text-left rounded-tr-lg">Mitigação Sugerida</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b">
+                  <td className="p-3 font-semibold">Inadimplência de Aporte</td>
+                  <td className="p-3 text-center"><span className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-xs font-bold">ALTO</span></td>
+                  <td className="p-3 text-center"><span className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-xs font-bold">CRÍTICO</span></td>
+                  <td className="p-3 text-center"><span className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-xs font-bold">ALTO</span></td>
+                  <td className="p-3 text-xs">Diluição punitiva, compra forçada, suspensão de direitos</td>
+                </tr>
+                <tr className="border-b bg-slate-50">
+                  <td className="p-3 font-semibold">Quebra de Idoneidade</td>
+                  <td className="p-3 text-center"><span className="px-2 py-0.5 bg-amber-100 text-amber-700 rounded text-xs font-bold">MÉDIO</span></td>
+                  <td className="p-3 text-center"><span className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-xs font-bold">CRÍTICO</span></td>
+                  <td className="p-3 text-center"><span className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-xs font-bold">CRÍTICO</span></td>
+                  <td className="p-3 text-xs">Exclusão sumária, renúncia imediata, recompra forçada</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-3 font-semibold">Travamento Decisório</td>
+                  <td className="p-3 text-center"><span className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-xs font-bold">ALTO</span></td>
+                  <td className="p-3 text-center"><span className="px-2 py-0.5 bg-amber-100 text-amber-700 rounded text-xs font-bold">MÉDIO</span></td>
+                  <td className="p-3 text-center"><span className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-xs font-bold">ALTO</span></td>
+                  <td className="p-3 text-xs">Voto de minerva, mediação/arbitragem, shotgun clause</td>
+                </tr>
+                <tr className="border-b bg-slate-50">
+                  <td className="p-3 font-semibold">Abuso de Poder/Veto</td>
+                  <td className="p-3 text-center"><span className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-xs font-bold">ALTO</span></td>
+                  <td className="p-3 text-center"><span className="px-2 py-0.5 bg-amber-100 text-amber-700 rounded text-xs font-bold">MÉDIO</span></td>
+                  <td className="p-3 text-center"><span className="px-2 py-0.5 bg-amber-100 text-amber-700 rounded text-xs font-bold">MÉDIO</span></td>
+                  <td className="p-3 text-xs">Lista restrita de vetos, poder decisório à diretoria</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-3 font-semibold">Conflito de Interesses</td>
+                  <td className="p-3 text-center"><span className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-xs font-bold">ALTO</span></td>
+                  <td className="p-3 text-center"><span className="px-2 py-0.5 bg-amber-100 text-amber-700 rounded text-xs font-bold">MÉDIO</span></td>
+                  <td className="p-3 text-center"><span className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-xs font-bold">ALTO</span></td>
+                  <td className="p-3 text-xs">Non-compete e non-solicitation com multas elevadas</td>
+                </tr>
+                <tr>
+                  <td className="p-3 font-semibold rounded-bl-lg">Saída Desestruturada</td>
+                  <td className="p-3 text-center"><span className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-xs font-bold">ALTO</span></td>
+                  <td className="p-3 text-center"><span className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-xs font-bold">CRÍTICO</span></td>
+                  <td className="p-3 text-center"><span className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-xs font-bold">ALTO</span></td>
+                  <td className="p-3 text-xs rounded-br-lg">Lock-up, valuation pré-definido, pagamento parcelado</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Cláusulas Recomendadas */}
+        <div className="bg-white rounded-xl p-6 mb-4 shadow-sm">
+          <h3 className="text-xl font-bold text-aura-primary mb-4 flex items-center gap-2"><FileCheck className="w-5 h-5" /> Cláusulas Contratuais Recomendadas</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+              <h4 className="font-bold text-red-700 text-sm">Shotgun Clause (Buy-Sell)</h4>
+              <p className="text-xs text-slate-600 mt-1">Cláusula de compra e venda forçada como último recurso em deadlock. Procedimento de notificação, prazos e pagamento definidos.</p>
+            </div>
+            <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+              <h4 className="font-bold text-amber-700 text-sm">Diluição Punitiva por Inadimplência</h4>
+              <p className="text-xs text-slate-600 mt-1">Deságio de 50% sobre valor patrimonial para sócios que não aportam capital. Torna a inadimplência extremamente custosa.</p>
+            </div>
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <h4 className="font-bold text-blue-700 text-sm">Recompra Compulsória por Justa Causa</h4>
+              <p className="text-xs text-slate-600 mt-1">Deságio de 30-50% sobre laudo de avaliação. Pagamento estendido (36-60 meses) para proteger o caixa.</p>
+            </div>
+            <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+              <h4 className="font-bold text-purple-700 text-sm">Non-Compete & Non-Solicitation</h4>
+              <p className="text-xs text-slate-600 mt-1">Cobertura nacional, 3-5 anos pós-saída. Mercados vedados: seguros, resseguros, previdência, capitalização, PPM. Multa prefixada.</p>
+            </div>
+            <div className="bg-teal-50 border border-teal-200 rounded-lg p-4 md:col-span-2">
+              <h4 className="font-bold text-teal-700 text-sm">Conta Escrow para Garantia de Obrigações</h4>
+              <p className="text-xs text-slate-600 mt-1">Parte dos dividendos retida por 12-24 meses para garantir cumprimento de obrigações futuras ou ressarcimento de danos.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Alertas */}
+        <div className="bg-red-100 border-2 border-red-400 rounded-xl p-6 mb-6">
+          <h3 className="text-xl font-bold text-red-800 mb-4 flex items-center gap-2"><AlertTriangle className="w-5 h-5" /> Pontos que JAMAIS Devem Ficar Abertos</h3>
+          <p className="text-sm text-red-700 mb-3">Em negócios supervisionados pela SUSEP, a ambiguidade e a postergação de decisões críticas são inaceitáveis.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="bg-white rounded-lg p-3 border border-red-300">
+              <strong className="text-red-700">40.</strong> <span className="text-sm">Regras de Saída e Valuation — Fórmulas e procedimentos cravados desde o dia 1</span>
+            </div>
+            <div className="bg-white rounded-lg p-3 border border-red-300">
+              <strong className="text-red-700">41.</strong> <span className="text-sm">Consequências da Inadimplência — Automáticas e autoaplicáveis</span>
+            </div>
+            <div className="bg-white rounded-lg p-3 border border-red-300">
+              <strong className="text-red-700">42.</strong> <span className="text-sm">Mecanismos de Desempate — Obrigatórios em sociedade igualitária</span>
+            </div>
+            <div className="bg-white rounded-lg p-3 border border-red-300">
+              <strong className="text-red-700">43.</strong> <span className="text-sm">Poderes da Gestão Executiva — Autonomia clara para a diretoria</span>
+            </div>
+            <div className="bg-white rounded-lg p-3 border border-red-300 md:col-span-2">
+              <strong className="text-red-700">44.</strong> <span className="text-sm">Responsabilidade Regulatória — Proteção da autorização para funcionar é o ativo mais importante</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Download */}
+        <a href="/documentos/Blindagem-Societaria-Estruturacao-Regulatoria.docx" download className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-semibold">
+          <Download className="w-5 h-5" /> Baixar Documento Completo (DOCX)
+        </a>
+      </Card>
+
       {/* Call to Action */}
       <Card className="p-8 bg-gradient-to-r from-aura-primary to-blue-600 text-white text-center">
         <h2 className="text-3xl font-bold mb-4">
