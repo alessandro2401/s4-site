@@ -1604,7 +1604,7 @@ export default function Page() {
         </div>
         <h2 className="text-3xl font-bold text-aura-primary mb-2">Blindagem Societária e Estruturação Regulatória</h2>
         <p className="text-slate-600 mb-6">
-          Guia completo de <strong>51 questões estratégicas</strong> organizadas em <strong>8 blocos temáticos</strong>, com mapa de riscos e cláusulas recomendadas, para servir de base na construção do <strong>Acordo de Sócios</strong> entre <strong>Renner</strong> (Grupo A12), <strong>Alessandro</strong> (Movimento Mais Brasil), <strong>Rodrigo</strong> (Uniauto) e <strong>Dennis</strong> (Grupo Ello).
+          Guia completo de <strong>54 questões estratégicas</strong> organizadas em <strong>10 blocos temáticos</strong> — incluindo <strong>Alertas Críticos sobre as Propostas JH</strong> e <strong>Estrutura do Sócio-Gestor (CEO)</strong> — com fundamentação legal explícita, mapa de riscos e cláusulas recomendadas, para servir de base na construção do <strong>Acordo de Acionistas</strong> entre <strong>Renner</strong> (Grupo A12), <strong>Alessandro</strong> (Movimento Mais Brasil), <strong>Rodrigo</strong> (Uniauto) e <strong>Dennis</strong> (Grupo Ello). Cada tópico possui um <strong>sistema de anotações colaborativas</strong> para registro de observações e uso em reuniões.
         </p>
 
         {/* Blocos com Accordion - Texto na Íntegra */}
