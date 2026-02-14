@@ -107,6 +107,9 @@ export function NavbarNew() {
                 <Link href="/consultorias" className="block px-4 py-2.5 text-slate-700 hover:bg-aura-primary/5 hover:text-aura-primary transition-all">
                   Consultorias
                 </Link>
+                <Link href="/estudo" className="block px-4 py-2.5 text-slate-700 hover:bg-aura-primary/5 hover:text-aura-primary transition-all">
+                  Estudo de Viabilidade
+                </Link>
               </div>
             </div>
           </div>
@@ -157,6 +160,9 @@ export function NavbarNew() {
             </Link>
             <Link href="/consultorias" onClick={() => setMobileOpen(false)} className="px-6 py-3 rounded-lg hover:bg-aura-primary/5 text-slate-700">
               Consultorias
+            </Link>
+            <Link href="/estudo" onClick={() => setMobileOpen(false)} className="px-6 py-3 rounded-lg hover:bg-aura-primary/5 text-slate-700">
+              Estudo de Viabilidade
             </Link>
             <Link href="/contato" onClick={() => setMobileOpen(false)} className="mx-4 mt-2 py-3 bg-aura-primary text-white text-center rounded-xl font-semibold">
               Contato
