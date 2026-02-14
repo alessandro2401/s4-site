@@ -10,13 +10,13 @@ export default function Page() {
           Ecossistema AURA
         </h1>
         <p className="text-lg text-slate-600">
-          Integração estratégica com parceiros do Grupo MMB e BVix Seguradora
+          Integração estratégica com parceiros do Grupo MMB
         </p>
         <div className="mt-4 p-4 bg-blue-50 border-l-4 border-blue-500 rounded">
           <p className="text-sm font-semibold text-blue-900 mb-1">Modelo Operacional Temporário</p>
           <p className="text-sm text-blue-800">
-            Enquanto a AURA Seguradora aguarda autorização final da SUSEP, a <strong>BVix Seguradora</strong> atua 
-            como seguradora operacional, em parceria com <strong>Potere Seguro Auto</strong> (MGA) e 
+            Enquanto a AURA Seguradora aguarda autorização final da SUSEP, o ecossistema opera 
+            em parceria com <strong>Potere Seguro Auto</strong> (MGA) e 
             <strong> Soluções Corretora</strong> (intermediadora).
           </p>
         </div>
@@ -360,40 +360,7 @@ export default function Page() {
           Parceiros Estratégicos
         </h2>
         <div className="grid md:grid-cols-2 gap-6">
-          {/* BVix Seguradora */}
-          <Card className="p-6 border-l-4 border-l-cyan-500 bg-cyan-50/50">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 bg-cyan-100 rounded-lg">
-                <Shield className="w-6 h-6 text-cyan-600" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-800">
-                BVix Seguradora
-              </h3>
-            </div>
-            <div className="space-y-3">
-              <div>
-                <p className="font-semibold text-slate-800">Função</p>
-                <p className="text-slate-600">Seguradora Operacional (Temporário)</p>
-              </div>
-              <div>
-                <p className="font-semibold text-slate-800">Atuação</p>
-                <p className="text-slate-600">
-                  Responsável pela cobertura securitária do produto Auto Mensal enquanto a AURA aguarda 
-                  autorização SUSEP. Parceria estratégica para aprovação do produto junto à SUSEP.
-                </p>
-              </div>
-              <div>
-                <a 
-                  href="https://www.bvixseguradora.com.br/quem-somos" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-sm text-cyan-600 hover:text-cyan-700 font-medium underline"
-                >
-                  Saiba mais sobre a BVix →
-                </a>
-              </div>
-            </div>
-          </Card>
+
 
           {/* Soluções Corretora */}
           <Card className="p-6 border-l-4 border-l-teal-500 bg-teal-50/50">
@@ -520,30 +487,7 @@ export default function Page() {
             </div>
           </Card>
 
-          {/* Soma Assistência */}
-          <Card className="p-6 border-l-4 border-l-red-500">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 bg-red-100 rounded-lg">
-                <HeadphonesIcon className="w-6 h-6 text-red-600" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-800">
-                Soma Assistência
-              </h3>
-            </div>
-            <div className="space-y-3">
-              <div>
-                <p className="font-semibold text-slate-800">Função</p>
-                <p className="text-slate-600">Serviços de Assistência</p>
-              </div>
-              <div>
-                <p className="font-semibold text-slate-800">Atuação</p>
-                <p className="text-slate-600">
-                  Assistência 24h e regulação de sinistros. Prestação de serviços emergenciais e 
-                  gestão de sinistros para segurados.
-                </p>
-              </div>
-            </div>
-          </Card>
+
         </div>
       </div>
 
@@ -606,18 +550,7 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="p-2 bg-red-100 rounded-lg flex-shrink-0">
-                <span className="text-lg font-bold text-red-600">5</span>
-              </div>
-              <div>
-                <p className="font-bold text-slate-800">Sinistros</p>
-                <p className="text-slate-600">
-                  <strong>Soma Assistência</strong> presta assistência 24h, regula sinistros e 
-                  coordena prestadores de serviço
-                </p>
-              </div>
-            </div>
+
           </div>
         </Card>
       </div>
