@@ -7,6 +7,7 @@ import {
   ChevronRight, MapPin, Layers
 } from "lucide-react";
 import EstudoClient from "./EstudoClient";
+import AccordionBlindagem from "@/components/AccordionBlindagem";
 
 /* ═══════════════════════════════════════════════════════════════
    DADOS DO MODELO FINANCEIRO
@@ -195,6 +196,7 @@ export default function Page() {
               { n: "7", t: "Custos Operacionais Detalhados", icon: <BarChart3 className="w-4 h-4" /> },
               { n: "8", t: "Análise de Riscos e Mitigação", icon: <AlertTriangle className="w-4 h-4" /> },
               { n: "9", t: "Cronograma e Marcos Regulatórios", icon: <Calendar className="w-4 h-4" /> },
+              { n: "10", t: "Blindagem Societária e Estruturação Regulatória", icon: <Shield className="w-4 h-4" /> },
             ].map(item => (
               <a key={item.n} href={`#secao-${item.n}`} className="flex items-center gap-3 p-3 rounded-lg hover:bg-aura-primary/5 transition-colors group">
                 <span className="w-8 h-8 bg-aura-primary text-white rounded-full flex items-center justify-center text-sm font-bold group-hover:bg-aura-secondary transition-colors">
@@ -468,6 +470,115 @@ export default function Page() {
           admPPM={admPPM}
           custosIniciais={custosIniciais}
         />
+
+        {/* ═══ SEÇÃO 10: BLINDAGEM SOCIETÁRIA E ESTRUTURAÇÃO REGULATÓRIA ═══ */}
+        <div id="secao-10" className="scroll-mt-24">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-10 h-10 bg-red-600 text-white rounded-full flex items-center justify-center font-bold">10</div>
+            <h2 className="text-3xl font-bold text-aura-primary">Blindagem Societária e Estruturação Regulatória</h2>
+          </div>
+
+          <Card className="p-8 mb-6">
+            <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-6">
+              <p className="text-sm text-red-800">
+                <strong>Guia Estratégico para o Acordo de Acionistas:</strong> Este questionário reúne{" "}
+                <strong>54 questões estratégicas</strong> organizadas em <strong>10 blocos temáticos</strong> — incluindo{" "}
+                <strong>Alertas Críticos sobre as Propostas JH</strong> e <strong>Estrutura do Sócio-Gestor (CEO)</strong> —{" "}
+                com fundamentação legal explícita (Lei 6.404/76, LC 213/2025, Resoluções CNSP/SUSEP), mapa de riscos e cláusulas
+                recomendadas. Cada tópico possui um <strong>sistema de anotações colaborativas</strong> para registro de
+                observações e uso em reuniões entre os sócios.
+              </p>
+            </div>
+
+            <AccordionBlindagem />
+
+            {/* Mapa de Riscos */}
+            <div className="bg-white rounded-xl p-6 mb-4 shadow-sm border">
+              <h3 className="text-xl font-bold text-red-700 mb-4 flex items-center gap-2">
+                <AlertTriangle className="w-5 h-5" /> Mapa de Riscos Societários Críticos
+              </h3>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="bg-red-700 text-white">
+                      <th className="p-3 text-left rounded-tl-lg">Risco</th>
+                      <th className="p-3 text-center">Financeiro</th>
+                      <th className="p-3 text-center">Regulatório</th>
+                      <th className="p-3 text-center">Reputacional</th>
+                      <th className="p-3 text-left rounded-tr-lg">Mitigação Sugerida</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-b">
+                      <td className="p-3 font-semibold">Inadimplência de Aporte</td>
+                      <td className="p-3 text-center"><span className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-xs font-bold">ALTO</span></td>
+                      <td className="p-3 text-center"><span className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-xs font-bold">CRÍTICO</span></td>
+                      <td className="p-3 text-center"><span className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-xs font-bold">ALTO</span></td>
+                      <td className="p-3 text-xs">Diluição punitiva, compra forçada, suspensão de direitos</td>
+                    </tr>
+                    <tr className="border-b bg-slate-50">
+                      <td className="p-3 font-semibold">Quebra de Idoneidade</td>
+                      <td className="p-3 text-center"><span className="px-2 py-0.5 bg-amber-100 text-amber-700 rounded text-xs font-bold">MÉDIO</span></td>
+                      <td className="p-3 text-center"><span className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-xs font-bold">CRÍTICO</span></td>
+                      <td className="p-3 text-center"><span className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-xs font-bold">CRÍTICO</span></td>
+                      <td className="p-3 text-xs">Exclusão sumária, renúncia imediata, recompra forçada</td>
+                    </tr>
+                    <tr className="border-b">
+                      <td className="p-3 font-semibold">Travamento Decisório</td>
+                      <td className="p-3 text-center"><span className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-xs font-bold">ALTO</span></td>
+                      <td className="p-3 text-center"><span className="px-2 py-0.5 bg-amber-100 text-amber-700 rounded text-xs font-bold">MÉDIO</span></td>
+                      <td className="p-3 text-center"><span className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-xs font-bold">ALTO</span></td>
+                      <td className="p-3 text-xs">Voto de minerva, mediação/arbitragem, shotgun clause</td>
+                    </tr>
+                    <tr className="border-b bg-slate-50">
+                      <td className="p-3 font-semibold">Conflito de Interesses</td>
+                      <td className="p-3 text-center"><span className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-xs font-bold">ALTO</span></td>
+                      <td className="p-3 text-center"><span className="px-2 py-0.5 bg-amber-100 text-amber-700 rounded text-xs font-bold">MÉDIO</span></td>
+                      <td className="p-3 text-center"><span className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-xs font-bold">ALTO</span></td>
+                      <td className="p-3 text-xs">Non-compete e non-solicitation com multas elevadas</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 font-semibold rounded-bl-lg">Saída Desestruturada</td>
+                      <td className="p-3 text-center"><span className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-xs font-bold">ALTO</span></td>
+                      <td className="p-3 text-center"><span className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-xs font-bold">CRÍTICO</span></td>
+                      <td className="p-3 text-center"><span className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-xs font-bold">ALTO</span></td>
+                      <td className="p-3 text-xs rounded-br-lg">Lock-up, valuation pré-definido, pagamento parcelado</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Cláusulas Recomendadas */}
+            <div className="bg-white rounded-xl p-6 mb-4 shadow-sm border">
+              <h3 className="text-xl font-bold text-aura-primary mb-4 flex items-center gap-2">
+                <Scale className="w-5 h-5" /> Cláusulas Contratuais Recomendadas
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                  <h4 className="font-bold text-red-700 text-sm">Shotgun Clause (Buy-Sell)</h4>
+                  <p className="text-xs text-slate-600 mt-1">Cláusula de compra e venda forçada como último recurso em deadlock. Procedimento de notificação, prazos e pagamento definidos.</p>
+                </div>
+                <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                  <h4 className="font-bold text-amber-700 text-sm">Diluição Punitiva por Inadimplência</h4>
+                  <p className="text-xs text-slate-600 mt-1">Deságio de 50% sobre valor patrimonial para sócios que não aportam capital. Torna a inadimplência extremamente custosa.</p>
+                </div>
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <h4 className="font-bold text-blue-700 text-sm">Recompra Compulsória por Justa Causa</h4>
+                  <p className="text-xs text-slate-600 mt-1">Deságio de 30-50% sobre laudo de avaliação. Pagamento estendido (36-60 meses) para proteger o caixa.</p>
+                </div>
+                <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                  <h4 className="font-bold text-purple-700 text-sm">Non-Compete & Non-Solicitation</h4>
+                  <p className="text-xs text-slate-600 mt-1">Cobertura nacional, 3-5 anos pós-saída. Mercados vedados: seguros, resseguros, previdência, capitalização, PPM. Multa prefixada.</p>
+                </div>
+                <div className="bg-teal-50 border border-teal-200 rounded-lg p-4 md:col-span-2">
+                  <h4 className="font-bold text-teal-700 text-sm">Conta Escrow para Garantia de Obrigações</h4>
+                  <p className="text-xs text-slate-600 mt-1">Parte dos dividendos retida por 12-24 meses para garantir cumprimento de obrigações futuras ou ressarcimento de danos.</p>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
 
         {/* ═══ RODAPÉ DO ESTUDO ═══ */}
         <Card className="p-8 bg-gradient-to-r from-aura-primary to-aura-secondary text-white text-center">
