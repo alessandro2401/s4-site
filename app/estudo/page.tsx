@@ -152,7 +152,7 @@ export default function Page() {
             <span className="text-emerald-300">Econômico-Financeira</span>
           </h1>
           <p className="text-lg text-white/80 max-w-3xl mb-6">
-            Análise consolidada para constituição da <strong>AURA Seguradora S4</strong> e da{" "}
+            Análise consolidada para constituição da <strong>Seguradora S/A</strong> e da{" "}
             <strong>Administradora de Proteção Patrimonial Mutualista</strong>, com projeções financeiras 
             de 5 anos, estrutura de investimento, cronograma regulatório e análise de riscos.
           </p>
@@ -220,7 +220,7 @@ export default function Page() {
           <Card className="p-8 bg-gradient-to-br from-blue-50 to-white">
             <p className="text-slate-700 leading-relaxed mb-6">
               O presente estudo de viabilidade econômico-financeira analisa a constituição simultânea de duas entidades complementares 
-              no mercado de proteção patrimonial e seguros: a <strong>AURA Seguradora S/A</strong> (segmento S4 SUSEP) e uma{" "}
+              no mercado de proteção patrimonial e seguros: a <strong>Seguradora S/A</strong> (segmento S4 SUSEP) e uma{" "}
               <strong>Administradora de Proteção Patrimonial Mutualista (PPM)</strong>, conforme previsto na Lei Complementar nº 213/2025 
               e na minuta de Resolução CNSP em consulta pública.
             </p>
@@ -234,7 +234,7 @@ export default function Page() {
               <div className="bg-white rounded-xl p-6 border border-blue-100">
                 <div className="flex items-center gap-3 mb-4">
                   <Building2 className="w-6 h-6 text-blue-600" />
-                  <h3 className="font-bold text-slate-800">AURA Seguradora S4</h3>
+                  <h3 className="font-bold text-slate-800">Seguradora S/A</h3>
                 </div>
                 <ul className="space-y-2 text-sm text-slate-600">
                   <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" /> Seguro Auto e Vida Mensal</li>
