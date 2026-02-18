@@ -1,14 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const VALID_EMAIL = 'diretoria@administradoramutual.com.br';
-const VALID_PASSWORD = '1234567890';
+const VALID_USERS = [
+  { email: 'presidencia@administradoramutual.com.br', password: '1234567890' },
+  { email: 'diretoria@administradoramutual.com.br', password: '1234567890' },
+  { email: 'comercial@administradoramutual.com.br', password: '1234567890' },
+  { email: 'sinistro@administradoramutual.com.br', password: '1234567890' },
+  { email: 'adm@administradoramutual.com.br', password: '1234567890' },
+  { email: 'alpha@administradoramutual.com.br', password: '1234567890' },
+];
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { email, password } = body;
 
-    if (email === VALID_EMAIL && password === VALID_PASSWORD) {
+    const found = VALID_USERS.find(
+      (u) => u.email.toLowerCase() === email.toLowerCase() && u.password === password
+    );
+
+    if (found) {
       const response = NextResponse.json(
         { success: true, message: 'Autenticação realizada com sucesso.' },
         { status: 200 }
