@@ -84,7 +84,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
     
     // NOTA: Senha hardcoded apenas para desenvolvimento
     // Em produção, usar Firebase Authentication ou backend com hash
-    if (senha !== 'aura123') {
+    // Usuários @administradoramutual.com.br usam a senha padrão do grupo
+    const senhaCorreta = email.endsWith('@administradoramutual.com.br') ? '1234567890' : 'aura123';
+    if (senha !== senhaCorreta) {
       return false;
     }
     

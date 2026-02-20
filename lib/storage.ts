@@ -205,6 +205,14 @@ export function inicializarUsuariosPadrao(): void {
         ativo: true,
         dataCriacao: new Date().toISOString(),
       },
+      {
+        id: '6',
+        nome: 'Alpha Administradora Mutual',
+        email: 'alpha@administradoramutual.com.br',
+        nivel: 'master',
+        ativo: true,
+        dataCriacao: new Date().toISOString(),
+      },
     ];
     
     salvarStorage(STORAGE_KEYS.usuarios, usuariosPadrao);
