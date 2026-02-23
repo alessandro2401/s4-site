@@ -23,14 +23,14 @@ export const metadata: Metadata = {
   },
 };
 
-const noManusBadgeScript = `(function(){var s=['[data-manus]','[id*="manus-badge"]','[id*="manus-widget"]','[class*="manus-badge"]','[class*="manus-widget"]','[class*="manus-branding"]','a[href*="manus.im"]','a[href*="manus.space"]'];function r(){s.forEach(function(q){try{document.querySelectorAll(q).forEach(function(e){e.remove()});}catch(e){}});document.querySelectorAll('*').forEach(function(e){try{if(!e.children.length&&e.textContent&&e.textContent.trim().toLowerCase().includes('made with manus')){var p=e.closest('[style*="position: fixed"],[style*="position:fixed"],[style*="z-index"]')||e.parentElement;if(p&&p!==document.body)p.remove();else e.remove();}}catch(e){}});}if(window.MutationObserver){var o=new MutationObserver(function(m){m.forEach(function(x){if(x.addedNodes.length)r();});});o.observe(document.documentElement,{childList:true,subtree:true});}var c=0,i=setInterval(function(){r();if(++c>=20)clearInterval(i);},500);if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',r);}else{r();}window.addEventListener('load',function(){setTimeout(r,200);setTimeout(r,1000);setTimeout(r,3000);});})();`;
+const noManusBadgeScript = `(function(){var MANUS_SELECTORS=['[data-manus]','[id*="manus-badge"]','[id*="manus-widget"]','[class*="manus-badge"]','[class*="manus-widget"]','[class*="manus-branding"]','a[href*="manus.im"]'];function removeManusBadge(){MANUS_SELECTORS.forEach(function(selector){try{document.querySelectorAll(selector).forEach(function(el){var tag=el.tagName?el.tagName.toLowerCase():'';if(['style','script','link','head','body','html','meta'].indexOf(tag)===-1){el.remove();}});}catch(e){}});}if(window.MutationObserver){new MutationObserver(function(m){m.forEach(function(x){if(x.addedNodes.length)removeManusBadge();});}).observe(document.documentElement,{childList:true,subtree:true});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',removeManusBadge);}else{removeManusBadge();}window.addEventListener('load',function(){setTimeout(removeManusBadge,500);setTimeout(removeManusBadge,2000);});})();`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={montserrat.variable}>
       <head>
         {/* Bloqueia o badge "Made with Manus" */}
-        <style>{`[data-manus],[id*="manus-badge"],[id*="manus-widget"],[class*="manus-badge"],[class*="manus-widget"],[class*="manus-branding"],a[href*="manus.im"],a[href*="manus.space"]{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;}`}</style>
+        <style>{`[data-manus],[id*="manus-badge"],[id*="manus-widget"],[class*="manus-badge"],[class*="manus-widget"],[class*="manus-branding"],a[href*="manus.im"]{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;}`}</style>
         <script dangerouslySetInnerHTML={{ __html: noManusBadgeScript }} />
       </head>
       <body className="min-h-screen flex flex-col font-sans antialiased">
