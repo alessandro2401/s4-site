@@ -102,7 +102,7 @@ export default function EstudoClient({ seguradoraAuto, seguradoraVida, segurador
                       <p className="text-sm text-blue-800">
                         <strong>Premissas Auto:</strong> Ticket médio inicial de R$ 145/mês com reajuste anual de 5%. 
                         Sinistralidade de 58% (abaixo da média de mercado de 61%). Comissão de corretagem de 18%. 
-                        Crescimento acelerado a partir do Ano 2 com consolidação da rede de distribuição nas 3 regiões de atuação.
+                        Crescimento acelerado a partir do Ano 2 com consolidação da rede de distribuição nas 5 regiões de atuação (20 UFs + DF).
                       </p>
                     </div>
                     <div className="overflow-x-auto">
@@ -402,22 +402,40 @@ export default function EstudoClient({ seguradoraAuto, seguradoraVida, segurador
             <div className="space-y-4">
               <div className="bg-blue-50 rounded-lg p-4">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-semibold text-slate-700">Capital Base (3 Regiões)</span>
-                  <span className="font-bold text-blue-700">R$ 1.380.000</span>
+                  <span className="text-sm font-semibold text-slate-700">Capital Base (CB) — Res. CNSP 432/2021</span>
+                  <span className="font-bold text-blue-700">R$ 1.440.000</span>
                 </div>
                 <div className="text-xs text-slate-500 space-y-1">
-                  <div className="flex justify-between"><span>Região 2 (PI, MA, CE)</span><span>R$ 1.224.000</span></div>
-                  <div className="flex justify-between"><span>Região 3 (PE, RN, PB, AL)</span><span>R$ 1.236.000</span></div>
-                  <div className="flex justify-between"><span>Região 5 (GO, DF, TO, MT, MS)</span><span>R$ 1.320.000</span></div>
-                  <div className="flex justify-between font-semibold pt-1 border-t border-blue-200"><span>Maior valor = Capital Base</span><span>R$ 1.380.000</span></div>
+                  <div className="flex justify-between"><span>Parcela Fixa (obrigatória)</span><span>R$ 1.200.000</span></div>
+                  <div className="flex justify-between font-semibold pt-1 border-t border-blue-200"><span>Parcelas Variáveis por Região:</span><span></span></div>
+                  <div className="flex justify-between"><span>Região 1 (AM, PA, AC, RR, AP, RO)</span><span>R$ 24.000</span></div>
+                  <div className="flex justify-between"><span>Região 2 (PI, MA, CE)</span><span>R$ 24.000</span></div>
+                  <div className="flex justify-between"><span>Região 3 (PE, RN, PB, AL)</span><span>R$ 36.000</span></div>
+                  <div className="flex justify-between"><span>Região 4 (SE, BA)</span><span>R$ 36.000</span></div>
+                  <div className="flex justify-between"><span>Região 5 (GO, DF, TO, MT, MS)</span><span>R$ 120.000</span></div>
+                  <div className="flex justify-between font-semibold pt-1 border-t border-blue-200"><span>Total Parcela Variável</span><span>R$ 240.000</span></div>
+                  <div className="flex justify-between font-bold pt-1 border-t border-blue-300 text-blue-700"><span>CAPITAL BASE TOTAL (CB)</span><span>R$ 1.440.000</span></div>
+                </div>
+              </div>
+              <div className="bg-amber-50 rounded-lg p-4">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-sm font-semibold text-slate-700">Capacidade Econômica (2x CMR)</span>
+                  <span className="font-bold text-amber-700">R$ 2.880.000</span>
+                </div>
+                <div className="text-xs text-slate-500 space-y-1">
+                  <div className="flex justify-between"><span>Por sócio aportador (÷3)</span><span className="font-semibold text-amber-700">R$ 960.000</span></div>
+                  <div className="text-xs text-amber-600 mt-1">Lastro financeiro com liquidez imediata a ser comprovado no IRPF</div>
                 </div>
               </div>
               <div className="bg-emerald-50 rounded-lg p-4">
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-sm font-semibold text-slate-700">Capital Social Integralizado</span>
-                  <span className="font-bold text-emerald-700">R$ 3.500.000</span>
+                  <span className="font-bold text-emerald-700">R$ 1.440.000</span>
                 </div>
-                <ProgressBar value={3500000} max={3500000} color="bg-emerald-600" label="Margem sobre Capital Base: 154%" />
+                <div className="text-xs text-slate-500 space-y-1">
+                  <div className="flex justify-between"><span>Aporte por sócio (÷3)</span><span className="font-semibold text-emerald-700">R$ 480.000</span></div>
+                </div>
+                <ProgressBar value={1440000} max={1440000} color="bg-emerald-600" label="Capital Social = Capital Base (100%)" />
               </div>
               <div className="space-y-3">
                 <h4 className="text-sm font-bold text-slate-700">Provisões Técnicas Obrigatórias</h4>
@@ -439,9 +457,9 @@ export default function EstudoClient({ seguradoraAuto, seguradoraVida, segurador
               </div>
               <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
                 <p className="text-sm text-amber-800">
-                  <strong>CMR (Capital Mínimo Requerido):</strong> O maior entre o Capital Base (R$ 1.380.000) e o Capital de Risco 
+                  <strong>CMR (Capital Mínimo Requerido):</strong> O maior entre o Capital Base (R$ 1.440.000) e o Capital de Risco 
                   (calculado com base nos riscos de subscrição, crédito, operacional e mercado). Nos primeiros anos, o Capital Base 
-                  será o determinante, dado o baixo volume de operações.
+                  será o determinante, dado que a seguradora inicia com produção zero. Cada sócio aportador deve comprovar capacidade econômica de <strong>R$ 960.000</strong> (2x CMR ÷ 3).
                 </p>
               </div>
             </div>
@@ -473,9 +491,14 @@ export default function EstudoClient({ seguradoraAuto, seguradoraVida, segurador
               <div className="bg-emerald-50 rounded-lg p-4">
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-sm font-semibold text-slate-700">Capital Social Estimado</span>
-                  <span className="font-bold text-emerald-700">R$ 1.500.000</span>
+                  <span className="font-bold text-emerald-700">R$ 1.300.000</span>
                 </div>
-                <p className="text-xs text-slate-500">Valor estimado com base nos requisitos da minuta CNSP. O valor definitivo será definido pela regulamentação final.</p>
+                <div className="text-xs text-slate-500 space-y-1">
+                  <div className="flex justify-between"><span>1 Região Geográfica</span><span>R$ 1.300.000</span></div>
+                  <div className="flex justify-between"><span>2 Regiões Geográficas</span><span>R$ 2.600.000</span></div>
+                  <div className="flex justify-between"><span>Atuação Nacional</span><span>R$ 4.000.000</span></div>
+                  <div className="text-xs text-emerald-600 mt-1">Conforme Dossiê Pós Reunião SUSEP — Regulamentação LC 213/2025</div>
+                </div>
               </div>
               <div className="space-y-3">
                 <h4 className="text-sm font-bold text-slate-700">Requisitos da Minuta CNSP</h4>

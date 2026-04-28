@@ -86,11 +86,17 @@ const admPPM = {
 
 // ── Investimento Consolidado ──
 const investimento = {
-  total: 806000,
+  total: 2246000,
+  capitalSocial: 1440000,
+  consultoriaJH: 806000,
   seguradora: 560000,
   administradora: 196000,
   gestao: 50000,
-  porSocio: 268667,
+  porSocio: 748667,
+  capitalPorSocio: 480000,
+  jhPorSocio: 268667,
+  capacidadeEconomica: 2880000,
+  capacidadePorSocio: 960000,
 };
 
 // ── Cronograma de Pagamentos ──
@@ -114,7 +120,7 @@ const cronogramaAdm = [
 // ── Custos Operacionais Iniciais ──
 const custosIniciais = {
   seguradora: [
-    { item: "Capital Social Integralizado", valor: 3500000 },
+    { item: "Capital Social Integralizado (5 Regiões)", valor: 1440000 },
     { item: "Consultoria JH (Seguradora)", valor: 560000 },
     { item: "Gestão Renner Fidélis", valor: 50000 },
     { item: "Infraestrutura TI (Core Insurance)", valor: 350000 },
@@ -123,7 +129,7 @@ const custosIniciais = {
     { item: "Reserva de Contingência", valor: 200000 },
   ],
   administradora: [
-    { item: "Capital Social Integralizado", valor: 1500000 },
+    { item: "Capital Mínimo Requerido (1 Região)", valor: 1300000 },
     { item: "Consultoria JH (Administradora)", valor: 196000 },
     { item: "Plataforma Tecnológica PPM", valor: 280000 },
     { item: "Escritório e Infraestrutura", valor: 80000 },
@@ -158,8 +164,8 @@ export default function Page() {
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
-              <p className="text-3xl font-bold text-emerald-300">R$ 806 mil</p>
-              <p className="text-xs text-white/70 mt-1">Investimento Total</p>
+              <p className="text-3xl font-bold text-emerald-300">R$ 2,25 M</p>
+              <p className="text-xs text-white/70 mt-1">Investimento Total (Capital + JH)</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
               <p className="text-3xl font-bold text-emerald-300">4</p>
@@ -170,8 +176,8 @@ export default function Page() {
               <p className="text-xs text-white/70 mt-1">Horizonte de Projeção</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
-              <p className="text-3xl font-bold text-emerald-300">12 UFs + DF</p>
-              <p className="text-xs text-white/70 mt-1">Área de Atuação</p>
+              <p className="text-3xl font-bold text-emerald-300">20 UFs + DF</p>
+              <p className="text-xs text-white/70 mt-1">5 Regiões de Atuação</p>
             </div>
           </div>
         </div>
@@ -238,8 +244,8 @@ export default function Page() {
                 </div>
                 <ul className="space-y-2 text-sm text-slate-600">
                   <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" /> Seguro Auto e Vida Mensal</li>
-                  <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" /> Capital Social: R$ 3.500.000</li>
-                  <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" /> 3 Regiões (12 UFs + DF)</li>
+                  <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" /> Capital Base: R$ 1.440.000</li>
+                  <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" /> 5 Regiões (20 UFs + DF)</li>
                   <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" /> Produção inicia do zero</li>
                   <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" /> Break-even operacional: Ano 2</li>
                   <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" /> Prêmios Ano 5: R$ 20,3 milhões</li>
@@ -292,26 +298,27 @@ export default function Page() {
                 <div className="text-3xl font-bold text-emerald-700">25%</div>
                 <div className="font-bold text-emerald-800 mt-1">Alessandro</div>
                 <div className="text-xs text-emerald-600 mt-1">Movimento Mais Brasil</div>
-                <span className="inline-block mt-2 px-2 py-0.5 bg-emerald-200 text-emerald-700 text-xs font-bold rounded-full">R$ 268.667</span>
+                <span className="inline-block mt-2 px-2 py-0.5 bg-emerald-200 text-emerald-700 text-xs font-bold rounded-full">R$ 748.667</span>
               </div>
               <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-5 text-center border border-purple-200">
                 <div className="text-3xl font-bold text-purple-700">25%</div>
                 <div className="font-bold text-purple-800 mt-1">Rodrigo</div>
                 <div className="text-xs text-purple-600 mt-1">Uniauto</div>
-                <span className="inline-block mt-2 px-2 py-0.5 bg-purple-200 text-purple-700 text-xs font-bold rounded-full">R$ 268.667</span>
+                <span className="inline-block mt-2 px-2 py-0.5 bg-purple-200 text-purple-700 text-xs font-bold rounded-full">R$ 748.667</span>
               </div>
               <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-5 text-center border border-orange-200">
                 <div className="text-3xl font-bold text-orange-700">25%</div>
                 <div className="font-bold text-orange-800 mt-1">Dennis</div>
                 <div className="text-xs text-orange-600 mt-1">Grupo Ello</div>
-                <span className="inline-block mt-2 px-2 py-0.5 bg-orange-200 text-orange-700 text-xs font-bold rounded-full">R$ 268.667</span>
+                <span className="inline-block mt-2 px-2 py-0.5 bg-orange-200 text-orange-700 text-xs font-bold rounded-full">R$ 748.667</span>
               </div>
             </div>
 
             <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
               <p className="text-sm text-amber-800">
-                <strong>Modelo de Aporte:</strong> Os custos de consultoria (R$ 806.000) são divididos igualmente entre os 3 sócios aportadores 
-                (R$ 268.667 cada). O capital social de ambas as entidades será integralizado proporcionalmente à participação de cada sócio (25%).
+                <strong>Modelo de Aporte:</strong> Cada sócio aportador investe <strong>R$ 748.667</strong> (Capital Social R$ 480.000 + Consultoria JH R$ 268.667). 
+                O Capital Base da Seguradora S4 é de <strong>R$ 1.440.000</strong> (5 regiões), dividido entre os 3 sócios aportadores. 
+                A capacidade econômica exigida pela SUSEP (2x CMR) é de <strong>R$ 960.000 por sócio</strong>.
               </p>
             </div>
           </Card>
