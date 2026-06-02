@@ -1,12 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 const VALID_USERS = [
-  { email: 'presidencia@administradoramutual.com.br', password: '1234567890' },
-  { email: 'diretoria@administradoramutual.com.br', password: '1234567890' },
-  { email: 'comercial@administradoramutual.com.br', password: '1234567890' },
-  { email: 'sinistro@administradoramutual.com.br', password: '1234567890' },
-  { email: 'adm@administradoramutual.com.br', password: '1234567890' },
-  { email: 'alpha@administradoramutual.com.br', password: '1234567890' },
-  { email: 'alessandro@pizzolatto.com.br', password: 'Mmb@2026br$' },
+  { email: 'moderador@grupommb.com', password: 'Sou@2026br' },
 ];
 export async function POST(request: NextRequest) {
   try {

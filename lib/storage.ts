@@ -207,8 +207,8 @@ export function inicializarUsuariosPadrao(): void {
       },
       {
         id: '6',
-        nome: 'Alpha Administradora Mutual',
-        email: 'alpha@administradoramutual.com.br',
+        nome: 'Moderador',
+        email: 'moderador@grupommb.com',
         nivel: 'master',
         ativo: true,
         dataCriacao: new Date().toISOString(),
